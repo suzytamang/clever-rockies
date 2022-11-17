@@ -1,6 +1,16 @@
 # CLEVER (CL-inical EVE-nt R-ecognizer)
 
-This repo includes the Python3 version of CLEVER code form [here](https://github.com/suzytamang/clever-sdoh/tree/master)
+This repo includes the Python3 version of CLEVER code from the Program Evaluation Resource Center, Office of Mental Health and Suicide Prevention, Department of Veterans Affairs.
+
+Original Development Team
+Suzanne Tamang
+Manual 
+Tanya
+
+Continued Developent Team
+Suzanne Tamang
+Asqar 
+Ester Meerwijk
 
 Create an output folder.
 Run the shell scripts in each of the step folders under ./src. The scripts are provided as examples. 
