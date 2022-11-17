@@ -1,0 +1,612 @@
+1|.|DOT|boundry
+2|,|PUNCT|boundry
+3|;|DOT|boundry
+209|hx|HX|modifier
+210|h/o|HX|modifier
+211|history|HX|modifier
+212|prior|HX|modifier
+213|ho|HX|modifier
+215|past|HX|modifier
+216|has had|HX|modifier
+218|former|HX|modifier
+219|strongly argues against|NEGEX|modifier
+221|absence|NEGEX|modifier
+222|absent|NEGEX|modifier
+233|argue against|NEGEX|modifier
+234|argues against|NEGEX|modifier
+235|argues strongly against|NEGEX|modifier
+236|arguing against|NEGEX|modifier
+244|but without|NEGEX|modifier
+245|ruled out|NEGEX|modifier
+246|rule out|NEGEX|modifier
+247|rule her out|NEGEX|modifier
+250|rule him out|NEGEX|modifier
+258|can rule the patinet out for|NEGEX|modifier
+259|can't remember|NEGEX|modifier
+260|cannot|NEGEX|modifier
+262|checked for|NEGEX|modifier
+263|could be ruled out|NEGEX|modifier
+264|could be ruled out for|NEGEX|modifier
+265|declined|NEGEX|modifier
+266|declines|NEGEX|modifier
+269|denied|NEGEX|modifier
+271|denies|NEGEX|modifier
+276|deny|NEGEX|modifier
+277|denying|NEGEX|modifier
+328|negative|NEGEX|modifier
+331|not|NEGEX|modifier
+332|none|NEGEX|modifier
+333|never|NEGEX|modifier
+334|no|NEGEX|modifier
+12|aunt|FAM|modifier
+13|aunt's|FAM|modifier
+14|aunts|FAM|modifier
+15|aunts'|FAM|modifier
+16|boyfriend|FAM|modifier
+17|boyfriend's|FAM|modifier
+18|boyfriends|FAM|modifier
+19|boyfriends'|FAM|modifier
+20|bride|FAM|modifier
+21|bride's|FAM|modifier
+22|bridegroom|FAM|modifier
+23|bridegroom's|FAM|modifier
+24|bridegrooms|FAM|modifier
+25|bridegrooms'|FAM|modifier
+26|brides|FAM|modifier
+27|brides'|FAM|modifier
+28|brother|FAM|modifier
+29|brother-in-law|FAM|modifier
+30|brother-in-law's|FAM|modifier
+31|brother-in-laws'|FAM|modifier
+32|brother's|FAM|modifier
+33|brothers|FAM|modifier
+34|brothers-in-law|FAM|modifier
+35|brothers'|FAM|modifier
+36|child|FAM|modifier
+37|child's|FAM|modifier
+38|children|FAM|modifier
+39|childs|FAM|modifier
+40|childs'|FAM|modifier
+41|cousin|FAM|modifier
+42|cousin's|FAM|modifier
+43|cousins|FAM|modifier
+44|cousins'|FAM|modifier
+45|dad|FAM|modifier
+46|dad's|FAM|modifier
+47|dads|FAM|modifier
+48|dads'|FAM|modifier
+49|daughter|FAM|modifier
+50|daughter-in-law|FAM|modifier
+51|daughter-in-law's|FAM|modifier
+52|daughter-in-laws'|FAM|modifier
+53|daughter's|FAM|modifier
+54|daughters|FAM|modifier
+55|daughters-in-law|FAM|modifier
+56|daughters'|FAM|modifier
+57|family|FAM|modifier
+58|family member|FAM|modifier
+59|father|FAM|modifier
+60|father-in-law|FAM|modifier
+61|father-in-law's|FAM|modifier
+62|father-in-laws'|FAM|modifier
+63|father's|FAM|modifier
+64|fathers|FAM|modifier
+65|fathers-in-law|FAM|modifier
+66|fathers'|FAM|modifier
+67|fiance|FAM|modifier
+68|fiance's|FAM|modifier
+69|fiancee|FAM|modifier
+70|fiancee's|FAM|modifier
+71|fiancees|FAM|modifier
+72|fiancees'|FAM|modifier
+73|fiances|FAM|modifier
+74|fiances'|FAM|modifier
+75|girlfriend|FAM|modifier
+76|girlfriend's|FAM|modifier
+77|girlfriends|FAM|modifier
+78|girlfriends'|FAM|modifier
+79|godchild|FAM|modifier
+80|godchild's|FAM|modifier
+81|godchildren|FAM|modifier
+82|godchilds|FAM|modifier
+83|godchilds'|FAM|modifier
+84|goddaughter|FAM|modifier
+85|goddaughter's|FAM|modifier
+86|goddaughters|FAM|modifier
+87|goddaughters'|FAM|modifier
+88|godfather|FAM|modifier
+89|godfather's|FAM|modifier
+90|godfathers|FAM|modifier
+91|godfathers'|FAM|modifier
+92|godmother|FAM|modifier
+93|godmother's|FAM|modifier
+94|godmothers|FAM|modifier
+95|godmothers'|FAM|modifier
+96|godson|FAM|modifier
+97|godson's|FAM|modifier
+98|godsons|FAM|modifier
+99|godsons'|FAM|modifier
+100|grandchild|FAM|modifier
+101|grandchild's|FAM|modifier
+102|grandchilds|FAM|modifier
+103|grandchilds'|FAM|modifier
+104|granddad|FAM|modifier
+105|granddad's|FAM|modifier
+106|granddads|FAM|modifier
+107|granddads'|FAM|modifier
+108|granddaughter|FAM|modifier
+109|granddaughter's|FAM|modifier
+110|granddaughters|FAM|modifier
+111|granddaughters'|FAM|modifier
+112|grandfather|FAM|modifier
+113|grandfather's|FAM|modifier
+114|grandfathers|FAM|modifier
+115|grandfathers'|FAM|modifier
+116|grandma|FAM|modifier
+117|grandma's|FAM|modifier
+118|grandmas|FAM|modifier
+119|grandmas'|FAM|modifier
+120|grandmother|FAM|modifier
+121|grandmother's|FAM|modifier
+122|grandmothers|FAM|modifier
+123|grandmothers'|FAM|modifier
+124|grandpa|FAM|modifier
+125|grandpa's|FAM|modifier
+126|grandparent|FAM|modifier
+127|grandpas|FAM|modifier
+128|grandpas'|FAM|modifier
+129|grandson|FAM|modifier
+130|grandson's|FAM|modifier
+131|grandsons|FAM|modifier
+132|grandsons'|FAM|modifier
+133|granny|FAM|modifier
+134|granny's|FAM|modifier
+135|grannys|FAM|modifier
+136|grannys'|FAM|modifier
+137|groom|FAM|modifier
+138|groom's|FAM|modifier
+139|grooms|FAM|modifier
+140|grooms'|FAM|modifier
+141|husband|FAM|modifier
+142|husband's|FAM|modifier
+143|husbands|FAM|modifier
+144|husbands'|FAM|modifier
+145|mom|FAM|modifier
+146|mom's|FAM|modifier
+147|moms|FAM|modifier
+148|moms'|FAM|modifier
+149|mother|FAM|modifier
+150|mother-in-law|FAM|modifier
+151|mother-in-law's|FAM|modifier
+152|mother-in-laws'|FAM|modifier
+153|mother's|FAM|modifier
+154|mothers|FAM|modifier
+155|mothers-in-law|FAM|modifier
+156|mothers'|FAM|modifier
+157|mum|FAM|modifier
+158|mum's|FAM|modifier
+159|mummy|FAM|modifier
+160|mummy's|FAM|modifier
+161|mummys|FAM|modifier
+162|mummys'|FAM|modifier
+163|mums|FAM|modifier
+164|mums'|FAM|modifier
+165|nephew|FAM|modifier
+166|nephew's|FAM|modifier
+167|nephews|FAM|modifier
+168|nephews'|FAM|modifier
+169|niece|FAM|modifier
+170|niece's|FAM|modifier
+171|nieces|FAM|modifier
+172|nieces'|FAM|modifier
+173|parent|FAM|modifier
+174|parent's|FAM|modifier
+175|parents|FAM|modifier
+176|parents-in-law|FAM|modifier
+177|parents-in-law's|FAM|modifier
+178|parents-in-laws'|FAM|modifier
+179|parents'|FAM|modifier
+180|sister|FAM|modifier
+181|sister-in-law|FAM|modifier
+182|sister-in-law's|FAM|modifier
+183|sister-in-laws'|FAM|modifier
+184|sister's|FAM|modifier
+185|sisters|FAM|modifier
+186|sisters-in-law|FAM|modifier
+187|sisters'|FAM|modifier
+188|son|FAM|modifier
+189|son-in-law|FAM|modifier
+190|son-in-law's|FAM|modifier
+191|son-in-laws'|FAM|modifier
+192|son's|FAM|modifier
+193|sons|FAM|modifier
+194|sons-in-law|FAM|modifier
+196|spouse|FAM|modifier
+197|spouse's|FAM|modifier
+198|spouses|FAM|modifier
+200|uncle|FAM|modifier
+202|uncles|FAM|modifier
+204|wife|FAM|modifier
+206|wifes|FAM|modifier
+208|wives|FAM|modifier
+1000|iv heroin|IDU|selfharm
+1001|iv methamphetamine|IDU|selfharm
+1002|iv meth|IDU|selfharm
+1003|iv cocaine|IDU|selfharm
+1004|iv crack|IDU|selfharm
+1006|injection drug use|IDU|selfharm
+1007|injection drug abuse|IDU|selfharm
+1008|track marks|IDU|selfharm
+1009|iv drug use|IDU|selfharm
+1010|iv drug abuse|IDU|selfharm
+1011|heroin addict|IDU|selfharm
+1012|skin popping|IDU|selfharm
+1013|iv drug user|IDU|selfharm
+1014|iv heroin|IDU|selfharm
+1015|overdose from idu|IDU|selfharm
+1016| ssp|IDU|selfharm
+1017| pwid|IDU|selfharm
+1018|needle kit|IDU|selfharm
+1020|sharing needle|IDU|selfharm
+1021|slamming|IDU|selfharm
+1022|shared needle|IDU|selfharm
+1023|syringe service program|IDU|selfharm
+1024|counseled on safer injection|IDU|selfharm
+1025|drugs by injection|IDU|selfharm
+1026|drug paraphenalia|IDU|selfharm
+1027|peedball|IDU|selfharm
+1028|speedballing|IDU|selfharm
+1029|dirty needle|IDU|selfharm
+1030|hypodermic needle|IDU|selfharm
+1031|illicit iv drug|IDU|selfharm
+1032|iv drug paraphernalia|IDU|selfharm
+1033| idu|IDU|selfharm
+1034| ivdu|IDU|selfharm
+2000|brain fog|COVID|symptom
+2001|happy hypoxia|COVID|symptom
+2002|cognitive impairmant|COVID|symptom
+2003|memory problems|COVID|symptom
+2004|cognitive decline|COVID|symptom
+2005|delirium|COVID|symptom
+2006|cognitive dysfunction|COVID|symptom
+2007|long covid|COVID|symptom
+2008|vasculitis|COVID|symptom
+2009|fatigue|COVID|symptom
+2011|anosmia|COVID|symptom
+2012|impaired smell|COVID|symptom
+2014|myalgia|COVID|symptom
+2015|insomnia|COVID|symptom
+2017|hyposmia|COVID|symptom
+2018|dysgeusia|COVID|symptom
+5000|access to firearm|LETHALMEANS|selfharm
+5001|access to gun|LETHALMEANS|selfharm
+5002|access to handgun|LETHALMEANS|selfharm
+5003|pesticides|LETHALMEANS|selfharm
+5004|rifle|LETHALMEANS|selfharm
+5005|shotgun|LETHALMEANS|selfharm
+5006|firearm|LETHALMEANS|selfharm
+5007|gun at home|LETHALMEANS|selfharm
+5008|gun ownership|LETHALMEANS|selfharm
+5009|handgun|LETHALMEANS|selfharm
+5010|stockpile of medication|LETHALMEANS|selfharm
+5011|stockpiles of medication|LETHALMEANS|selfharm
+5012|noose|LETHALMEANS|selfharm
+5013|owns a gun|LETHALMEANS|selfharm
+5014|sodium nitrite|LETHALMEANS|selfharm
+6000|detoxification|DETOX|sud
+6001|detox|DETOX|sud
+6017|ciwa protocol|DETOX|sud
+6018|withdrawal management|DETOX|sud
+6019|withdrawal mgmt|DETOX|sud
+6020|managed withdrawal|DETOX|sud
+6021|opioid withdrawal|DETOX|sud
+6022|cows protocol|DETOX|sud
+7000|difficulty obtaining food|FOODINSECURE|sdoh
+7001|does not obtain food|FOODINSECURE|sdoh
+7002|food insecurities|FOODINSECURE|sdoh
+7003|food insecurity|FOODINSECURE|sdoh
+7004|insufficient food supply|FOODINSECURE|sdoh
+7005|lack of food supply|FOODINSECURE|sdoh
+7006|limited access to healthful foods|FOODINSECURE|sdoh
+7007|unable to obtain food|FOODINSECURE|sdoh
+8000|assistance with housing|HOUSING|sdoh
+8001|concerned about housing|HOUSING|sdoh
+8002|concerns about housing|HOUSING|sdoh
+8003|couch surfing|HOUSING|sdoh
+8004|court st shelter|HOUSING|sdoh
+8005|court st. ne shelter|HOUSING|sdoh
+8006|court st. shelter|HOUSING|sdoh
+8007|court street shelter|HOUSING|sdoh
+8008|crashing in friend's house|HOUSING|sdoh
+8009|dchv|HOUSING|sdoh
+8010|domiciliary care|HOUSING|sdoh
+8011|domiciliary care for homeless veterans|HOUSING|sdoh
+8012|domiciliary program|HOUSING|sdoh
+8013|domicilliary care for homeless veterans|HOUSING|sdoh
+8014|domicilliary program|HOUSING|sdoh
+8015|doubled up|HOUSING|sdoh
+8016|eviction|HOUSING|sdoh
+8017|family promise of salt lake city|HOUSING|sdoh
+8018|financial housing|HOUSING|sdoh
+8019|finding of temporary shelter arrangements|HOUSING|sdoh
+8020|form x|HOUSING|sdoh
+8021|gpd program|HOUSING|sdoh
+8022|grace mary manor|HOUSING|sdoh
+8023|grant per diem program|HOUSING|sdoh
+8024|half way house|HOUSING|sdoh
+8025|hchv|HOUSING|sdoh
+8026|hcmi|HOUSING|sdoh
+8027|hcrv|HOUSING|sdoh
+8028|healthcare for homeless veterans|HOUSING|sdoh
+8029|healthcare for re-entry veterans|HOUSING|sdoh
+8030|homeless|HOUSING|sdoh
+8031|homeless chronically mentally ill|HOUSING|sdoh
+8032|homeless individual|HOUSING|sdoh
+8033|homeless person|HOUSING|sdoh
+8034|homeless persons|HOUSING|sdoh
+8035|homeless program|HOUSING|sdoh
+8036|homeless single person|HOUSING|sdoh
+8037|homelessness|HOUSING|sdoh
+8038|hostel|HOUSING|sdoh
+8039|housing assistance|HOUSING|sdoh
+8040|housing concerns|HOUSING|sdoh
+8041|housing coordinator|HOUSING|sdoh
+8042|housing financial|HOUSING|sdoh
+8043|housing lack|HOUSING|sdoh
+8044|housing program|HOUSING|sdoh
+8045|hud vash|HOUSING|sdoh
+8046|hud-vash|HOUSING|sdoh
+8047|jordan river|HOUSING|sdoh
+8048|judge baxter|HOUSING|sdoh
+8049|lack of housing|HOUSING|sdoh
+8050|liberty house|HOUSING|sdoh
+8051|liberty house shelter|HOUSING|sdoh
+8052|lives in squat|HOUSING|sdoh
+8053|lives temporarily with relatives|HOUSING|sdoh
+8054|living in temporary quarters|HOUSING|sdoh
+8055|living on the street|HOUSING|sdoh
+8056|living on the streets|HOUSING|sdoh
+8057|living rough|HOUSING|sdoh
+8058|living temporarily with relatives|HOUSING|sdoh
+8059|mass veteran's inc shelter|HOUSING|sdoh
+8060|needs backpacks|HOUSING|sdoh
+8061|needs shoes|HOUSING|sdoh
+8062|needs sleeping bag|HOUSING|sdoh
+8063|needs socks|HOUSING|sdoh
+8064|needs tent|HOUSING|sdoh
+8065|no housing|HOUSING|sdoh
+8066|no permanent address|HOUSING|sdoh
+8067|notice to vacate|HOUSING|sdoh
+8068|obtaining housing|HOUSING|sdoh
+8069|odyssey house|HOUSING|sdoh
+8070|out sleeping|HOUSING|sdoh
+8071|pan handling|HOUSING|sdoh
+8072|rapid rehousing|HOUSING|sdoh
+8073|seeking housing assistance|HOUSING|sdoh
+8074|shelter|HOUSING|sdoh
+8075|single homeless person|HOUSING|sdoh
+8076|sleep in auto|HOUSING|sdoh
+8077|sleep in automobile|HOUSING|sdoh
+8078|sleep in boat|HOUSING|sdoh
+8079|sleep in trailer|HOUSING|sdoh
+8080|sleep in truck|HOUSING|sdoh
+8081|sleeping at friends home|HOUSING|sdoh
+8082|sleeping in a different place every night|HOUSING|sdoh
+8083|sleeping in abandoned building|HOUSING|sdoh
+8084|sleeping in automobile|HOUSING|sdoh
+8085|sleeping in boat|HOUSING|sdoh
+8086|sleeping in night shelter|HOUSING|sdoh
+8087|sleeping in the park|HOUSING|sdoh
+8088|sleeping in trailer|HOUSING|sdoh
+8089|sleeping in truck|HOUSING|sdoh
+8090|sleeping in vehicle|HOUSING|sdoh
+8091|sleeping on the sidewalk|HOUSING|sdoh
+8092|sleeping outdoors|HOUSING|sdoh
+8093|sleeping rough|HOUSING|sdoh
+8094|slept in abandoned building|HOUSING|sdoh
+8095|slept in auto|HOUSING|sdoh
+8096|slept in automobile|HOUSING|sdoh
+8097|slept in boat|HOUSING|sdoh
+8098|slept in the park|HOUSING|sdoh
+8099|slept in trailer|HOUSING|sdoh
+8100|slept in truck|HOUSING|sdoh
+8101|slept on the sidewalk|HOUSING|sdoh
+8102|slept outdoors|HOUSING|sdoh
+8103|squatter|HOUSING|sdoh
+8104|squatters|HOUSING|sdoh
+8105|squatting|HOUSING|sdoh
+8106|temporary housing program|HOUSING|sdoh
+8107|temporary shelter arrangements|HOUSING|sdoh
+8108|the road home|HOUSING|sdoh
+8109|transitional residence|HOUSING|sdoh
+8110|v60.0|HOUSING|sdoh
+8111|va domiciliary care program|HOUSING|sdoh
+8112|va supportive housing|HOUSING|sdoh
+8113|vash|HOUSING|sdoh
+8114|wasatch homeless health care program|HOUSING|sdoh
+8115|weigand center|HOUSING|sdoh
+9000|acquitted from criminal charge|JUSTICE|sdoh
+9001|arrest by police|JUSTICE|sdoh
+9002|arrested by police|JUSTICE|sdoh
+9003|arrested in police custody|JUSTICE|sdoh
+9004|charged with crime|JUSTICE|sdoh
+9005|convictd for criminal activity|JUSTICE|sdoh
+9006|convicted for criminal activity|JUSTICE|sdoh
+9007|correctional institution resident|JUSTICE|sdoh
+9008|has a prison record|JUSTICE|sdoh
+9009|imprisoned|JUSTICE|sdoh
+9010|imprisonment record|JUSTICE|sdoh
+9011|in jail|JUSTICE|sdoh
+9012|in prison|JUSTICE|sdoh
+9013|incarcerate|JUSTICE|sdoh
+9014|incarcerated|JUSTICE|sdoh
+9015|involvd in crim law proceedngs|JUSTICE|sdoh
+9016|involved in criminal law proceedings|JUSTICE|sdoh
+9017|jail inmate|JUSTICE|sdoh
+9018|on conditional probation|JUSTICE|sdoh
+9019|prison inmate|JUSTICE|sdoh
+9020|prison inmates|JUSTICE|sdoh
+9021|prison record|JUSTICE|sdoh
+9022|prison sentence|JUSTICE|sdoh
+9023|prisoner|JUSTICE|sdoh
+9024|prisoners|JUSTICE|sdoh
+9025|problem related to release from prison|JUSTICE|sdoh
+9026|problems related to release from prison|JUSTICE|sdoh
+9027|prosecution impending|JUSTICE|sdoh
+9028|released from prison|JUSTICE|sdoh
+9029|released on bail|JUSTICE|sdoh
+9030|vandalism record|JUSTICE|sdoh
+9031|young offender|JUSTICE|sdoh
+10000|502 military sexual trauma|STRAUMA|sdoh
+10001|adult victim of sexual abuse during military service|STRAUMA|sdoh
+10002|military sex abuse|STRAUMA|sdoh
+10003|military sex assault|STRAUMA|sdoh
+10004|sexual assault|STRAUMA|sdoh
+10005|military sexual abuse|STRAUMA|sdoh
+10006|military sexual assault|STRAUMA|sdoh
+10007|military sexual harassment|STRAUMA|sdoh
+10008|military sexual trauma|STRAUMA|sdoh
+10009|military sexual violence|STRAUMA|sdoh
+10011|sexual trauma|STRAUMA|sdoh
+10012|rape in the military|STRAUMA|sdoh
+10013|sexual assault|STRAUMA|sdoh
+10014|sexual assault by commanding officer|STRAUMA|sdoh
+10015|sexual assault by peer|STRAUMA|sdoh
+10016|sexual assault by supervisor|STRAUMA|sdoh
+10017|sexual assault from commanding officer|STRAUMA|sdoh
+10018|sexual assault from peer|STRAUMA|sdoh
+10019|sexual assault from supervisor|STRAUMA|sdoh
+10020|sexual assault in armed forces|STRAUMA|sdoh
+10021|sexual assault in the military|STRAUMA|sdoh
+10022|sexual assault involving service members|STRAUMA|sdoh
+10023|sexual assaults from peers|STRAUMA|sdoh
+10024|sexual assaults from supervisors|STRAUMA|sdoh
+10025|sexual trauma during military service|STRAUMA|sdoh
+10026|sexually assaulted by service member|STRAUMA|sdoh
+10027|molested|STRAUMA|sdoh
+10028| rape|STRAUMA|sdoh
+10029| raped|STRAUMA|sdoh
+10030|crotch|STRAUMA|sdoh
+10031|oral sex|STRAUMA|sdoh
+10032|pornography|STRAUMA|sdoh
+10033|masterbated|STRAUMA|sdoh
+10034|ejaculated|STRAUMA|sdoh
+10035|sodomize|STRAUMA|sdoh
+10036|exposed himself|STRAUMA|sdoh
+10037|layed on top|STRAUMA|sdoh
+10038|sexual abuse|STRAUMA|sdoh
+10039|caressing|STRAUMA|sdoh
+10040|blow job|STRAUMA|sdoh
+10041|gang rape|STRAUMA|sdoh
+10042|gang raped|STRAUMA|sdoh
+11000|actual lack of social support|SOCIALCONNECT|sdoh
+11001|at risk for loneliness|SOCIALCONNECT|sdoh
+11002|at risk for social isolation|SOCIALCONNECT|sdoh
+11003|decreased social isolation|SOCIALCONNECT|sdoh
+11004|difficulty establishing relationships|SOCIALCONNECT|sdoh
+11005|difficulty maintaining relationships|SOCIALCONNECT|sdoh
+11006|family isolation|SOCIALCONNECT|sdoh
+11008|improvement in friendships and/or relationships|SOCIALCONNECT|sdoh
+11009|inadequate social skills|SOCIALCONNECT|sdoh
+11010|inadequate social support|SOCIALCONNECT|sdoh
+11011|lack of family support|SOCIALCONNECT|sdoh
+11012|lack of social support|SOCIALCONNECT|sdoh
+11013|lacks emotional support|SOCIALCONNECT|sdoh
+11014|lives alone|LIVESALONE|sdoh
+11015|loneliness|LONELINESS|sdoh
+11016|lonely|LONELINESS|sdoh
+11025|social exclusion|SOCIALCONNECT|sdoh
+11026|social interaction impairment minimal shared activities|SOCIALCONNECT|sdoh
+11027|social outcast|SOCIALCONNECT|sdoh
+11028|social rejection|SOCIALCONNECT|sdoh
+11029|social rejections|SOCIALCONNECT|sdoh
+11030|social withdrawal|SOCIALCONNECT|sdoh
+11031|withdrawal from social contacts|SOCIALCONNECT|sdoh
+11032|withdrawn from social contacts|SOCIALCONNECT|sdoh
+12000|cohabitee left home|SOCIALCONNECT|sdoh
+12001|divorce problems|SOCIALCONNECT|sdoh
+12002|divorce proceedings pending|SOCIALCONNECT|sdoh
+12003|husband left home|SOCIALCONNECT|sdoh
+12004|marital separation|SOCIALCONNECT|sdoh
+12005|personal relationship breakdown|SOCIALCONNECT|sdoh
+12006|poor family relationship|SOCIALCONNECT|sdoh
+12007|relationship breakdown|SOCIALCONNECT|sdoh
+12008|separated from cohabitee|SOCIALCONNECT|sdoh
+12009|separation|SOCIALCONNECT|sdoh
+12010|separations|SOCIALCONNECT|sdoh
+12011|spouse left home|SOCIALCONNECT|sdoh
+12012|trial separation|SOCIALCONNECT|sdoh
+12013|wife left home|SOCIALCONNECT|sdoh
+13000|chronic unemployment|JOBINSTABLE|sdoh
+13001|discharged from duty|JOBINSTABLE|sdoh
+13002|discharged from job|JOBINSTABLE|sdoh
+13003|dismissal from employment|JOBINSTABLE|sdoh
+13004|dismissed from job|JOBINSTABLE|sdoh
+13005|does not work|JOBINSTABLE|sdoh
+13006|doesn't work|JOBINSTABLE|sdoh
+13007|don't work|JOBINSTABLE|sdoh
+13008|employment termination|JOBINSTABLE|sdoh
+13009|fired|JOBINSTABLE|sdoh
+13010|job loss|JOBINSTABLE|sdoh
+13011|job losses|JOBINSTABLE|sdoh
+13012|jobless|JOBINSTABLE|sdoh
+13013|joblessness|JOBINSTABLE|sdoh
+13014|loss of employment|JOBINSTABLE|sdoh
+13015|loss of job|JOBINSTABLE|sdoh
+13016|lost job|JOBINSTABLE|sdoh
+13017|made redundant|JOBINSTABLE|sdoh
+13018|not employed|JOBINSTABLE|sdoh
+13019|out of work|JOBINSTABLE|sdoh
+13020|recently unemployed|JOBINSTABLE|sdoh
+13021|sacked from job|JOBINSTABLE|sdoh
+13022|sacked from work|JOBINSTABLE|sdoh
+13023|termination of employment|JOBINSTABLE|sdoh
+13024|unemployed|JOBINSTABLE|sdoh
+13025|unemployment|JOBINSTABLE|sdoh
+13026|unfair dismissal from job|JOBINSTABLE|sdoh
+13027|voluntary resignation|JOBINSTABLE|sdoh
+13028|without employment|JOBINSTABLE|sdoh
+14000|for controlled substances outside the VA were found|PDMP|query
+14001|filled outside the VA in the last 90 days are|PDMP|query
+14002|filled outside the VA are noted and will be addressed|PDMP|query
+15000|difficulty bathing|ADL|bathing
+15001|trouble bathing|ADL|bathing
+15002|help bathing|ADL|bathing
+15003|difficulty showering|ADL|bathing
+15004|trouble showering|ADL|bathing
+15005|help shower|ADL|bathing
+15006|helps with bathing|ADL|bathing
+15007|helps with showering|ADL|bathing
+15008|help bathe|ADL|bathing
+15009|cleaning himself|ADL|bathing
+15010|cleaning herself|ADL|bathing
+15011|cannot bathe|ADL|bathing
+15012|cannot shower|ADL|bathing
+15013|help washing|ADL|bathing
+15014|getting in tub|ADL|bathing
+15015|getting in shower|ADL|bathing
+15016|assistance with bathing|ADL|bathing
+15017|assistance with showering|ADL|bathing
+16000|difficulty dressing|ADL|dressing
+16001|trouble dressing|ADL|dressing
+16002|difficutly undressing|ADL|dressing
+16003|trouble undressing|ADL|dressing
+16004|cannot dress self|ADL|dressing
+16005|helps dress|ADL|dressing
+16006|dresses him|ADL|dressing
+16007|dresses her|ADL|dressing
+16008|put on clothes|ADL|dressing
+16009|take off clothes|ADL|dressing
+16010|cannot get dressed|ADL|dressing
+16011|help getting dressed|ADL|dressing
+17000|needs to be fed|ADL|feeding
+17001|difficulty eating|ADL|feeding
+17002|help with feeding|ADL|feeding
+17003|help eating|ADL|feeding
+17004|cutting food|ADL|feeding
+17005|buttering bread|ADL|feeding
+17006|arranging food|ADL|feeding
+17007|difficulty feeding|ADL|feeding
+17008|doesn't choke|ADL|feeding
+17009|feeds him|ADL|feeding
+17010|feeds her|ADL|feeding
