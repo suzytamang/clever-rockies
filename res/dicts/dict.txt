@@ -248,13 +248,12 @@
 1017| pwid|IDU|selfharm
 1018|needle kit|IDU|selfharm
 1020|sharing needle|IDU|selfharm
-1021|slamming|IDU|selfharm
 1022|shared needle|IDU|selfharm
 1023|syringe service program|IDU|selfharm
 1024|counseled on safer injection|IDU|selfharm
 1025|drugs by injection|IDU|selfharm
 1026|drug paraphenalia|IDU|selfharm
-1027|peedball|IDU|selfharm
+1027|speedball|IDU|selfharm
 1028|speedballing|IDU|selfharm
 1029|dirty needle|IDU|selfharm
 1030|hypodermic needle|IDU|selfharm
@@ -610,3 +609,163 @@
 17008|doesn't choke|ADL|feeding
 17009|feeds him|ADL|feeding
 17010|feeds her|ADL|feeding
+20000|caffeine use disorder|CAFFEINEDO|diagnosis
+20001|caffeine abuse|CAFFEINEDO|diagnosis
+20003|caffeine addiction|CAFFEINEDO|diagnosis
+20004|caffeinism|CAFFEINEDO|diagnosis
+20005|hypercaffeism|CAFFEINEDO|diagnosis
+20006|caffeine dependency|CAFFEINEDO|diagnosis 
+20007|caffeine dependence|CAFFEINEDO|diagnosis
+20008|stimulant use disorder (caffeine) |CAFFEINEDO|diagnosis
+20009|caffeine induced anxiety disorder with mild use disorder|CAFFEINEDO|diagnosis
+20010|caffeine induced anxiety disorder with moderate use disorder|CAFFEINEDO|diagnosis
+20011|caffeine induced anxiety disorder with moderate or severe use disorder|CAFFEINEDO|diagnosis
+20012|stimulant induced anxiety disorder with mild caffeine use disorder|CAFFEINEDO|diagnosis
+20013|stimulant induced anxiety disorder with moderate caffeine use disorder|CAFFEINEDO|diagnosis
+20014|stimulant induced anxiety disorder with moderate or severe caffeine use disorder|CAFFEINEDO|diagnosis
+20015|stimulant induced anxiety disorder with severe caffeine use disorder|CAFFEINEDO|diagnosis 
+20016|stimulant induced anxiety disorder with mild use disorder (caffeine)|CAFFEINEDO|diagnosis
+20017|stimulant induced anxiety disorder with moderate use disorder (caffeine)|CAFFEINEDO|diagnosis
+20018|stimulant induced anxiety disorder with moderate or severe use disorder (caffeine)|CAFFEINEDO|diagnosis
+20019|stimulant induced anxiety disorder with severe use disorder (caffeine)|CAFFEINEDO|diagnosis
+20020|caffeine induced sleep disorder with mild use disorder|CAFFEINEDO|diagnosis
+20021|caffeine induced sleep disorder with moderate use disorder|CAFFEINEDO|diagnosis
+20022|caffeine induced sleep disorder with moderate or severe use disorder|CAFFEINEDO|diagnosis
+20023|caffeine induced sleep disorder with severe use disorder|CAFFEINEDO|diagnosis
+20024|stimulant induced sleep disorder with mild caffeine use disorder|CAFFEINEDO|diagnosis
+20025|stimulant induced sleep disorder with moderate caffeine use disorder|CAFFEINEDO|diagnosis
+20026|stimulant induced sleep disorder with moderate or severe caffeine use disorder|CAFFEINEDO|diagnosis
+20027|stimulant induced sleep disorder with severe caffeine use disorder|CAFFEINEDO|diagnosis 
+20028|stimulant induced sleep disorder with mild use disorder (caffeine)|CAFFEINEDO|diagnosis
+20029|stimulant induced sleep disorder with moderate use disorder (caffeine)|CAFFEINEDO|diagnosis
+20030|stimulant induced sleep disorder with moderate or severe use disorder (caffeine)|CAFFEINEDO|diagnosis
+20031|stimulant induced sleep disorder with severe use disorder (caffeine)|CAFFEINEDO|diagnosis
+20032|stimulant use disorder caffeine|CAFFEINEDO|diagnosis
+20100|misophonia|MISOPHONIA|diagnosis
+|selective sound sensitivity syndrome|MISOPHONIA|diagnosis 
+|selective sound sensitivity disorder|MISOPHONIA|diagnosis
+|select sound sensitivity syndrome|MISOPHONIA|diagnosis 
+|select sound sensitivity disorder|MISOPHONIA|diagnosis
+|sound sensitivity syndrome|MISOPHONIA|diagnosis 
+|sound sensitivity disorder|MISOPHONIA|diagnosis
+|auditory hypersensitivity|MISOPHONIA|diagnosis
+|auditory sensitivity|MISOPHONIA|diagnosis
+|auditory over-responsivity|MISOPHONIA|diagnosis 
+|auditory over responsivity|MISOPHONIA|diagnosis
+|auditory over-responsiveness|MISOPHONIA|diagnosis 
+|auditory over responsiveness|MISOPHONIA|diagnosis
+|sensory over-responsivity to sounds|MISOPHONIA|diagnosis 
+|sensory over responsivity to sounds|MISOPHONIA|diagnosis
+|borderline traits|BTRAITS|symptom
+|borderline behavior|BTRAITS|symptom
+|borderline character|BTRAITS|symptom
+|borderline personality traits|BTRAITS|symptom
+|borderline personality symptoms|BTRAITS|symptom
+|antisocial traits|BTRAITS|symptom
+|antisocial behavior|BTRAITS|symptom
+|antisocial character|BTRAITS|symptom
+|antisocial traits|BTRAITS|symptom
+|antisocial personality traits|BTRAITS|symptom
+|antisocial personality symptoms|BTRAITS|symptom
+|histrionic traits|BTRAITS|symptom
+|histrionic behavior|BTRAITS|symptom
+|histrionic personality traits|BTRAITS|symptom
+|histrionic personality symptoms|BTRAITS|symptom
+|psychoinfantile personality traits|BTRAITS|symptom 
+|psychoinfantile traits|BTRAITS|symptom
+|psychoinfantile character|BTRAITS|symptom
+|psychoinfantile behavior|BTRAITS|symptom
+|psychoinfantile personality symptoms|BTRAITS|symptom
+|narcissistic traits|BTRAITS|symptom
+|narcissistic behavior|BTRAITS|symptom
+|narcissistic character|BTRAITS|symptom
+|narcissistic personality traits|BTRAITS|symptom
+|narcissistic personality symptoms|BTRAITS|symptom
+|emotionally unstable personality traits|BTRAITS|symptom
+|emotionally unstable personality symptoms|BTRAITS|symptom
+|cluster b traits|BTRAITS|symptom
+|cluster b behavior|BTRAITS|symptom
+|cluster b character|BTRAITS|symptom
+|cluster b personality traits|BTRAITS|symptom
+|cluster b personality symptoms|BTRAITS|symptom
+|body dysmorphic-like disorder with actual flaws|BDD|diagnosis 
+|body dysmorphic like disorder with actual flaws|BDD|diagnosis
+|body dysmorphic-like disorder without repetitive behaviors|BDD|diagnosis
+|body dysmorphic like disorder without repetitive behaviors|BDD|diagnosis
+|body image disfunction|BDD|diagnosis 
+|body image dysfunction|BDD|diagnosis
+|body image disorder|BDD|diagnosis
+|nondelusional dysmorphophobia|BDD|diagnosis
+|dysmorphophobia|BDD|diagnosis
+|distortion corporeal|BDD|diagnosis
+|disorder body image|BDD|diagnosis
+|preoccupation with imagined physical defect|BDD|diagnosis
+|distortion personal|BDD|diagnosis
+|body dysmorphic disorder|BDD|diagnosis
+|dysmorphic syndrome|BDD|diagnosis
+|imagined ugliness|BDD|diagnosis
+|body dysmorphia|BDD|diagnosis
+|mutilatory disorder of the body image|BDD|diagnosis
+|self-perception disorder|BDD|diagnosis 
+|self perception disorder|BDD|diagnosis
+|gaming disorder|GAMINGDO|diagnosis
+|gaming addiction|GAMINGDO|diagnosis
+|disorder gaming|GAMINGDO|diagnosis
+|compulsive gaming disorder|GAMINGDO|diagnosis
+|pathological gaming|GAMINGDO|diagnosis
+|internet addiction|GAMINGDO|diagnosis
+|internet use disorder|GAMINGDO|diagnosis
+|problematic internet use|GAMINGDO|diagnosis
+|problematic video game use|GAMINGDO|diagnosis
+|video game addiction|GAMINGDO|diagnosis
+|video game use disorder|GAMINGDO|diagnosis
+|video game disorder|GAMINGDO|diagnosis 
+|disorder video game|GAMINGDO|diagnosis
+|disorder internet use|GAMINGDO|diagnosis
+|addiction gaming|GAMINGDO|diagnosis
+|addiction video gaming|GAMINGDO|diagnosis
+|addiction video game use|GAMINGDO|diagnosis
+|addiction internet use|GAMINGDO|diagnosis
+|internet gaming disorder|GAMINGDO|diagnosis 
+|disorder internet gaming|GAMINGDO|diagnosis
+|disorders internet gaming|GAMINGDO|diagnosis
+|gaming disorder internet|GAMINGDO|diagnosis
+|gaming disorder predominantly offline|GAMINGDO|diagnosis
+|gaming disorder predominantly online|GAMINGDO|diagnosis
+|impulse control disorder gaming|GAMINGDO|diagnosis 
+|gaming impulse control disorder|GAMINGDO|diagnosis
+|gambling disorder|GAMBLINGDO|diagnosis
+|disordered gambling|GAMBLINGDO|diagnosis
+|gambling use disorder|GAMBLINGDO|diagnosis
+|problem gambling|GAMBLINGDO|diagnosis
+|problematic gambling|GAMBLINGDO|diagnosis
+|ludomania|GAMBLINGDO|diagnosis
+|gambling disorder|GAMBLINGDO|diagnosis
+|gambling addiction|GAMBLINGDO|diagnosis
+|disorder gambling|GAMBLINGDO|diagnosis
+|addiction gambling|GAMBLINGDISORDER|diagnosis
+|pathological gambling|GAMBLINGDO|diagnosis
+|compulsive gambling|GAMBLINGDO|diagnosis
+|impulse control disorder gambling|GAMBLINGDO|diagnosis 
+|gambling impulse control disorder|GAMBLINGDO|diagnosis
+|behavioral addiction|BEHAVIORAD|diagnosis
+|behavior addiction|BEHAVIORAD|diagnosis
+|process addiction|BEHAVIORAD|diagnosis
+|process addictions|BEHAVIORAD|diagnosis
+|addictive behaviors|BEHAVIORAD|diagnosis
+|non-substance-related disorder|BEHAVIORAD|diagnosis 
+|non-substance related disorder|BEHAVIORAD|diagnosis 
+|non substance-related disorder|BEHAVIORAD|diagnosis 
+|non substance related disorder|BEHAVIORAD|diagnosis 
+|hypersexual disorder|BEHAVIORAD|diagnosis 
+|sex addiction|BEHAVIORAD|diagnosis
+|addiction behavioral|BEHAVIORAD|diagnosis
+|addiction behavioural|BEHAVIORAD|diagnosis 
+|behavioural addiction|BEHAVIORAD|diagnosis
+|compulsive sexual behavior disorder|BEHAVIORAD|diagnosis
+|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis 
+|disorders due to addictive behavior|BEHAVIORAD|diagnosis
+|disorders due to addictive behaviour|BEHAVIORAD|diagnosis 
+|disorder due to addictive behavior|BEHAVIORAD|diagnosis
+|disorder due to addictive behaviour|BEHAVIORAD|diagnosis
+|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis
