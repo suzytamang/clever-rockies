@@ -277,6 +277,29 @@
 2015|insomnia|COVID|symptom
 2017|hyposmia|COVID|symptom
 2018|dysgeusia|COVID|symptom
+3000|xylazine|TRANQ|drug
+3001|sedazin|TRANQ|drug
+3002|chanazine|TRANQ|drug
+3003|xylamed|TRANQ|drug
+3004|rompun|TRANQ|drug
+3005|sedazine|TRANQ|drug
+3006| anased|TRANQ|drug
+3007|dexmedetomidine|TRANQ|drug
+3008|medetomidine|TRANQ|drug
+3009| tranq |TRANQ|drugslang
+3010|philly dope|TRANQ|drugslang
+3011|zombie drug|TRANQ|drugslang
+3012|sleep cut|TRANQ|drug|TRANQ|drugslang
+3013|de caballo|TRANQ|drugslang
+3014|cardi b |TRANQ|drugslang
+3015|collateral damage|TRANQ|drugslang
+3016|steph curry|TRANQ|drugslang
+3017|tranq dope|TRANQ|drugslang
+3018|rampage|TRANQ|drugslang
+3019|black mask|TRANQ|drugslang
+3020|trashcan|TRANQ|drugslang
+3021|sleep-cut|TRANQ|drugslang
+4000|pdmp|PDMP|query
 5000|access to firearm|LETHALMEANS|selfharm
 5001|access to gun|LETHALMEANS|selfharm
 5002|access to handgun|LETHALMEANS|selfharm
@@ -292,6 +315,8 @@
 5012|noose|LETHALMEANS|selfharm
 5013|owns a gun|LETHALMEANS|selfharm
 5014|sodium nitrite|LETHALMEANS|selfharm
+5015|ar-15|LETHALMEANS|selfharm
+5015| ar15|LETHALMEANS|selfharm
 6000|detoxification|DETOX|sud
 6001|detox|DETOX|sud
 6017|ciwa protocol|DETOX|sud
@@ -451,11 +476,9 @@
 9024|prisoners|JUSTICE|sdoh
 9025|problem related to release from prison|JUSTICE|sdoh
 9026|problems related to release from prison|JUSTICE|sdoh
-9027|prosecution impending|JUSTICE|sdoh
-9028|released from prison|JUSTICE|sdoh
-9029|released on bail|JUSTICE|sdoh
-9030|vandalism record|JUSTICE|sdoh
-9031|young offender|JUSTICE|sdoh
+9032|legal problems|JUSTICE|sdoh
+9033|child custody|JUSTICE|sdoh
+9034|messy divorce|JUSTICE|sdoh
 10000|502 military sexual trauma|STRAUMA|sdoh
 10001|adult victim of sexual abuse during military service|STRAUMA|sdoh
 10002|military sex abuse|STRAUMA|sdoh
@@ -642,130 +665,130 @@
 20031|stimulant induced sleep disorder with severe use disorder (caffeine)|CAFFEINEDO|diagnosis
 20032|stimulant use disorder caffeine|CAFFEINEDO|diagnosis
 20100|misophonia|MISOPHONIA|diagnosis
-|selective sound sensitivity syndrome|MISOPHONIA|diagnosis 
-|selective sound sensitivity disorder|MISOPHONIA|diagnosis
-|select sound sensitivity syndrome|MISOPHONIA|diagnosis 
-|select sound sensitivity disorder|MISOPHONIA|diagnosis
-|sound sensitivity syndrome|MISOPHONIA|diagnosis 
-|sound sensitivity disorder|MISOPHONIA|diagnosis
-|auditory hypersensitivity|MISOPHONIA|diagnosis
-|auditory sensitivity|MISOPHONIA|diagnosis
-|auditory over-responsivity|MISOPHONIA|diagnosis 
-|auditory over responsivity|MISOPHONIA|diagnosis
-|auditory over-responsiveness|MISOPHONIA|diagnosis 
-|auditory over responsiveness|MISOPHONIA|diagnosis
-|sensory over-responsivity to sounds|MISOPHONIA|diagnosis 
-|sensory over responsivity to sounds|MISOPHONIA|diagnosis
-|borderline traits|BTRAITS|symptom
-|borderline behavior|BTRAITS|symptom
-|borderline character|BTRAITS|symptom
-|borderline personality traits|BTRAITS|symptom
-|borderline personality symptoms|BTRAITS|symptom
-|antisocial traits|BTRAITS|symptom
-|antisocial behavior|BTRAITS|symptom
-|antisocial character|BTRAITS|symptom
-|antisocial traits|BTRAITS|symptom
-|antisocial personality traits|BTRAITS|symptom
-|antisocial personality symptoms|BTRAITS|symptom
-|histrionic traits|BTRAITS|symptom
-|histrionic behavior|BTRAITS|symptom
-|histrionic personality traits|BTRAITS|symptom
-|histrionic personality symptoms|BTRAITS|symptom
-|psychoinfantile personality traits|BTRAITS|symptom 
-|psychoinfantile traits|BTRAITS|symptom
-|psychoinfantile character|BTRAITS|symptom
-|psychoinfantile behavior|BTRAITS|symptom
-|psychoinfantile personality symptoms|BTRAITS|symptom
-|narcissistic traits|BTRAITS|symptom
-|narcissistic behavior|BTRAITS|symptom
-|narcissistic character|BTRAITS|symptom
-|narcissistic personality traits|BTRAITS|symptom
-|narcissistic personality symptoms|BTRAITS|symptom
-|emotionally unstable personality traits|BTRAITS|symptom
-|emotionally unstable personality symptoms|BTRAITS|symptom
-|cluster b traits|BTRAITS|symptom
-|cluster b behavior|BTRAITS|symptom
-|cluster b character|BTRAITS|symptom
-|cluster b personality traits|BTRAITS|symptom
-|cluster b personality symptoms|BTRAITS|symptom
-|body dysmorphic-like disorder with actual flaws|BDD|diagnosis 
-|body dysmorphic like disorder with actual flaws|BDD|diagnosis
-|body dysmorphic-like disorder without repetitive behaviors|BDD|diagnosis
-|body dysmorphic like disorder without repetitive behaviors|BDD|diagnosis
-|body image disfunction|BDD|diagnosis 
-|body image dysfunction|BDD|diagnosis
-|body image disorder|BDD|diagnosis
-|nondelusional dysmorphophobia|BDD|diagnosis
-|dysmorphophobia|BDD|diagnosis
-|distortion corporeal|BDD|diagnosis
-|disorder body image|BDD|diagnosis
-|preoccupation with imagined physical defect|BDD|diagnosis
-|distortion personal|BDD|diagnosis
-|body dysmorphic disorder|BDD|diagnosis
-|dysmorphic syndrome|BDD|diagnosis
-|imagined ugliness|BDD|diagnosis
-|body dysmorphia|BDD|diagnosis
-|mutilatory disorder of the body image|BDD|diagnosis
-|self-perception disorder|BDD|diagnosis 
-|self perception disorder|BDD|diagnosis
-|gaming disorder|GAMINGDO|diagnosis
-|gaming addiction|GAMINGDO|diagnosis
-|disorder gaming|GAMINGDO|diagnosis
-|compulsive gaming disorder|GAMINGDO|diagnosis
-|pathological gaming|GAMINGDO|diagnosis
-|internet addiction|GAMINGDO|diagnosis
-|internet use disorder|GAMINGDO|diagnosis
-|problematic internet use|GAMINGDO|diagnosis
-|problematic video game use|GAMINGDO|diagnosis
-|video game addiction|GAMINGDO|diagnosis
-|video game use disorder|GAMINGDO|diagnosis
-|video game disorder|GAMINGDO|diagnosis 
-|disorder video game|GAMINGDO|diagnosis
-|disorder internet use|GAMINGDO|diagnosis
-|addiction gaming|GAMINGDO|diagnosis
-|addiction video gaming|GAMINGDO|diagnosis
-|addiction video game use|GAMINGDO|diagnosis
-|addiction internet use|GAMINGDO|diagnosis
-|internet gaming disorder|GAMINGDO|diagnosis 
-|disorder internet gaming|GAMINGDO|diagnosis
-|disorders internet gaming|GAMINGDO|diagnosis
-|gaming disorder internet|GAMINGDO|diagnosis
-|gaming disorder predominantly offline|GAMINGDO|diagnosis
-|gaming disorder predominantly online|GAMINGDO|diagnosis
-|impulse control disorder gaming|GAMINGDO|diagnosis 
-|gaming impulse control disorder|GAMINGDO|diagnosis
-|gambling disorder|GAMBLINGDO|diagnosis
-|disordered gambling|GAMBLINGDO|diagnosis
-|gambling use disorder|GAMBLINGDO|diagnosis
-|problem gambling|GAMBLINGDO|diagnosis
-|problematic gambling|GAMBLINGDO|diagnosis
-|ludomania|GAMBLINGDO|diagnosis
-|gambling disorder|GAMBLINGDO|diagnosis
-|gambling addiction|GAMBLINGDO|diagnosis
-|disorder gambling|GAMBLINGDO|diagnosis
-|addiction gambling|GAMBLINGDISORDER|diagnosis
-|pathological gambling|GAMBLINGDO|diagnosis
-|compulsive gambling|GAMBLINGDO|diagnosis
-|impulse control disorder gambling|GAMBLINGDO|diagnosis 
-|gambling impulse control disorder|GAMBLINGDO|diagnosis
-|behavioral addiction|BEHAVIORAD|diagnosis
-|behavior addiction|BEHAVIORAD|diagnosis
-|process addiction|BEHAVIORAD|diagnosis
-|process addictions|BEHAVIORAD|diagnosis
-|addictive behaviors|BEHAVIORAD|diagnosis
-|non-substance-related disorder|BEHAVIORAD|diagnosis 
-|non-substance related disorder|BEHAVIORAD|diagnosis 
-|non substance-related disorder|BEHAVIORAD|diagnosis 
-|non substance related disorder|BEHAVIORAD|diagnosis 
-|hypersexual disorder|BEHAVIORAD|diagnosis 
-|sex addiction|BEHAVIORAD|diagnosis
-|addiction behavioral|BEHAVIORAD|diagnosis
-|addiction behavioural|BEHAVIORAD|diagnosis 
-|behavioural addiction|BEHAVIORAD|diagnosis
-|compulsive sexual behavior disorder|BEHAVIORAD|diagnosis
-|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis 
-|disorders due to addictive behavior|BEHAVIORAD|diagnosis
-|disorders due to addictive behaviour|BEHAVIORAD|diagnosis 
-|disorder due to addictive behavior|BEHAVIORAD|diagnosis
-|disorder due to addictive behaviour|BEHAVIORAD|diagnosis
-|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis
+20101|selective sound sensitivity syndrome|MISOPHONIA|diagnosis 
+20102|selective sound sensitivity disorder|MISOPHONIA|diagnosis
+20103|select sound sensitivity syndrome|MISOPHONIA|diagnosis 
+20104|select sound sensitivity disorder|MISOPHONIA|diagnosis
+20105|sound sensitivity syndrome|MISOPHONIA|diagnosis 
+20106|sound sensitivity disorder|MISOPHONIA|diagnosis
+20107|auditory hypersensitivity|MISOPHONIA|diagnosis
+20108|auditory sensitivity|MISOPHONIA|diagnosis
+20109|auditory over-responsivity|MISOPHONIA|diagnosis 
+20110|auditory over responsivity|MISOPHONIA|diagnosis
+20111|auditory over-responsiveness|MISOPHONIA|diagnosis 
+20112|auditory over responsiveness|MISOPHONIA|diagnosis
+20113|sensory over-responsivity to sounds|MISOPHONIA|diagnosis 
+20114|sensory over responsivity to sounds|MISOPHONIA|diagnosis
+20115|borderline traits|BTRAITS|symptom
+20116|borderline behavior|BTRAITS|symptom
+20117|borderline character|BTRAITS|symptom
+20118|borderline personality traits|BTRAITS|symptom
+20119|borderline personality symptoms|BTRAITS|symptom
+20120|antisocial traits|BTRAITS|symptom
+20121|antisocial behavior|BTRAITS|symptom
+20122|antisocial character|BTRAITS|symptom
+20123|antisocial traits|BTRAITS|symptom
+20124|antisocial personality traits|BTRAITS|symptom
+20125|antisocial personality symptoms|BTRAITS|symptom
+20126|histrionic traits|BTRAITS|symptom
+20127|histrionic behavior|BTRAITS|symptom
+20128|histrionic personality traits|BTRAITS|symptom
+20129|histrionic personality symptoms|BTRAITS|symptom
+20130|psychoinfantile personality traits|BTRAITS|symptom 
+20134|psychoinfantile traits|BTRAITS|symptom
+20135|psychoinfantile character|BTRAITS|symptom
+20136|psychoinfantile behavior|BTRAITS|symptom
+20137|psychoinfantile personality symptoms|BTRAITS|symptom
+20138|narcissistic traits|BTRAITS|symptom
+20139|narcissistic behavior|BTRAITS|symptom
+20140|narcissistic character|BTRAITS|symptom
+20141|narcissistic personality traits|BTRAITS|symptom
+20142|narcissistic personality symptoms|BTRAITS|symptom
+20143|emotionally unstable personality traits|BTRAITS|symptom
+20144|emotionally unstable personality symptoms|BTRAITS|symptom
+20145|cluster b traits|BTRAITS|symptom
+20146|cluster b behavior|BTRAITS|symptom
+20147|cluster b character|BTRAITS|symptom
+20148|cluster b personality traits|BTRAITS|symptom
+20149|cluster b personality symptoms|BTRAITS|symptom
+20150|body dysmorphic-like disorder with actual flaws|BDD|diagnosis 
+20151|body dysmorphic like disorder with actual flaws|BDD|diagnosis
+20152|body dysmorphic-like disorder without repetitive behaviors|BDD|diagnosis
+20153|body dysmorphic like disorder without repetitive behaviors|BDD|diagnosis
+20154|body image disfunction|BDD|diagnosis 
+20155|body image dysfunction|BDD|diagnosis
+20160|body image disorder|BDD|diagnosis
+20161|nondelusional dysmorphophobia|BDD|diagnosis
+20162|dysmorphophobia|BDD|diagnosis
+20163|distortion corporeal|BDD|diagnosis
+20164|disorder body image|BDD|diagnosis
+20165|preoccupation with imagined physical defect|BDD|diagnosis
+20166|distortion personal|BDD|diagnosis
+20167|body dysmorphic disorder|BDD|diagnosis
+20168|dysmorphic syndrome|BDD|diagnosis
+20169|imagined ugliness|BDD|diagnosis
+20170|body dysmorphia|BDD|diagnosis
+20171|mutilatory disorder of the body image|BDD|diagnosis
+20172|self-perception disorder|BDD|diagnosis 
+20173|self perception disorder|BDD|diagnosis
+20174|gaming disorder|GAMINGDO|diagnosis
+20175|gaming addiction|GAMINGDO|diagnosis
+20176|disorder gaming|GAMINGDO|diagnosis
+20177|compulsive gaming disorder|GAMINGDO|diagnosis
+20178|pathological gaming|GAMINGDO|diagnosis
+20179|internet addiction|GAMINGDO|diagnosis
+20180|internet use disorder|GAMINGDO|diagnosis
+20181|problematic internet use|GAMINGDO|diagnosis
+20182|problematic video game use|GAMINGDO|diagnosis
+20183|video game addiction|GAMINGDO|diagnosis
+20184|video game use disorder|GAMINGDO|diagnosis
+20185|video game disorder|GAMINGDO|diagnosis 
+20186|disorder video game|GAMINGDO|diagnosis
+20187|disorder internet use|GAMINGDO|diagnosis
+20188|addiction gaming|GAMINGDO|diagnosis
+20189|addiction video gaming|GAMINGDO|diagnosis
+20190|addiction video game use|GAMINGDO|diagnosis
+20191|addiction internet use|GAMINGDO|diagnosis
+20192|internet gaming disorder|GAMINGDO|diagnosis 
+20193|disorder internet gaming|GAMINGDO|diagnosis
+20194|disorders internet gaming|GAMINGDO|diagnosis
+20195|gaming disorder internet|GAMINGDO|diagnosis
+20196|gaming disorder predominantly offline|GAMINGDO|diagnosis
+20197|gaming disorder predominantly online|GAMINGDO|diagnosis
+20198|impulse control disorder gaming|GAMINGDO|diagnosis 
+20199|gaming impulse control disorder|GAMINGDO|diagnosis
+20200|gambling disorder|GAMBLINGDO|diagnosis
+20201|disordered gambling|GAMBLINGDO|diagnosis
+20202|gambling use disorder|GAMBLINGDO|diagnosis
+20203|problem gambling|GAMBLINGDO|diagnosis
+20204|problematic gambling|GAMBLINGDO|diagnosis
+20205|ludomania|GAMBLINGDO|diagnosis
+20206|gambling disorder|GAMBLINGDO|diagnosis
+20207|gambling addiction|GAMBLINGDO|diagnosis
+20208|disorder gambling|GAMBLINGDO|diagnosis
+20209|addiction gambling|GAMBLINGDISORDER|diagnosis
+20210|pathological gambling|GAMBLINGDO|diagnosis
+20211|compulsive gambling|GAMBLINGDO|diagnosis
+20212|impulse control disorder gambling|GAMBLINGDO|diagnosis 
+20213|gambling impulse control disorder|GAMBLINGDO|diagnosis
+20214|behavioral addiction|BEHAVIORAD|diagnosis
+20215|behavior addiction|BEHAVIORAD|diagnosis
+20216|process addiction|BEHAVIORAD|diagnosis
+20217|process addictions|BEHAVIORAD|diagnosis
+20218|addictive behaviors|BEHAVIORAD|diagnosis
+20219|non-substance-related disorder|BEHAVIORAD|diagnosis 
+20220|non-substance related disorder|BEHAVIORAD|diagnosis 
+20221|non substance-related disorder|BEHAVIORAD|diagnosis 
+20222|non substance related disorder|BEHAVIORAD|diagnosis 
+20223|hypersexual disorder|BEHAVIORAD|diagnosis 
+20224|sex addiction|BEHAVIORAD|diagnosis
+20225|addiction behavioral|BEHAVIORAD|diagnosis
+20226|addiction behavioural|BEHAVIORAD|diagnosis 
+20227|behavioural addiction|BEHAVIORAD|diagnosis
+20228|compulsive sexual behavior disorder|BEHAVIORAD|diagnosis
+20229|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis 
+20230|disorders due to addictive behavior|BEHAVIORAD|diagnosis
+20231|disorders due to addictive behaviour|BEHAVIORAD|diagnosis 
+20232|disorder due to addictive behavior|BEHAVIORAD|diagnosis
+20234|disorder due to addictive behaviour|BEHAVIORAD|diagnosis
+20235|compulsive sexual behaviour disorder|BEHAVIORAD|diagnosis
