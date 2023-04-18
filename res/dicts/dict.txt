@@ -1,6 +1,7 @@
 1|.|DOT|boundry
 2|,|PUNCT|boundry
 3|;|DOT|boundry
+208|old|HX|modifier
 209|hx|HX|modifier
 210|h/o|HX|modifier
 211|history|HX|modifier
@@ -239,7 +240,6 @@
 1008|track marks|IDU|selfharm
 1009|iv drug use|IDU|selfharm
 1010|iv drug abuse|IDU|selfharm
-1011|heroin addict|IDU|selfharm
 1012|skin popping|IDU|selfharm
 1013|iv drug user|IDU|selfharm
 1014|iv heroin|IDU|selfharm
@@ -252,11 +252,9 @@
 1023|syringe service program|IDU|selfharm
 1024|counseled on safer injection|IDU|selfharm
 1025|drugs by injection|IDU|selfharm
-1026|drug paraphenalia|IDU|selfharm
 1027|speedball|IDU|selfharm
 1028|speedballing|IDU|selfharm
 1029|dirty needle|IDU|selfharm
-1030|hypodermic needle|IDU|selfharm
 1031|illicit iv drug|IDU|selfharm
 1032|iv drug paraphernalia|IDU|selfharm
 1033| idu|IDU|selfharm
@@ -277,29 +275,147 @@
 2015|insomnia|COVID|symptom
 2017|hyposmia|COVID|symptom
 2018|dysgeusia|COVID|symptom
-3000|xylazine|TRANQ|drug
-3001|sedazin|TRANQ|drug
-3002|chanazine|TRANQ|drug
-3003|xylamed|TRANQ|drug
-3004|rompun|TRANQ|drug
-3005|sedazine|TRANQ|drug
-3006| anased|TRANQ|drug
-3007|dexmedetomidine|TRANQ|drug
-3008|medetomidine|TRANQ|drug
-3009| tranq |TRANQ|drugslang
-3010|philly dope|TRANQ|drugslang
-3011|zombie drug|TRANQ|drugslang
-3012|sleep cut|TRANQ|drug|TRANQ|drugslang
-3013|de caballo|TRANQ|drugslang
-3014|cardi b |TRANQ|drugslang
-3015|collateral damage|TRANQ|drugslang
-3016|steph curry|TRANQ|drugslang
-3017|tranq dope|TRANQ|drugslang
-3018|rampage|TRANQ|drugslang
-3019|black mask|TRANQ|drugslang
-3020|trashcan|TRANQ|drugslang
-3021|sleep-cut|TRANQ|drugslang
+3000|xylazine|XYLA|drug
+3001|sedazin|XYLA|drug
+3002|chanazine|XYLA|drug
+3003|xylamed|XYLA|drug
+3004|rompun|XYLA|drug
+3005|sedazine|XYLA|drug
+3006| anased|XYLA|drug
+3007|dexmedetomidine|A2AG|drug
+3008|medetomidine|A2AG|drug
+3009| tranq |XYLA|drugslang
+3010|philly dope|XYLA|drugslang
+3011|zombie drug|XYLA|drugslang
+3012|sleep cut|XYLA|drugslang
+3013|de caballo|XYLA|drugslang
+3014|cardi b |XYLA|drugslang
+3015|collateral damage|XYLA|drugslang
+3016|steph curry|XYLA|drugslang
+3017|tranq dope|XYLA|drugslang
+3018|rampage|XYLA|drugslang
+3019|black mask|XYLA|drugslang
+3020|trashcan|XYLA|drugslang
+3021|sleep-cut|XYLA|drugslang
+3022|cylazeen|XYLA|drugms
+3023|cylazen|XYLA|drugms
+3024|cylazene|XYLA|drugms
+3025|cylazin|XYLA|drugms
+3026|cylazine|XYLA|drugms
+3027|cylizin|XYLA|drugms
+3028|cylizine|XYLA|drugms
+3029|cylyzeen|XYLA|drugms
+3030|cylyzen|XYLA|drugms
+3031|cylyzene|XYLA|drugms
+3032|cylyzin|XYLA|drugms
+3033|cylyzine|XYLA|drugms
+3034|cylyzyn|XYLA|drugms
+3035|cylyzyne|XYLA|drugms
+3036|sylazeen|XYLA|drugms
+3037|sylazen|XYLA|drugms
+3038|sylazene|XYLA|drugms
+3039|sylazin|XYLA|drugms
+3040|sylazine|XYLA|drugms
+3041|sylizin|XYLA|drugms
+3042|sylizine|XYLA|drugms
+3043|sylyzeen|XYLA|drugms
+3044|sylyzen|XYLA|drugms
+3045|sylyzene|XYLA|drugms
+3046|sylyzin|XYLA|drugms
+3047|sylyzine|XYLA|drugms
+3048|sylyzyn|XYLA|drugms
+3049|sylyzyne|XYLA|drugms
+3050|xilaxeen|XYLA|drugms
+3051|xilaxin|XYLA|drugms
+3052|xilaxine|XYLA|drugms
+3053|xilizeen|XYLA|drugms
+3054|xilazin|XYLA|drugms
+3055|xilazine|XYLA|drugms
+3056|xilixeen|XYLA|drugms
+3057|xilixen|XYLA|drugms
+3058|xilixene|XYLA|drugms
+3059|xilizeen|XYLA|drugms
+3060|xilizen|XYLA|drugms
+3061|xilizene|XYLA|drugms
+3062|xilizin|XYLA|drugms
+3063|xilizine|XYLA|drugms
+3064|xylaxeen|XYLA|drugms
+3065|xylaxin|XYLA|drugms
+3066|xylaxine|XYLA|drugms
+3067|xylazeen|XYLA|drugms
+3068|xylazen|XYLA|drugms
+3069|xylazene|XYLA|drugms
+3070|xylixeen|XYLA|drugms
+3071|xylixin|XYLA|drugms
+3072|xylixine|XYLA|drugms
+3073|xylizeen|XYLA|drugms
+3074|xylizene|XYLA|drugms
+3075|xylizen|XYLA|drugms
+3076|xylizeen|XYLA|drugms
+3077|xylizin|XYLA|drugms
+3078|xylizine|XYLA|drugms
+3079|xylyzeen|XYLA|drugms
+3080|xylyzen|XYLA|drugms
+3081|xylyzene|XYLA|drugms
+3082|xylyzin|XYLA|drugms
+3083|xylyzine|XYLA|drugms
+3084|zilaxeen|XYLA|drugms
+3085|zilaxen|XYLA|drugms
+3086|zilaxene|XYLA|drugms
+3087|zilazeen|XYLA|drugms
+3088|zilazen|XYLA|drugms
+3089|zilazene|XYLA|drugms
+3090|zilixeen|XYLA|drugms
+3091|zilaxen|XYLA|drugms
+3092|zilaxene|XYLA|drugms
+3093|zilizeen|XYLA|drugms
+3094|zilazen|XYLA|drugms
+3095|zilazene|XYLA|drugms
+3096|zilazin|XYLA|drugms
+3097|zilazine|XYLA|drugms
+3098|zilixeen|XYLA|drugms
+3099|zilixen|XYLA|drugms
+3100|zilixene|XYLA|drugms
+3101|zilizeen|XYLA|drugms
+3102|zilizen|XYLA|drugms
+3103|zilizene|XYLA|drugms
+3104|zilizin|XYLA|drugms
+3105|zilizine|XYLA|drugms
+3106|zilyzeen|XYLA|drugms
+3107|zilyzen|XYLA|drugms
+3108|zilyzene|XYLA|drugms
+3109|zylaxeen|XYLA|drugms
+3110|zylaxen|XYLA|drugms
+3111|zylaxene|XYLA|drugms
+3112|zylazeen|XYLA|drugms
+3113|zylazen|XYLA|drugms
+3114|zylazene|XYLA|drugms
+3115|zylazin|XYLA|drugms
+3116|zylazine|XYLA|drugms
+3117|zylazyn|XYLA|drugms
+3118|zylazyne|XYLA|drugms
+3119|zylezeen|XYLA|drugms
+3120|zylezen|XYLA|drugms
+3121|zylezene|XYLA|drugms
+3122|zylizeen|XYLA|drugms
+3123|zylezin|XYLA|drugms
+3124|zylezine|XYLA|drugms
+3125|zylizeen|XYLA|drugms
+3126|zylizen|XYLA|drugms
+3127|zylizene|XYLA|drugms
+3128|zylizin|XYLA|drugms
+3129|zylizine|XYLA|drugms
+3130|zylyzeen|XYLA|drugms
+3131|zylyzen|XYLA|drugms
+3132|zylyzene|XYLA|drugms
+3133|zylyzin|XYLA|drugms
+3134|zylyzine|XYLA|drugms
 4000|pdmp|PDMP|query
+4001|prescription(s) filled outside|PDMP|response1
+4002|do not raise signifigant safety concerns|PDMP|response2
+4003|concerns will be discussed with the patient|PDMP|response3
+4004|va are noted and will be addressed as|PDMP|response4
+4010|controlled substances outside|PDMP|response
 5000|access to firearm|LETHALMEANS|selfharm
 5001|access to gun|LETHALMEANS|selfharm
 5002|access to handgun|LETHALMEANS|selfharm
