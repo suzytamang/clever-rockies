@@ -11,6 +11,33 @@ WORKERS=8
 
 # below weshow an example bash command for Step 2, tagging of text.  Each example corresponds with a different target clinical practice.
 
+# xylazine
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets XYLA --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/XYLA --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# prescription drug monitoring program
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets PDMP --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/PDMP --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# caffine use disorder                                                                                                         
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets CAFFINEDO --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/CAFFINEDO --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# cluster b traits
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets BTRAITS --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/BTRAITS --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# body dismorphic disorder
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets BDD --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/BDD --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# gaming disorder
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets GAMINGDO --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/GAMINGDO --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# gambline disorder
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets GAMBLINGDO --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/GAMBLINGDO --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# other behavioral addiction
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets BEHAVIORAD --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/BEHAVIORAD --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
+# misophonia                                                                                                                                  
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets MISOPHONIA --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/MISOPHONIA --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
 # injection drug use
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets IDU --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/IDU --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
@@ -20,10 +47,7 @@ python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets
 # lives alone
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets LIVESALONE --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/LIVESALONE --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
-# PDMP
-python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets PDMP --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/PDMP --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
-
-# jobinstable
+# job instable
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets JOBINSTABLE --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/JOBINSTABLE --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
 # sexual trauma
