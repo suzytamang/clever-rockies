@@ -49,16 +49,17 @@ with open(fins) as f:
         gender = tmpe[17]
         upcode = tmpe[18]
         snippet = tmpe[len(tmpe)-1]
-        # add the snippet offset to the output field "noteAndSnippetOffset"
-        x = term_offsets(longseq, snippet)
-        termid = termid+":"+str(x)
-        #print(termid, longseq, snippet)
+        # SNIPPET POSTPROCESSING
         # remove the first and last token in the snippet to help readability"
         tokens = snippet.split(" ")
         if len(tokens) >= 3:
                 tmp = snippet.rsplit(' ', 1)[0]
                 tmp = ' '.join(tmp.split()[2:])
                 snippet = "SNIPPET:"+tmp
+        # add the snippet offset to the output field "noteAndSnippetOffset"
+        x = term_offsets(longseq, snippet)
+        termid = termid+":"+str(x)
+        #print(termid, longseq, snippet)
         #print(termid,longseq,snippet)
                 
         sum_out = label[0]+"|"+cid+"|"+longseq+"|"+tterm+"|"+pid+"|"+nid+"|"+ntype+"|"+time+"|"+year+"|"+tclass+"|"+tsclass+"|"+noffset+"|"+termid+"|"+snippet+"|"+upcode
