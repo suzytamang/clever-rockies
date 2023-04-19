@@ -1,235 +1,238 @@
 1|.|DOT|boundry
 2|,|PUNCT|boundry
 3|;|DOT|boundry
-208|old|HX|modifier
-209|hx|HX|modifier
-210|h/o|HX|modifier
-211|history|HX|modifier
-212|prior|HX|modifier
-213|ho|HX|modifier
-215|past|HX|modifier
-216|has had|HX|modifier
-218|former|HX|modifier
-219|strongly argues against|NEGEX|modifier
-221|absence|NEGEX|modifier
-222|absent|NEGEX|modifier
-233|argue against|NEGEX|modifier
-234|argues against|NEGEX|modifier
-235|argues strongly against|NEGEX|modifier
-236|arguing against|NEGEX|modifier
-244|but without|NEGEX|modifier
-245|ruled out|NEGEX|modifier
-246|rule out|NEGEX|modifier
-247|rule her out|NEGEX|modifier
-250|rule him out|NEGEX|modifier
-258|can rule the patinet out for|NEGEX|modifier
-259|can't remember|NEGEX|modifier
-260|cannot|NEGEX|modifier
-262|checked for|NEGEX|modifier
-263|could be ruled out|NEGEX|modifier
-264|could be ruled out for|NEGEX|modifier
-265|declined|NEGEX|modifier
-266|declines|NEGEX|modifier
-269|denied|NEGEX|modifier
-271|denies|NEGEX|modifier
-276|deny|NEGEX|modifier
-277|denying|NEGEX|modifier
-328|negative|NEGEX|modifier
-331|not|NEGEX|modifier
-332|none|NEGEX|modifier
-333|never|NEGEX|modifier
-334|no|NEGEX|modifier
-12|aunt|FAM|modifier
-13|aunt's|FAM|modifier
-14|aunts|FAM|modifier
-15|aunts'|FAM|modifier
-16|boyfriend|FAM|modifier
-17|boyfriend's|FAM|modifier
-18|boyfriends|FAM|modifier
-19|boyfriends'|FAM|modifier
-20|bride|FAM|modifier
-21|bride's|FAM|modifier
-22|bridegroom|FAM|modifier
-23|bridegroom's|FAM|modifier
-24|bridegrooms|FAM|modifier
-25|bridegrooms'|FAM|modifier
-26|brides|FAM|modifier
-27|brides'|FAM|modifier
-28|brother|FAM|modifier
-29|brother-in-law|FAM|modifier
-30|brother-in-law's|FAM|modifier
-31|brother-in-laws'|FAM|modifier
-32|brother's|FAM|modifier
-33|brothers|FAM|modifier
-34|brothers-in-law|FAM|modifier
-35|brothers'|FAM|modifier
-36|child|FAM|modifier
-37|child's|FAM|modifier
-38|children|FAM|modifier
-39|childs|FAM|modifier
-40|childs'|FAM|modifier
-41|cousin|FAM|modifier
-42|cousin's|FAM|modifier
-43|cousins|FAM|modifier
-44|cousins'|FAM|modifier
-45|dad|FAM|modifier
-46|dad's|FAM|modifier
-47|dads|FAM|modifier
-48|dads'|FAM|modifier
-49|daughter|FAM|modifier
-50|daughter-in-law|FAM|modifier
-51|daughter-in-law's|FAM|modifier
-52|daughter-in-laws'|FAM|modifier
-53|daughter's|FAM|modifier
-54|daughters|FAM|modifier
-55|daughters-in-law|FAM|modifier
-56|daughters'|FAM|modifier
-57|family|FAM|modifier
-58|family member|FAM|modifier
-59|father|FAM|modifier
-60|father-in-law|FAM|modifier
-61|father-in-law's|FAM|modifier
-62|father-in-laws'|FAM|modifier
-63|father's|FAM|modifier
-64|fathers|FAM|modifier
-65|fathers-in-law|FAM|modifier
-66|fathers'|FAM|modifier
-67|fiance|FAM|modifier
-68|fiance's|FAM|modifier
-69|fiancee|FAM|modifier
-70|fiancee's|FAM|modifier
-71|fiancees|FAM|modifier
-72|fiancees'|FAM|modifier
-73|fiances|FAM|modifier
-74|fiances'|FAM|modifier
-75|girlfriend|FAM|modifier
-76|girlfriend's|FAM|modifier
-77|girlfriends|FAM|modifier
-78|girlfriends'|FAM|modifier
-79|godchild|FAM|modifier
-80|godchild's|FAM|modifier
-81|godchildren|FAM|modifier
-82|godchilds|FAM|modifier
-83|godchilds'|FAM|modifier
-84|goddaughter|FAM|modifier
-85|goddaughter's|FAM|modifier
-86|goddaughters|FAM|modifier
-87|goddaughters'|FAM|modifier
-88|godfather|FAM|modifier
-89|godfather's|FAM|modifier
-90|godfathers|FAM|modifier
-91|godfathers'|FAM|modifier
-92|godmother|FAM|modifier
-93|godmother's|FAM|modifier
-94|godmothers|FAM|modifier
-95|godmothers'|FAM|modifier
-96|godson|FAM|modifier
-97|godson's|FAM|modifier
-98|godsons|FAM|modifier
-99|godsons'|FAM|modifier
-100|grandchild|FAM|modifier
-101|grandchild's|FAM|modifier
-102|grandchilds|FAM|modifier
-103|grandchilds'|FAM|modifier
-104|granddad|FAM|modifier
-105|granddad's|FAM|modifier
-106|granddads|FAM|modifier
-107|granddads'|FAM|modifier
-108|granddaughter|FAM|modifier
-109|granddaughter's|FAM|modifier
-110|granddaughters|FAM|modifier
-111|granddaughters'|FAM|modifier
-112|grandfather|FAM|modifier
-113|grandfather's|FAM|modifier
-114|grandfathers|FAM|modifier
-115|grandfathers'|FAM|modifier
-116|grandma|FAM|modifier
-117|grandma's|FAM|modifier
-118|grandmas|FAM|modifier
-119|grandmas'|FAM|modifier
-120|grandmother|FAM|modifier
-121|grandmother's|FAM|modifier
-122|grandmothers|FAM|modifier
-123|grandmothers'|FAM|modifier
-124|grandpa|FAM|modifier
-125|grandpa's|FAM|modifier
-126|grandparent|FAM|modifier
-127|grandpas|FAM|modifier
-128|grandpas'|FAM|modifier
-129|grandson|FAM|modifier
-130|grandson's|FAM|modifier
-131|grandsons|FAM|modifier
-132|grandsons'|FAM|modifier
-133|granny|FAM|modifier
-134|granny's|FAM|modifier
-135|grannys|FAM|modifier
-136|grannys'|FAM|modifier
-137|groom|FAM|modifier
-138|groom's|FAM|modifier
-139|grooms|FAM|modifier
-140|grooms'|FAM|modifier
-141|husband|FAM|modifier
-142|husband's|FAM|modifier
-143|husbands|FAM|modifier
-144|husbands'|FAM|modifier
-145|mom|FAM|modifier
-146|mom's|FAM|modifier
-147|moms|FAM|modifier
-148|moms'|FAM|modifier
-149|mother|FAM|modifier
-150|mother-in-law|FAM|modifier
-151|mother-in-law's|FAM|modifier
-152|mother-in-laws'|FAM|modifier
-153|mother's|FAM|modifier
-154|mothers|FAM|modifier
-155|mothers-in-law|FAM|modifier
-156|mothers'|FAM|modifier
-157|mum|FAM|modifier
-158|mum's|FAM|modifier
-159|mummy|FAM|modifier
-160|mummy's|FAM|modifier
-161|mummys|FAM|modifier
-162|mummys'|FAM|modifier
-163|mums|FAM|modifier
-164|mums'|FAM|modifier
-165|nephew|FAM|modifier
-166|nephew's|FAM|modifier
-167|nephews|FAM|modifier
-168|nephews'|FAM|modifier
-169|niece|FAM|modifier
-170|niece's|FAM|modifier
-171|nieces|FAM|modifier
-172|nieces'|FAM|modifier
-173|parent|FAM|modifier
-174|parent's|FAM|modifier
-175|parents|FAM|modifier
-176|parents-in-law|FAM|modifier
-177|parents-in-law's|FAM|modifier
-178|parents-in-laws'|FAM|modifier
-179|parents'|FAM|modifier
-180|sister|FAM|modifier
-181|sister-in-law|FAM|modifier
-182|sister-in-law's|FAM|modifier
-183|sister-in-laws'|FAM|modifier
-184|sister's|FAM|modifier
-185|sisters|FAM|modifier
-186|sisters-in-law|FAM|modifier
-187|sisters'|FAM|modifier
-188|son|FAM|modifier
-189|son-in-law|FAM|modifier
-190|son-in-law's|FAM|modifier
-191|son-in-laws'|FAM|modifier
-192|son's|FAM|modifier
-193|sons|FAM|modifier
-194|sons-in-law|FAM|modifier
-196|spouse|FAM|modifier
-197|spouse's|FAM|modifier
-198|spouses|FAM|modifier
-200|uncle|FAM|modifier
-202|uncles|FAM|modifier
-204|wife|FAM|modifier
-206|wifes|FAM|modifier
-208|wives|FAM|modifier
+10|old|HX|modifier
+11|hx|HX|modifier
+12|old|HX|modifier
+13|h/o|HX|modifier
+14|history|HX|modifier
+15|prior|HX|modifier
+16|ho|HX|modifier
+17|past|HX|modifier
+18|has had|HX|modifier
+19|former|HX|modifier
+20|pmhx|HX|modifier
+21|years ago|HX|modifier
+22|strongly argues against|NEGEX|modifier
+22|absence|NEGEX|modifier
+23|absent|NEGEX|modifier
+24|argue against|NEGEX|modifier
+25|argues against|NEGEX|modifier
+26|argues strongly against|NEGEX|modifier
+27|arguing against|NEGEX|modifier
+28|but without|NEGEX|modifier
+29|ruled out|NEGEX|modifier
+30|rule out|NEGEX|modifier
+31|rule her out|NEGEX|modifier
+32|rule him out|NEGEX|modifier
+33|can rule the patinet out for|NEGEX|modifier
+34|can't remember|NEGEX|modifier
+35|cannot|NEGEX|modifier
+36|checked for|NEGEX|modifier
+37|could be ruled out|NEGEX|modifier
+38|could be ruled out for|NEGEX|modifier
+39|declined|NEGEX|modifier
+40|declines|NEGEX|modifier
+50|denied|NEGEX|modifier
+51|denies|NEGEX|modifier
+52|deny|NEGEX|modifier
+53|denying|NEGEX|modifier
+54|negative|NEGEX|modifier
+55|not|NEGEX|modifier
+56|none|NEGEX|modifier
+57|never|NEGEX|modifier
+58|no|NEGEX|modifier
+112|aunt|FAM|modifier
+113|aunt's|FAM|modifier
+114|aunts|FAM|modifier
+115|aunts'|FAM|modifier
+116|boyfriend|FAM|modifier
+117|boyfriend's|FAM|modifier
+118|boyfriends|FAM|modifier
+119|boyfriends'|FAM|modifier
+120|bride|FAM|modifier
+121|bride's|FAM|modifier
+122|bridegroom|FAM|modifier
+123|bridegroom's|FAM|modifier
+124|bridegrooms|FAM|modifier
+125|bridegrooms'|FAM|modifier
+126|brides|FAM|modifier
+127|brides'|FAM|modifier
+128|brother|FAM|modifier
+129|brother-in-law|FAM|modifier
+130|brother-in-law's|FAM|modifier
+131|brother-in-laws'|FAM|modifier
+132|brother's|FAM|modifier
+133|brothers|FAM|modifier
+134|brothers-in-law|FAM|modifier
+135|brothers'|FAM|modifier
+136|child|FAM|modifier
+137|child's|FAM|modifier
+138|children|FAM|modifier
+139|childs|FAM|modifier
+140|childs'|FAM|modifier
+141|cousin|FAM|modifier
+142|cousin's|FAM|modifier
+143|cousins|FAM|modifier
+144|cousins'|FAM|modifier
+145|dad|FAM|modifier
+146|dad's|FAM|modifier
+147|dads|FAM|modifier
+148|dads'|FAM|modifier
+149|daughter|FAM|modifier
+150|daughter-in-law|FAM|modifier
+151|daughter-in-law's|FAM|modifier
+152|daughter-in-laws'|FAM|modifier
+153|daughter's|FAM|modifier
+154|daughters|FAM|modifier
+155|daughters-in-law|FAM|modifier
+156|daughters'|FAM|modifier
+157|family|FAM|modifier
+158|family member|FAM|modifier
+159|father|FAM|modifier
+160|father-in-law|FAM|modifier
+161|father-in-law's|FAM|modifier
+162|father-in-laws'|FAM|modifier
+163|father's|FAM|modifier
+164|fathers|FAM|modifier
+165|fathers-in-law|FAM|modifier
+166|fathers'|FAM|modifier
+167|fiance|FAM|modifier
+168|fiance's|FAM|modifier
+169|fiancee|FAM|modifier
+170|fiancee's|FAM|modifier
+171|fiancees|FAM|modifier
+172|fiancees'|FAM|modifier
+173|fiances|FAM|modifier
+174|fiances'|FAM|modifier
+175|girlfriend|FAM|modifier
+176|girlfriend's|FAM|modifier
+177|girlfriends|FAM|modifier
+178|girlfriends'|FAM|modifier
+179|godchild|FAM|modifier
+180|godchild's|FAM|modifier
+181|godchildren|FAM|modifier
+182|godchilds|FAM|modifier
+183|godchilds'|FAM|modifier
+184|goddaughter|FAM|modifier
+185|goddaughter's|FAM|modifier
+186|goddaughters|FAM|modifier
+187|goddaughters'|FAM|modifier
+188|godfather|FAM|modifier
+189|godfather's|FAM|modifier
+190|godfathers|FAM|modifier
+191|godfathers'|FAM|modifier
+192|godmother|FAM|modifier
+193|godmother's|FAM|modifier
+194|godmothers|FAM|modifier
+195|godmothers'|FAM|modifier
+196|godson|FAM|modifier
+197|godson's|FAM|modifier
+198|godsons|FAM|modifier
+199|godsons'|FAM|modifier
+200|grandchild|FAM|modifier
+201|grandchild's|FAM|modifier
+202|grandchilds|FAM|modifier
+203|grandchilds'|FAM|modifier
+204|granddad|FAM|modifier
+205|granddad's|FAM|modifier
+206|granddads|FAM|modifier
+207|granddads'|FAM|modifier
+208|granddaughter|FAM|modifier
+209|granddaughter's|FAM|modifier
+210|granddaughters|FAM|modifier
+211|granddaughters'|FAM|modifier
+212|grandfather|FAM|modifier
+213|grandfather's|FAM|modifier
+214|grandfathers|FAM|modifier
+215|grandfathers'|FAM|modifier
+216|grandma|FAM|modifier
+217|grandma's|FAM|modifier
+218|grandmas|FAM|modifier
+219|grandmas'|FAM|modifier
+220|grandmother|FAM|modifier
+221|grandmother's|FAM|modifier
+222|grandmothers|FAM|modifier
+223|grandmothers'|FAM|modifier
+224|grandpa|FAM|modifier
+225|grandpa's|FAM|modifier
+226|grandparent|FAM|modifier
+227|grandpas|FAM|modifier
+228|grandpas'|FAM|modifier
+229|grandson|FAM|modifier
+230|grandson's|FAM|modifier
+231|grandsons|FAM|modifier
+232|grandsons'|FAM|modifier
+233|granny|FAM|modifier
+234|granny's|FAM|modifier
+235|grannys|FAM|modifier
+236|grannys'|FAM|modifier
+237|groom|FAM|modifier
+238|groom's|FAM|modifier
+239|grooms|FAM|modifier
+240|grooms'|FAM|modifier
+241|husband|FAM|modifier
+242|husband's|FAM|modifier
+243|husbands|FAM|modifier
+244|husbands'|FAM|modifier
+245|mom|FAM|modifier
+246|mom's|FAM|modifier
+247|moms|FAM|modifier
+248|moms'|FAM|modifier
+249|mother|FAM|modifier
+250|mother-in-law|FAM|modifier
+251|mother-in-law's|FAM|modifier
+252|mother-in-laws'|FAM|modifier
+253|mother's|FAM|modifier
+254|mothers|FAM|modifier
+255|mothers-in-law|FAM|modifier
+256|mothers'|FAM|modifier
+257|mum|FAM|modifier
+258|mum's|FAM|modifier
+259|mummy|FAM|modifier
+260|mummy's|FAM|modifier
+261|mummys|FAM|modifier
+262|mummys'|FAM|modifier
+263|mums|FAM|modifier
+264|mums'|FAM|modifier
+265|nephew|FAM|modifier
+266|nephew's|FAM|modifier
+267|nephews|FAM|modifier
+268|nephews'|FAM|modifier
+269|niece|FAM|modifier
+270|niece's|FAM|modifier
+271|nieces|FAM|modifier
+272|nieces'|FAM|modifier
+273|parent|FAM|modifier
+274|parent's|FAM|modifier
+275|parents|FAM|modifier
+276|parents-in-law|FAM|modifier
+277|parents-in-law's|FAM|modifier
+278|parents-in-laws'|FAM|modifier
+279|parents'|FAM|modifier
+280|sister|FAM|modifier
+281|sister-in-law|FAM|modifier
+282|sister-in-law's|FAM|modifier
+283|sister-in-laws'|FAM|modifier
+284|sister's|FAM|modifier
+285|sisters|FAM|modifier
+286|sisters-in-law|FAM|modifier
+287|sisters'|FAM|modifier
+288|son|FAM|modifier
+289|son-in-law|FAM|modifier
+290|son-in-law's|FAM|modifier
+291|son-in-laws'|FAM|modifier
+292|son's|FAM|modifier
+293|sons|FAM|modifier
+294|sons-in-law|FAM|modifier
+296|spouse|FAM|modifier
+297|spouse's|FAM|modifier
+298|spouses|FAM|modifier
+299|uncle|FAM|modifier
+300|uncles|FAM|modifier
+301|wife|FAM|modifier
+302|wifes|FAM|modifier
+303|wives|FAM|modifier
 1000|iv heroin|IDU|selfharm
 1001|iv methamphetamine|IDU|selfharm
 1002|iv meth|IDU|selfharm
@@ -412,10 +415,9 @@
 3134|zylyzine|XYLA|drugms
 4000|pdmp|PDMP|query
 4001|prescription(s) filled outside|PDMP|response1
-4002|do not raise signifigant safety concerns|PDMP|response2
+4002|do not raise significant safety concerns|PDMP|response2
 4003|concerns will be discussed with the patient|PDMP|response3
 4004|va are noted and will be addressed as|PDMP|response4
-4010|controlled substances outside|PDMP|response
 5000|access to firearm|LETHALMEANS|selfharm
 5001|access to gun|LETHALMEANS|selfharm
 5002|access to handgun|LETHALMEANS|selfharm
@@ -592,7 +594,7 @@
 9024|prisoners|JUSTICE|sdoh
 9025|problem related to release from prison|JUSTICE|sdoh
 9026|problems related to release from prison|JUSTICE|sdoh
-9032|legal problems|JUSTICE|sdoh
+9032|legal problem|JUSTICE|sdoh
 9033|child custody|JUSTICE|sdoh
 9034|messy divorce|JUSTICE|sdoh
 10000|502 military sexual trauma|STRAUMA|sdoh
