@@ -1,6 +1,6 @@
 #TODO: Remove output to screen.
 
-import os, sys
+import os, sys, re
 from ruleFcns import *
 
 ppath = sys.argv[1]
@@ -49,13 +49,22 @@ with open(fins) as f:
         gender = tmpe[17]
         upcode = tmpe[18]
         snippet = tmpe[len(tmpe)-1]
-        # label|snippetID|term|sta3n|TIUdocumentSID|TIUstandardTitle|visitSID|referenceDateTime|PatientSID|targetClass|targetSubClass|NoteAndSnipOffset|termID|snippet|upcode
+        # add the snippet offset to the output field "noteAndSnippetOffset"
+        x = term_offsets(longseq, snippet)
+        termid = termid+":"+str(x)
+        #print(termid, longseq, snippet)
+        # remove the first and last token in the snippet to help readability"
+        tokens = snippet.split(" ")
+        if len(tokens) >= 3:
+                tmp = snippet.rsplit(' ', 1)[0]
+                tmp = ' '.join(tmp.split()[2:])
+                snippet = "SNIPPET:"+tmp
+        #print(termid,longseq,snippet)
+                
         sum_out = label[0]+"|"+cid+"|"+longseq+"|"+tterm+"|"+pid+"|"+nid+"|"+ntype+"|"+time+"|"+year+"|"+tclass+"|"+tsclass+"|"+noffset+"|"+termid+"|"+snippet+"|"+upcode
-        #sum_out = label[0]+"|"+cid+"|"+tseq+"|"+longseq+"|"+tterm+"|"+pid+"|"+nid+"|"+ntype+"|"+time+"|"+year+"|"+tclass+"|"+tsclass+"|"+noffset+"|"+termid+"|"+tags+"|"+age+"|"+gender+"|"+snippet+"|"+upcode
+
         long_out =  label[0]+"|"+label[1]+"|"+tmp
-        # new format: 
-        #Old format: Label|Term|PatientSID|sta3n|referenceDateTime|TIUdocumentSID|NoteAndSnipOffset|NLPConcept|TIUstandardTitle|NSection|CSEQ|TSEQ|Snippet
-        #print(long_out)
+
         tmpE = ""
         if label[0] == "POSITIVE":
                 print(sum_out, file=fout_pos)
