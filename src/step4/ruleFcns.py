@@ -1,6 +1,14 @@
-import os, sys, glob
+import os, sys, glob, re
 
 # S372-DM|COLON_COLON_COLON_HX_COLON_HX_#DM#_PUNCT_DM-NEURO_HX_HX_DOT|COLON_COLON_COLON_HX_COLON_HX_#DM#_PUNCT_DM-NEURO_HX_HX_DOT|diabetes|995|42562|"Nursing/Other"|3166-07-11 17:49:00 EST|XXXX|DM|1188|206|UK|NULL|colon:COLON:1:82:-124,colon:COLON:1:108:-98,colon:COLON:1:119:-87,history of:HX:746:127:-79,colon:COLON:1:153:-53,history of:HX:746:195:-11,comma:PUNCT:6:230:24,neuropathy:DM-NEURO:1204:250:44,ho:HX:745:262:56,history:HX:747:291:85,period:DOT:2:327:121|SNIPPET: h:   [**3113-9-8**]     Sex:  MService:  C MEDHISTORY OF PRESENT ILLNESS:  This is a 53-year-old white malewith a history of diabetes mellitus type 2, hypertension,with neuropathy who presented with a four day history ofchest pain and diaphoresis.  Of note,
+def term_offsets(term, string):
+    string_lower = string.lower()
+    pattern = re.compile(re.escape(term))
+    offsets = []
+    for match in pattern.finditer(string_lower):
+        offsets.append(match.start())
+    return offsets
+
 
 def assignLabel(cevent,trigs_list):
     sem = 1
