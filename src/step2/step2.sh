@@ -14,6 +14,9 @@ WORKERS=8
 # xylazine
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets XYLA --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/XYLA --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
+# alpha 2 agonists
+python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets A2AG --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/A2AG --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
 # prescription drug monitoring program
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets PDMP --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/PDMP --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
@@ -35,7 +38,7 @@ python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets
 # other behavioral addiction
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets BEHAVIORAD --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/BEHAVIORAD --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
-# misophonia                                                                                                                                  
+#misophonia                                                                                                                                  
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets MISOPHONIA --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/MISOPHONIA --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
 # injection drug use
