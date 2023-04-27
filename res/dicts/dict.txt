@@ -414,7 +414,7 @@
 3133|zylyzin|XYLA|drugms
 3134|zylyzine|XYLA|drugms
 4000|pdmp|PDMP|query
-4001|prescription(s) filled outside|PDMP|response1
+4001|controlled substances outside of the VA|PDMP|response1
 4002|do not raise significant safety concerns|PDMP|response2
 4003|concerns will be discussed with the patient|PDMP|response3
 4004|va are noted and will be addressed as|PDMP|response4
