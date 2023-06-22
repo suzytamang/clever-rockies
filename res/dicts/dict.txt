@@ -851,7 +851,6 @@
 20173|self perception disorder|BDD|diagnosis
 20174|gaming disorder|GAMINGDO|diagnosis
 20175|gaming addiction|GAMINGDO|diagnosis
-20176|disorder gaming|GAMINGDO|diagnosis
 20177|compulsive gaming disorder|GAMINGDO|diagnosis
 20178|pathological gaming|GAMINGDO|diagnosis
 20179|internet addiction|GAMINGDO|diagnosis
@@ -861,15 +860,7 @@
 20183|video game addiction|GAMINGDO|diagnosis
 20184|video game use disorder|GAMINGDO|diagnosis
 20185|video game disorder|GAMINGDO|diagnosis 
-20186|disorder video game|GAMINGDO|diagnosis
-20187|disorder internet use|GAMINGDO|diagnosis
-20188|addiction gaming|GAMINGDO|diagnosis
-20189|addiction video gaming|GAMINGDO|diagnosis
-20190|addiction video game use|GAMINGDO|diagnosis
-20191|addiction internet use|GAMINGDO|diagnosis
 20192|internet gaming disorder|GAMINGDO|diagnosis 
-20193|disorder internet gaming|GAMINGDO|diagnosis
-20194|disorders internet gaming|GAMINGDO|diagnosis
 20195|gaming disorder internet|GAMINGDO|diagnosis
 20196|gaming disorder predominantly offline|GAMINGDO|diagnosis
 20197|gaming disorder predominantly online|GAMINGDO|diagnosis
@@ -883,8 +874,6 @@
 20205|ludomania|GAMBLINGDO|diagnosis
 20206|gambling disorder|GAMBLINGDO|diagnosis
 20207|gambling addiction|GAMBLINGDO|diagnosis
-20208|disorder gambling|GAMBLINGDO|diagnosis
-20209|addiction gambling|GAMBLINGDISORDER|diagnosis
 20210|pathological gambling|GAMBLINGDO|diagnosis
 20211|compulsive gambling|GAMBLINGDO|diagnosis
 20212|impulse control disorder gambling|GAMBLINGDO|diagnosis 
