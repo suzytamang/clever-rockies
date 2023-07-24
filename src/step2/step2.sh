@@ -32,7 +32,7 @@ python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets
 # gaming disorder
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets GAMINGDO --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/GAMINGDO --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
-# gambline disorder
+# gambling disorder
 python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets GAMBLINGDO --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/GAMBLINGDO --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
 # other behavioral addiction
