@@ -861,9 +861,6 @@
 20184|video game use disorder|GAMINGDO|diagnosis
 20185|video game disorder|GAMINGDO|diagnosis 
 20192|internet gaming disorder|GAMINGDO|diagnosis 
-20195|gaming disorder internet|GAMINGDO|diagnosis
-20196|gaming disorder predominantly offline|GAMINGDO|diagnosis
-20197|gaming disorder predominantly online|GAMINGDO|diagnosis
 20198|impulse control disorder gaming|GAMINGDO|diagnosis 
 20199|gaming impulse control disorder|GAMINGDO|diagnosis
 20200|gambling disorder|GAMBLINGDO|diagnosis
@@ -872,7 +869,6 @@
 20203|problem gambling|GAMBLINGDO|diagnosis
 20204|problematic gambling|GAMBLINGDO|diagnosis
 20205|ludomania|GAMBLINGDO|diagnosis
-20206|gambling disorder|GAMBLINGDO|diagnosis
 20207|gambling addiction|GAMBLINGDO|diagnosis
 20210|pathological gambling|GAMBLINGDO|diagnosis
 20211|compulsive gambling|GAMBLINGDO|diagnosis
