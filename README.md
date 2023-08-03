@@ -7,10 +7,10 @@ Suzanne Tamang
 Manual 
 Tanya
 
-Continued Developent Team
+Continued Developiment Team
 Suzanne Tamang
-Asqar 
-Ester Meerwijk
+Asqar Shotqara
+Esther Meerwijk
 
 Create an output folder.
 Run the shell scripts in each of the step folders under ./src. The scripts are provided as examples. 
