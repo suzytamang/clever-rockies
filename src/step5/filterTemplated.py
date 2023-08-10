@@ -1,4 +1,4 @@
-def templated(path, target, postfix, stoplist):
+def templated(path, target, stoplist):
 
     #NOTE: Removes templated text, mostly assessment related, sometimes medication list.
 
@@ -14,8 +14,8 @@ def templated(path, target, postfix, stoplist):
   
     for label in labels:
   
-        fin = path + target + label + postfix + ".txt"
-        fd_filtered = open(path + target + label + "_filtered.txt", "w")
+        fin = path + target + label + "_unfiltered.txt"
+        fd_filtered = open(path + target + label + ".txt", "w")
   
         try:
             with open(fin) as f:
@@ -109,22 +109,19 @@ if __name__ == "__main__":
                         help = 'path of directory where output lives')
     parser.add_argument('-t','--target', type = str, required = True, 
                         help = 'Label used for the target concept in the output directory')
-    parser.add_argument('-f','--postfix', type = str, required = True, 
-                        help = 'Postfix used for labelled snippets input file')
     parser.add_argument('-a','--assessment_terms', type = str, required = True, 
                         help = 'File with list of terms that indicate assessment')
     parser.add_argument('-o','--other_terms', type = str, required = False, default='file.txt', 
                         help = 'Optional other file with terms that should trigger dropping the snippet')
     parser.add_argument('-sp','--snippet_position', type = int, required = True, 
-                        help = 'Position of text in snippet (column number)')
+                        help = 'Position of text in snippet (one-based column number)')
     parser.add_argument('-tp','--title_position', type = int, required = True, 
-                        help = 'Position of standard title in snippet (column number)')
+                        help = 'Position of standard title in snippet (one-based column number)')
   
     args = parser.parse_args()
   
     path   = args.path
     target = args.target
-    postfix = args.postfix
     assess = args.assessment_terms
     other  = args.other_terms
     snippet_column = args.snippet_position - 1
@@ -151,4 +148,4 @@ if __name__ == "__main__":
     stoplist = assessment_terms.split("\n") + other_terms.split("\n")
     stoplist = [term for term in stoplist if term]
   
-    templated(path, target, postfix, stoplist)
+    templated(path, target, stoplist)
