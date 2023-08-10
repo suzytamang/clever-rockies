@@ -11,9 +11,9 @@ print("Processing:", fins)
 ptPEvents = {}
 ptNEvents = {}
 ptEvents = {}
-fout_pos = open(ppath+"/allPos.txt","w")
-fout_neg = open(ppath+"/allNeg.txt","w")
-fout_na = open(ppath+"/allNA.txt","w")
+fout_pos = open(ppath+"/allPos_unfiltered.txt","w")
+fout_neg = open(ppath+"/allNeg_unfiltered.txt","w")
+fout_na = open(ppath+"/allNA_unfiltered.txt","w")
 fout_all = open(ppath+"/labeledAnts.txt","w")
 trigs = ["NEGEX","HX","HYP","SCREEN","RISK","FAM","PREV"]
 
