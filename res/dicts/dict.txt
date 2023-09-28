@@ -413,7 +413,6 @@
 3132|zylyzene|XYLA|drugms
 3133|zylyzin|XYLA|drugms
 3134|zylyzine|XYLA|drugms
-4000|pdmp|PDMP|query
 4001|controlled substances outside of the VA|PDMP|response1
 4002|do not raise significant safety concerns|PDMP|response2
 4003|concerns will be discussed with the patient|PDMP|response3
@@ -706,9 +705,6 @@
 13026|unfair dismissal from job|JOBINSTABLE|sdoh
 13027|voluntary resignation|JOBINSTABLE|sdoh
 13028|without employment|JOBINSTABLE|sdoh
-14000|for controlled substances outside the VA were found|PDMP|query
-14001|filled outside the VA in the last 90 days are|PDMP|query
-14002|filled outside the VA are noted and will be addressed|PDMP|query
 15000|difficulty bathing|ADL|bathing
 15001|trouble bathing|ADL|bathing
 15002|help bathing|ADL|bathing
