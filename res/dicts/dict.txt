@@ -262,6 +262,14 @@
 1032|iv drug paraphernalia|IDU|selfharm
 1033| idu|IDU|selfharm
 1034| ivdu|IDU|selfharm
+1035|inj meth|IDU|selfharm
+1036|inj cocaine|IDU|selfharm
+1037|inj illicit|IDU|selfharm
+1038|heroin by inj|IDU|selfharm
+1039|cocaine by inj|IDU|selfharm
+1040|meth by inj|IDU|selfharm
+1041|IV stim/stimulant use|IDU|selfharm
+1042|IV opiate use|IDU|selfharm
 2000|brain fog|COVID|symptom
 2001|happy hypoxia|COVID|symptom
 2002|cognitive impairmant|COVID|symptom
