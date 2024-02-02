@@ -5,6 +5,8 @@ METADATA=/tmp/workspacezone/metadata/lastmodifieddatetime_month=202210.txt
 OUTPUT=../../output202210
 ANTS=linkedAnts.txt
 
+cd "$(dirname "$0")"
+
 python3 organize.py $OUTPUT/XYLA $LEXICON $METADATA $OUTPUT/XYLA/$ANTS
 python3 organize.py $OUTPUT/A2AG $LEXICON $METADATA $OUTPUT/A2AG/$ANTS
 python3 organize.py $OUTPUT/PDMP $LEXICON $METADATA $OUTPUT/PDMP/$ANTS
