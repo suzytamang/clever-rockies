@@ -9,6 +9,8 @@ LGCONTEXT=3
 RGCONTEXT=2
 WORKERS=8
 
+cd "$(dirname "$0")"
+
 # below weshow an example bash command for Step 2, tagging of text.  Each example corresponds with a different target clinical practice.
 
 # xylazine

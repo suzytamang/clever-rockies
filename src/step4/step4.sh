@@ -1,3 +1,5 @@
+cd "$(dirname "$0")"
+
 python cleverRules.py ../../output202210/XYLA XYLA
 python cleverRules.py ../../output202210/A2AG A2AG
 python cleverRules.py ../../output202210/PDMP PDMP
