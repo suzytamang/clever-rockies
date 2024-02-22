@@ -238,38 +238,37 @@
 1002|iv meth|IDU|selfharm
 1003|iv cocaine|IDU|selfharm
 1004|iv crack|IDU|selfharm
-1006|injection drug use|IDU|selfharm
-1007|injection drug abuse|IDU|selfharm
-1008|track marks|IDU|selfharm
-1009|iv drug use|IDU|selfharm
-1010|iv drug abuse|IDU|selfharm
-1012|skin popping|IDU|selfharm
-1013|iv drug user|IDU|selfharm
-1014|iv heroin|IDU|selfharm
-1015|overdose from idu|IDU|selfharm
-1016| ssp|IDU|selfharm
-1017| pwid|IDU|selfharm
-1018|needle kit|IDU|selfharm
-1020|sharing needle|IDU|selfharm
-1022|shared needle|IDU|selfharm
-1023|syringe service program|IDU|selfharm
-1024|counseled on safer injection|IDU|selfharm
-1025|drugs by injection|IDU|selfharm
-1027|speedball|IDU|selfharm
-1028|speedballing|IDU|selfharm
-1029|dirty needle|IDU|selfharm
-1031|illicit iv drug|IDU|selfharm
-1032|iv drug paraphernalia|IDU|selfharm
-1033| idu|IDU|selfharm
-1034| ivdu|IDU|selfharm
-1035|inj meth|IDU|selfharm
-1036|inj cocaine|IDU|selfharm
-1037|inj illicit|IDU|selfharm
-1038|heroin by inj|IDU|selfharm
-1039|cocaine by inj|IDU|selfharm
-1040|meth by inj|IDU|selfharm
-1041|IV stim/stimulant use|IDU|selfharm
-1042|IV opiate use|IDU|selfharm
+1005|injection drug use|IDU|selfharm
+1006|injection drug abuse|IDU|selfharm
+1007|track marks|IDU|selfharm
+1008|iv drug use|IDU|selfharm
+1009|iv drug abuse|IDU|selfharm
+1010|skin popping|IDU|selfharm
+1011|iv drug user|IDU|selfharm
+1012|overdose from idu|IDU|selfharm
+1013|ssp|IDU|selfharm
+1014|pwid|IDU|selfharm
+1015|needle kit|IDU|selfharm
+1016|sharing needle|IDU|selfharm
+1017|shared needle|IDU|selfharm
+1018|syringe service program|IDU|selfharm
+1019|counseled on safer injection|IDU|selfharm
+1020|drugs by injection|IDU|selfharm
+1021|speedball|IDU|selfharm
+1022|speedballing|IDU|selfharm
+1023|dirty needle|IDU|selfharm
+1024|illicit iv drug|IDU|selfharm
+1025|iv drug paraphernalia|IDU|selfharm
+1026|idu|IDU|selfharm
+1027|ivdu|IDU|selfharm
+1028|inj meth|IDU|selfharm
+1029|inj cocaine|IDU|selfharm
+1030|inj illicit|IDU|selfharm
+1031|heroin by inj|IDU|selfharm
+1032|cocaine by inj|IDU|selfharm
+1033|meth by inj|IDU|selfharm
+1034|IV stim/stimulant use|IDU|selfharm
+1035|IV opiate use|IDU|selfharm
 2000|abdominal pain|COVID|symptom
 2001|abnormal involuntary movements|COVID|symptom
 2002|activity induced shortness of breath|COVID|symptom
@@ -435,15 +434,15 @@
 3003|xylamed|XYLA|drug
 3004|rompun|XYLA|drug
 3005|sedazine|XYLA|drug
-3006| anased|XYLA|drug
+3006|anased|XYLA|drug
 3007|dexmedetomidine|A2AG|drug
 3008|medetomidine|A2AG|drug
-3009| tranq |XYLA|drugslang
+3009|tranq|XYLA|drugslang
 3010|philly dope|XYLA|drugslang
 3011|zombie drug|XYLA|drugslang
 3012|sleep cut|XYLA|drugslang
 3013|de caballo|XYLA|drugslang
-3014|cardi b |XYLA|drugslang
+3014|cardi b|XYLA|drugslang
 3015|collateral damage|XYLA|drugslang
 3016|steph curry|XYLA|drugslang
 3017|tranq dope|XYLA|drugslang
@@ -584,7 +583,7 @@
 5013|owns a gun|LETHALMEANS|selfharm
 5014|sodium nitrite|LETHALMEANS|selfharm
 5015|ar-15|LETHALMEANS|selfharm
-5015| ar15|LETHALMEANS|selfharm
+5015|ar15|LETHALMEANS|selfharm
 6000|detoxification|DETOX|sud
 6001|detox|DETOX|sud
 6017|ciwa protocol|DETOX|sud
@@ -774,8 +773,8 @@
 10025|sexual trauma during military service|STRAUMA|sdoh
 10026|sexually assaulted by service member|STRAUMA|sdoh
 10027|molested|STRAUMA|sdoh
-10028| rape|STRAUMA|sdoh
-10029| raped|STRAUMA|sdoh
+10028|rape|STRAUMA|sdoh
+10029|raped|STRAUMA|sdoh
 10030|crotch|STRAUMA|sdoh
 10031|oral sex|STRAUMA|sdoh
 10032|pornography|STRAUMA|sdoh
@@ -904,7 +903,7 @@
 20005|hypercaffeism|CAFFEINEDO|diagnosis
 20006|caffeine dependency|CAFFEINEDO|diagnosis 
 20007|caffeine dependence|CAFFEINEDO|diagnosis
-20008|stimulant use disorder (caffeine) |CAFFEINEDO|diagnosis
+20008|stimulant use disorder (caffeine)|CAFFEINEDO|diagnosis
 20009|caffeine induced anxiety disorder with mild use disorder|CAFFEINEDO|diagnosis
 20010|caffeine induced anxiety disorder with moderate use disorder|CAFFEINEDO|diagnosis
 20011|caffeine induced anxiety disorder with moderate or severe use disorder|CAFFEINEDO|diagnosis
@@ -2732,10 +2731,10 @@
 31687|ah telling him to give up|CAPACITY|0340402
 31688|ah telling me to give up|CAPACITY|0340402
 31689|ah telling them to give up|CAPACITY|0340402
-31690|ah that  tell her|CAPACITY|0340402
-31691|ah that  tell him|CAPACITY|0340402
-31692|ah that  tell me|CAPACITY|0340402
-31693|ah that  tell them|CAPACITY|0340402
+31690|ah that tell her|CAPACITY|0340402
+31691|ah that tell him|CAPACITY|0340402
+31692|ah that tell me|CAPACITY|0340402
+31693|ah that tell them|CAPACITY|0340402
 31694|ah/vh|CAPACITY|0340402
 31695|ahs and vhs|CAPACITY|0340402
 31696|alcohol abuse|CAPACITY|0340402
@@ -9295,9 +9294,9 @@
 38250|feel like i'm going to die|PPAIN|0310101
 38251|feel really melancholized|PPAIN|0310101
 38252|feel scared|PPAIN|0310101
-38253|feeling  empty|PPAIN|0310101
-38254|feeling  fucking miserable|PPAIN|0310101
-38255|feeling  horrible|PPAIN|0310101
+38253|feeling empty|PPAIN|0310101
+38254|feeling fucking miserable|PPAIN|0310101
+38255|feeling horrible|PPAIN|0310101
 38256|feeling burdened|PPAIN|0310101
 38257|feeling burnout|PPAIN|0310101
 38258|feeling dejected|PPAIN|0310101
