@@ -457,14 +457,38 @@
 5014|sodium nitrite|LETHALMEANS|selfharm
 5015|ar15|LETHALMEANS|selfharm
 5016|ar-15|LETHALMEANS|selfharm
-6000|detoxification|DETOX|sud
-6001|detox|DETOX|sud
-6002|ciwa protocol|DETOX|sud
-6003|withdrawal management|DETOX|sud
-6004|withdrawal mgmt|DETOX|sud
-6005|managed withdrawal|DETOX|sud
-6006|opioid withdrawal|DETOX|sud
-6007|cows protocol|DETOX|sud
+6000|detoxification|DETOX|nos
+6001|detox|DETOX|nos
+6002|ciwa protocol|DETOX|alc
+6003|withdrawal management|DETOX|nos
+6004|withdrawal mgmt|DETOX|nos
+6005|managed withdrawal|DETOX|nos
+6006|opioid withdrawal|DETOX|opi
+6007|cows protocol|DETOX|opi
+6008|delirium tremens|DETOX|alc
+6009|dt|DETOX|alc
+6010|dts|DETOX|alc
+6011|minds|DETOX|alc
+6012|minnesota detoxification scale|DETOX|alc
+6013|sews|DETOX|alc
+6014|severity of ethanol withdrawal scale|DETOX|alc
+6015|clinical institute withdrawal assessment|DETOX|alc
+6016|alcoholic hallucinosis|DETOX|alc
+6017|withdrawal seizures|DETOX|alc
+6018|withdrawal delirium|DETOX|alc
+6019|withdrawal szs|DETOX|alc
+6020|etoh withdrawal|DETOX|alc
+6021|aws scale|DETOX|alc
+6022|saws|DETOX|alc
+6023|aws|DETOX|alc
+6024|alcohol withdrawal|DETOX|alc
+6025|alcohol sz|DETOX|alc
+6026|detox protocol|DETOX|nos
+6027|withdrawal protocol|DETOX|nos
+6028|pawss|DETOX|alc
+6029|ciwa-ar|DETOX|alc
+6030|alcohol detox|DETOX|alc
+6031|etoh sz|DETOX|alc
 7000|difficulty obtaining food|FOODINSECURE|sdoh
 7001|does not obtain food|FOODINSECURE|sdoh
 7002|food insecurities|FOODINSECURE|sdoh
