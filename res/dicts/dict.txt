@@ -41,197 +41,435 @@
 47|none|NEGEX|modifier
 48|never|NEGEX|modifier
 49|no|NEGEX|modifier
-112|aunt|FAM|modifier
-113|aunt's|FAM|modifier
-114|aunts|FAM|modifier
-115|aunts'|FAM|modifier
-116|boyfriend|FAM|modifier
-117|boyfriend's|FAM|modifier
-118|boyfriends|FAM|modifier
-119|boyfriends'|FAM|modifier
-120|bride|FAM|modifier
-121|bride's|FAM|modifier
-122|bridegroom|FAM|modifier
-123|bridegroom's|FAM|modifier
-124|bridegrooms|FAM|modifier
-125|bridegrooms'|FAM|modifier
-126|brides|FAM|modifier
-127|brides'|FAM|modifier
-128|brother|FAM|modifier
-129|brother-in-law|FAM|modifier
-130|brother-in-law's|FAM|modifier
-131|brother-in-laws'|FAM|modifier
-132|brother's|FAM|modifier
-133|brothers|FAM|modifier
-134|brothers-in-law|FAM|modifier
-135|brothers'|FAM|modifier
-136|child|FAM|modifier
-137|child's|FAM|modifier
-138|children|FAM|modifier
-139|childs|FAM|modifier
-140|childs'|FAM|modifier
-141|cousin|FAM|modifier
-142|cousin's|FAM|modifier
-143|cousins|FAM|modifier
-144|cousins'|FAM|modifier
-145|dad|FAM|modifier
-146|dad's|FAM|modifier
-147|dads|FAM|modifier
-148|dads'|FAM|modifier
-149|daughter|FAM|modifier
-150|daughter-in-law|FAM|modifier
-151|daughter-in-law's|FAM|modifier
-152|daughter-in-laws'|FAM|modifier
-153|daughter's|FAM|modifier
-154|daughters|FAM|modifier
-155|daughters-in-law|FAM|modifier
-156|daughters'|FAM|modifier
-157|family|FAM|modifier
-158|family member|FAM|modifier
-159|father|FAM|modifier
-160|father-in-law|FAM|modifier
-161|father-in-law's|FAM|modifier
-162|father-in-laws'|FAM|modifier
-163|father's|FAM|modifier
-164|fathers|FAM|modifier
-165|fathers-in-law|FAM|modifier
-166|fathers'|FAM|modifier
-167|fiance|FAM|modifier
-168|fiance's|FAM|modifier
-169|fiancee|FAM|modifier
-170|fiancee's|FAM|modifier
-171|fiancees|FAM|modifier
-172|fiancees'|FAM|modifier
-173|fiances|FAM|modifier
-174|fiances'|FAM|modifier
-175|girlfriend|FAM|modifier
-176|girlfriend's|FAM|modifier
-177|girlfriends|FAM|modifier
-178|girlfriends'|FAM|modifier
-179|godchild|FAM|modifier
-180|godchild's|FAM|modifier
-181|godchildren|FAM|modifier
-182|godchilds|FAM|modifier
-183|godchilds'|FAM|modifier
-184|goddaughter|FAM|modifier
-185|goddaughter's|FAM|modifier
-186|goddaughters|FAM|modifier
-187|goddaughters'|FAM|modifier
-188|godfather|FAM|modifier
-189|godfather's|FAM|modifier
-190|godfathers|FAM|modifier
-191|godfathers'|FAM|modifier
-192|godmother|FAM|modifier
-193|godmother's|FAM|modifier
-194|godmothers|FAM|modifier
-195|godmothers'|FAM|modifier
-196|godson|FAM|modifier
-197|godson's|FAM|modifier
-198|godsons|FAM|modifier
-199|godsons'|FAM|modifier
-200|grandchild|FAM|modifier
-201|grandchild's|FAM|modifier
-202|grandchilds|FAM|modifier
-203|grandchilds'|FAM|modifier
-204|granddad|FAM|modifier
-205|granddad's|FAM|modifier
-206|granddads|FAM|modifier
-207|granddads'|FAM|modifier
-208|granddaughter|FAM|modifier
-209|granddaughter's|FAM|modifier
-210|granddaughters|FAM|modifier
-211|granddaughters'|FAM|modifier
-212|grandfather|FAM|modifier
-213|grandfather's|FAM|modifier
-214|grandfathers|FAM|modifier
-215|grandfathers'|FAM|modifier
-216|grandma|FAM|modifier
-217|grandma's|FAM|modifier
-218|grandmas|FAM|modifier
-219|grandmas'|FAM|modifier
-220|grandmother|FAM|modifier
-221|grandmother's|FAM|modifier
-222|grandmothers|FAM|modifier
-223|grandmothers'|FAM|modifier
-224|grandpa|FAM|modifier
-225|grandpa's|FAM|modifier
-226|grandparent|FAM|modifier
-227|grandpas|FAM|modifier
-228|grandpas'|FAM|modifier
-229|grandson|FAM|modifier
-230|grandson's|FAM|modifier
-231|grandsons|FAM|modifier
-232|grandsons'|FAM|modifier
-233|granny|FAM|modifier
-234|granny's|FAM|modifier
-235|grannys|FAM|modifier
-236|grannys'|FAM|modifier
-237|groom|FAM|modifier
-238|groom's|FAM|modifier
-239|grooms|FAM|modifier
-240|grooms'|FAM|modifier
-241|husband|FAM|modifier
-242|husband's|FAM|modifier
-243|husbands|FAM|modifier
-244|husbands'|FAM|modifier
-245|mom|FAM|modifier
-246|mom's|FAM|modifier
-247|moms|FAM|modifier
-248|moms'|FAM|modifier
-249|mother|FAM|modifier
-250|mother-in-law|FAM|modifier
-251|mother-in-law's|FAM|modifier
-252|mother-in-laws'|FAM|modifier
-253|mother's|FAM|modifier
-254|mothers|FAM|modifier
-255|mothers-in-law|FAM|modifier
-256|mothers'|FAM|modifier
-257|mum|FAM|modifier
-258|mum's|FAM|modifier
-259|mummy|FAM|modifier
-260|mummy's|FAM|modifier
-261|mummys|FAM|modifier
-262|mummys'|FAM|modifier
-263|mums|FAM|modifier
-264|mums'|FAM|modifier
-265|nephew|FAM|modifier
-266|nephew's|FAM|modifier
-267|nephews|FAM|modifier
-268|nephews'|FAM|modifier
-269|niece|FAM|modifier
-270|niece's|FAM|modifier
-271|nieces|FAM|modifier
-272|nieces'|FAM|modifier
-273|parent|FAM|modifier
-274|parent's|FAM|modifier
-275|parents|FAM|modifier
-276|parents-in-law|FAM|modifier
-277|parents-in-law's|FAM|modifier
-278|parents-in-laws'|FAM|modifier
-279|parents'|FAM|modifier
-280|sister|FAM|modifier
-281|sister-in-law|FAM|modifier
-282|sister-in-law's|FAM|modifier
-283|sister-in-laws'|FAM|modifier
-284|sister's|FAM|modifier
-285|sisters|FAM|modifier
-286|sisters-in-law|FAM|modifier
-287|sisters'|FAM|modifier
-288|son|FAM|modifier
-289|son-in-law|FAM|modifier
-290|son-in-law's|FAM|modifier
-291|son-in-laws'|FAM|modifier
-292|son's|FAM|modifier
-293|sons|FAM|modifier
-294|sons-in-law|FAM|modifier
-295|spouse|FAM|modifier
-296|spouse's|FAM|modifier
-297|spouses|FAM|modifier
-298|uncle|FAM|modifier
-299|uncles|FAM|modifier
-300|wife|FAM|modifier
-301|wifes|FAM|modifier
-302|wives|FAM|modifier
+50|education|PREV|modifier
+51|educated about|PREV|modifier
+52|educated extensively|PREV|modifier
+53|educated regarding|PREV|modifier
+54|help prevent|PREV|modifier
+55|mitigate|PREV|modifier
+56|ppx|PREV|modifier
+57|prevent|PREV|modifier
+58|prevent future|PREV|modifier
+59|prevent recurrence|PREV|modifier
+60|preventative|PREV|modifier
+61|preventative measure|PREV|modifier
+62|preventative measures|PREV|modifier
+63|preventing|PREV|modifier
+64|prevention|PREV|modifier
+65|preventive|PREV|modifier
+66|preventive measures|PREV|modifier
+67|preventive strategies|PREV|modifier
+68|proph|PREV|modifier
+69|prophy|PREV|modifier
+70|prophylactic|PREV|modifier
+71|prophylaxis|PREV|modifier
+72|prophylaxis against|PREV|modifier
+73|prophylaxsis|PREV|modifier
+74|protect|PREV|modifier
+75|protect against|PREV|modifier
+76|protection|PREV|modifier
+77|protection against|PREV|modifier
+78|provided education|PREV|modifier
+79|re-educated about|PREV|modifier
+80|adverse outcomes|RISK|modifier
+81|also cannot exclude|RISK|modifier
+82|although|RISK|modifier
+83|and possible|RISK|modifier
+84|and probable|RISK|modifier
+85|broad ddx|RISK|modifier
+86|cannot exclude|RISK|modifier
+87|cannot r/o|RISK|modifier
+88|cannot rule out|RISK|modifier
+89|chance|RISK|modifier
+90|chances|RISK|modifier
+91|complication|RISK|modifier
+92|conceivable that|RISK|modifier
+93|concern for|RISK|modifier
+94|concern for possible|RISK|modifier
+95|could be|RISK|modifier
+96|could be due to|RISK|modifier
+97|could lead|RISK|modifier
+98|ddx|RISK|modifier
+99|ddx incl|RISK|modifier
+100|ddx include|RISK|modifier
+101|ddx included|RISK|modifier
+102|ddx includes|RISK|modifier
+103|ddx most likely|RISK|modifier
+104|ddx uti|RISK|modifier
+105|diff dx|RISK|modifier
+106|diff dx includes|RISK|modifier
+107|diffdx|RISK|modifier
+108|differential includes|RISK|modifier
+109|disease suspected|RISK|modifier
+110|doubt|RISK|modifier
+111|doubt infectious|RISK|modifier
+112|findings suggest|RISK|modifier
+113|findings suggestive of|RISK|modifier
+114|findings suspicious for|RISK|modifier
+115|further eval|RISK|modifier
+116|greater risk|RISK|modifier
+117|high likelihood|RISK|modifier
+118|high liklihood|RISK|modifier
+119|high risk|RISK|modifier
+120|higher likelihood|RISK|modifier
+121|higher risk|RISK|modifier
+122|highest risk|RISK|modifier
+123|highly suggestive|RISK|modifier
+124|implies|RISK|modifier
+125|implying|RISK|modifier
+126|increased risk|RISK|modifier
+127|indications risks|RISK|modifier
+128|inherent risks|RISK|modifier
+129|is suggested by|RISK|modifier
+130|is suspected|RISK|modifier
+131|less likely|RISK|modifier
+132|less likley|RISK|modifier
+133|likelihood|RISK|modifier
+134|may|RISK|modifier
+135|may be|RISK|modifier
+136|may be indicative of|RISK|modifier
+137|may have|RISK|modifier
+138|may indicate|RISK|modifier
+139|may suggest|RISK|modifier
+140|mdm ddx|RISK|modifier
+141|might|RISK|modifier
+142|might appear|RISK|modifier
+143|minimize risk|RISK|modifier
+144|most likely explanation|RISK|modifier
+145|most likley|RISK|modifier
+146|much higher risk|RISK|modifier
+147|must be considered|RISK|modifier
+148|must consider|RISK|modifier
+149|not rule out|RISK|modifier
+150|not ruled out|RISK|modifier
+151|one would expect|RISK|modifier
+152|other possibilities include|RISK|modifier
+153|perhaps due to|RISK|modifier
+154|plausible|RISK|modifier
+155|poss|RISK|modifier
+156|possibe|RISK|modifier
+157|possibel|RISK|modifier
+158|possibility|RISK|modifier
+159|possibility of|RISK|modifier
+160|possibily|RISK|modifier
+161|possible|RISK|modifier
+162|possible etiologies include|RISK|modifier
+163|possiblity|RISK|modifier
+164|possibly|RISK|modifier
+165|possibly associated with|RISK|modifier
+166|possibly due to|RISK|modifier
+167|potential complications|RISK|modifier
+168|potential risks|RISK|modifier
+169|potential side effects|RISK|modifier
+170|presumed|RISK|modifier
+171|prob|RISK|modifier
+172|probability|RISK|modifier
+173|probable|RISK|modifier
+174|probably due to|RISK|modifier
+175|probably related to|RISK|modifier
+176|propensity|RISK|modifier
+177|question of|RISK|modifier
+178|question related to|RISK|modifier
+179|question whether there is|RISK|modifier
+180|questionable mild|RISK|modifier
+181|raises concern|RISK|modifier
+182|raises concern about|RISK|modifier
+183|raises possibility of|RISK|modifier
+184|raises the question|RISK|modifier
+185|raising question of|RISK|modifier
+186|raising the|RISK|modifier
+187|raising the possibility of|RISK|modifier
+188|raising the question|RISK|modifier
+189|represents some|RISK|modifier
+190|resolved|RISK|modifier
+191|risk|RISK|modifier
+192|risk factor|RISK|modifier
+193|risks alternatives|RISK|modifier
+194|risks associated|RISK|modifier
+195|risks include|RISK|modifier
+196|slightly higher risk|RISK|modifier
+197|source for|RISK|modifier
+198|source of|RISK|modifier
+199|sources for|RISK|modifier
+200|sources of|RISK|modifier
+201|suggest|RISK|modifier
+202|suggest possibility of|RISK|modifier
+203|suggest the possibility|RISK|modifier
+204|suggested by|RISK|modifier
+205|suggesting|RISK|modifier
+206|suggesting possibility of|RISK|modifier
+207|suggesting possible|RISK|modifier
+208|suggestion of|RISK|modifier
+209|suggestive|RISK|modifier
+210|suggestive of|RISK|modifier
+211|suggests either|RISK|modifier
+212|suggests possibility of|RISK|modifier
+213|suggests possible|RISK|modifier
+214|suggests the possibility|RISK|modifier
+215|suspect|RISK|modifier
+216|suspected|RISK|modifier
+217|suspicion|RISK|modifier
+218|suspicion for|RISK|modifier
+219|suspicion of|RISK|modifier
+220|theoretical risk|RISK|modifier
+221|there could be|RISK|modifier
+222|there may be|RISK|modifier
+223|trigger event for|RISK|modifier
+224|which raises the|RISK|modifier
+225|with possible|RISK|modifier
+226|with probable|RISK|modifier
+227|with question|RISK|modifier
+228|would be another consideration|RISK|modifier
+229|annual screening|SCREEN|modifier
+230|antibody test|SCREEN|modifier
+231|antibody_test|SCREEN|modifier
+232|assay|SCREEN|modifier
+233|assays|SCREEN|modifier
+234|assessment|SCREEN|modifier
+235|assessmet|SCREEN|modifier
+236|blood tests|SCREEN|modifier
+237|blood work|SCREEN|modifier
+238|cancer screening|SCREEN|modifier
+239|colon cancer screening|SCREEN|modifier
+240|confirmatory_test|SCREEN|modifier
+241|eval|SCREEN|modifier
+242|eval for|SCREEN|modifier
+243|evalaute|SCREEN|modifier
+244|evaluate for|SCREEN|modifier
+245|evaluation|SCREEN|modifier
+246|genetic screening|SCREEN|modifier
+247|genetic testing|SCREEN|modifier
+248|genotyping|SCREEN|modifier
+249|glucose tolerance test|SCREEN|modifier
+250|health care maintenance|SCREEN|modifier
+251|health maintenance|SCREEN|modifier
+252|lab testing|SCREEN|modifier
+253|lab tests|SCREEN|modifier
+254|laboratory testing|SCREEN|modifier
+255|panel|SCREEN|modifier
+256|prostate cancer screening|SCREEN|modifier
+257|retest|SCREEN|modifier
+258|retested|SCREEN|modifier
+259|retesting|SCREEN|modifier
+260|routine screening|SCREEN|modifier
+261|scan|SCREEN|modifier
+262|screen|SCREEN|modifier
+263|screened|SCREEN|modifier
+264|screening|SCREEN|modifier
+265|screening colonoscopy|SCREEN|modifier
+266|screening laboratories|SCREEN|modifier
+267|screening labs|SCREEN|modifier
+268|screening purposes|SCREEN|modifier
+269|screening test|SCREEN|modifier
+270|screening tests|SCREEN|modifier
+271|screening tool|SCREEN|modifier
+272|screenings|SCREEN|modifier
+273|screens|SCREEN|modifier
+274|studies|SCREEN|modifier
+275|study|SCREEN|modifier
+276|surveillance|SCREEN|modifier
+277|test|SCREEN|modifier
+278|test for|SCREEN|modifier
+279|test results|SCREEN|modifier
+280|tested|SCREEN|modifier
+281|testing|SCREEN|modifier
+282|testings|SCREEN|modifier
+283|tests|SCREEN|modifier
+284|these tests|SCREEN|modifier
+285|those results|SCREEN|modifier
+286|those tests|SCREEN|modifier
+287|yearly screening|SCREEN|modifier
+288|aunt|FAM|modifier
+289|aunt's|FAM|modifier
+290|aunts|FAM|modifier
+291|aunts'|FAM|modifier
+292|boyfriend|FAM|modifier
+293|boyfriend's|FAM|modifier
+294|boyfriends|FAM|modifier
+295|boyfriends'|FAM|modifier
+296|bride|FAM|modifier
+297|bride's|FAM|modifier
+298|bridegroom|FAM|modifier
+299|bridegroom's|FAM|modifier
+300|bridegrooms|FAM|modifier
+301|bridegrooms'|FAM|modifier
+302|brides|FAM|modifier
+303|brides'|FAM|modifier
+304|brother|FAM|modifier
+305|brother-in-law|FAM|modifier
+306|brother-in-law's|FAM|modifier
+307|brother-in-laws'|FAM|modifier
+308|brother's|FAM|modifier
+309|brothers|FAM|modifier
+310|brothers-in-law|FAM|modifier
+311|brothers'|FAM|modifier
+312|child|FAM|modifier
+313|child's|FAM|modifier
+314|children|FAM|modifier
+315|childs|FAM|modifier
+316|childs'|FAM|modifier
+317|cousin|FAM|modifier
+318|cousin's|FAM|modifier
+319|cousins|FAM|modifier
+320|cousins'|FAM|modifier
+321|dad|FAM|modifier
+322|dad's|FAM|modifier
+323|dads|FAM|modifier
+324|dads'|FAM|modifier
+325|daughter|FAM|modifier
+326|daughter-in-law|FAM|modifier
+327|daughter-in-law's|FAM|modifier
+328|daughter-in-laws'|FAM|modifier
+329|daughter's|FAM|modifier
+330|daughters|FAM|modifier
+331|daughters-in-law|FAM|modifier
+332|daughters'|FAM|modifier
+333|family|FAM|modifier
+334|family member|FAM|modifier
+335|father|FAM|modifier
+336|father-in-law|FAM|modifier
+337|father-in-law's|FAM|modifier
+338|father-in-laws'|FAM|modifier
+339|father's|FAM|modifier
+340|fathers|FAM|modifier
+341|fathers-in-law|FAM|modifier
+342|fathers'|FAM|modifier
+343|fiance|FAM|modifier
+344|fiance's|FAM|modifier
+345|fiancee|FAM|modifier
+346|fiancee's|FAM|modifier
+347|fiancees|FAM|modifier
+348|fiancees'|FAM|modifier
+349|fiances|FAM|modifier
+350|fiances'|FAM|modifier
+351|girlfriend|FAM|modifier
+352|girlfriend's|FAM|modifier
+353|girlfriends|FAM|modifier
+354|girlfriends'|FAM|modifier
+355|godchild|FAM|modifier
+356|godchild's|FAM|modifier
+357|godchildren|FAM|modifier
+358|godchilds|FAM|modifier
+359|godchilds'|FAM|modifier
+360|goddaughter|FAM|modifier
+361|goddaughter's|FAM|modifier
+362|goddaughters|FAM|modifier
+363|goddaughters'|FAM|modifier
+364|godfather|FAM|modifier
+365|godfather's|FAM|modifier
+366|godfathers|FAM|modifier
+367|godfathers'|FAM|modifier
+368|godmother|FAM|modifier
+369|godmother's|FAM|modifier
+370|godmothers|FAM|modifier
+371|godmothers'|FAM|modifier
+372|godson|FAM|modifier
+373|godson's|FAM|modifier
+374|godsons|FAM|modifier
+375|godsons'|FAM|modifier
+376|grandchild|FAM|modifier
+377|grandchild's|FAM|modifier
+378|grandchilds|FAM|modifier
+379|grandchilds'|FAM|modifier
+380|granddad|FAM|modifier
+381|granddad's|FAM|modifier
+382|granddads|FAM|modifier
+383|granddads'|FAM|modifier
+384|granddaughter|FAM|modifier
+385|granddaughter's|FAM|modifier
+386|granddaughters|FAM|modifier
+387|granddaughters'|FAM|modifier
+388|grandfather|FAM|modifier
+389|grandfather's|FAM|modifier
+390|grandfathers|FAM|modifier
+391|grandfathers'|FAM|modifier
+392|grandma|FAM|modifier
+393|grandma's|FAM|modifier
+394|grandmas|FAM|modifier
+395|grandmas'|FAM|modifier
+396|grandmother|FAM|modifier
+397|grandmother's|FAM|modifier
+398|grandmothers|FAM|modifier
+399|grandmothers'|FAM|modifier
+400|grandpa|FAM|modifier
+401|grandpa's|FAM|modifier
+402|grandparent|FAM|modifier
+403|grandpas|FAM|modifier
+404|grandpas'|FAM|modifier
+405|grandson|FAM|modifier
+406|grandson's|FAM|modifier
+407|grandsons|FAM|modifier
+408|grandsons'|FAM|modifier
+409|granny|FAM|modifier
+410|granny's|FAM|modifier
+411|grannys|FAM|modifier
+412|grannys'|FAM|modifier
+413|groom|FAM|modifier
+414|groom's|FAM|modifier
+415|grooms|FAM|modifier
+416|grooms'|FAM|modifier
+417|husband|FAM|modifier
+418|husband's|FAM|modifier
+419|husbands|FAM|modifier
+420|husbands'|FAM|modifier
+421|mom|FAM|modifier
+422|mom's|FAM|modifier
+423|moms|FAM|modifier
+424|moms'|FAM|modifier
+425|mother|FAM|modifier
+426|mother-in-law|FAM|modifier
+427|mother-in-law's|FAM|modifier
+428|mother-in-laws'|FAM|modifier
+429|mother's|FAM|modifier
+430|mothers|FAM|modifier
+431|mothers-in-law|FAM|modifier
+432|mothers'|FAM|modifier
+433|mum|FAM|modifier
+434|mum's|FAM|modifier
+435|mummy|FAM|modifier
+436|mummy's|FAM|modifier
+437|mummys|FAM|modifier
+438|mummys'|FAM|modifier
+439|mums|FAM|modifier
+440|mums'|FAM|modifier
+441|nephew|FAM|modifier
+442|nephew's|FAM|modifier
+443|nephews|FAM|modifier
+444|nephews'|FAM|modifier
+445|niece|FAM|modifier
+446|niece's|FAM|modifier
+447|nieces|FAM|modifier
+448|nieces'|FAM|modifier
+449|parent|FAM|modifier
+450|parent's|FAM|modifier
+451|parents|FAM|modifier
+452|parents-in-law|FAM|modifier
+453|parents-in-law's|FAM|modifier
+454|parents-in-laws'|FAM|modifier
+455|parents'|FAM|modifier
+456|sister|FAM|modifier
+457|sister-in-law|FAM|modifier
+458|sister-in-law's|FAM|modifier
+459|sister-in-laws'|FAM|modifier
+460|sister's|FAM|modifier
+461|sisters|FAM|modifier
+462|sisters-in-law|FAM|modifier
+463|sisters'|FAM|modifier
+464|son|FAM|modifier
+465|son-in-law|FAM|modifier
+466|son-in-law's|FAM|modifier
+467|son-in-laws'|FAM|modifier
+468|son's|FAM|modifier
+469|sons|FAM|modifier
+470|sons-in-law|FAM|modifier
+471|spouse|FAM|modifier
+472|spouse's|FAM|modifier
+473|spouses|FAM|modifier
+474|uncle|FAM|modifier
+475|uncles|FAM|modifier
+476|wife|FAM|modifier
+477|wifes|FAM|modifier
+478|wives|FAM|modifier
 1000|iv heroin|IDU|selfharm
 1001|iv methamphetamine|IDU|selfharm
 1002|iv meth|IDU|selfharm
@@ -687,6 +925,8 @@
 11000|lives alone|LIVESALONE|sdoh
 11001|loneliness|LONELINESS|sdoh
 11002|lonely|LONELINESS|sdoh
+12000|caregiver|CGS|nos
+12001|care giver|CGS|nos
 13000|chronic unemployment|JOBINSTABLE|sdoh
 13001|discharged from duty|JOBINSTABLE|sdoh
 13002|discharged from job|JOBINSTABLE|sdoh
