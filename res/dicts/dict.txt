@@ -997,6 +997,14 @@
 17008|doesn't choke|ADL|feeding
 17009|feeds him|ADL|feeding
 17010|feeds her|ADL|feeding
+18000|fall|FALL|nos
+18001|fell|FALL|nos
+18002|falls|FALL|nos
+19000|mdhaq|FSDA|assessment
+19001|basdai|FSDA|assessment
+19003|cdai|FSDA|assessment
+19004|basdai|FSDA|assessment
+19005|sf-36|FSDA|assessment
 20000|caffeine use disorder|CAFFEINEDO|diagnosis
 20001|caffeine abuse|CAFFEINEDO|diagnosis
 20002|caffeine addiction|CAFFEINEDO|diagnosis
