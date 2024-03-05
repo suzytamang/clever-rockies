@@ -25,6 +25,8 @@
         "CONNECT": ["NEGEX"],
         "HOPELESS": ["NEGEX"],
         "PPAIN": ["NEGEX"],
-        "CGS": ["NEGEX"]
+        "CGS": ["NEGEX"],
+        "FALL": ["NEGEX"],
+        "FSDA": []
 
 }
