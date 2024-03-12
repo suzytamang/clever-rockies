@@ -704,29 +704,28 @@
 6006|opioid withdrawal|DETOX|opi
 6007|cows protocol|DETOX|opi
 6008|delirium tremens|DETOX|alc
-6009|dt|DETOX|alc
-6010|dts|DETOX|alc
-6011|minds|DETOX|alc
-6012|minnesota detoxification scale|DETOX|alc
-6013|sews|DETOX|alc
-6014|severity of ethanol withdrawal scale|DETOX|alc
-6015|clinical institute withdrawal assessment|DETOX|alc
-6016|alcoholic hallucinosis|DETOX|alc
-6017|withdrawal seizures|DETOX|alc
-6018|withdrawal delirium|DETOX|alc
-6019|withdrawal szs|DETOX|alc
-6020|etoh withdrawal|DETOX|alc
-6021|aws scale|DETOX|alc
-6022|saws|DETOX|alc
-6023|aws|DETOX|alc
-6024|alcohol withdrawal|DETOX|alc
-6025|alcohol sz|DETOX|alc
-6026|detox protocol|DETOX|nos
-6027|withdrawal protocol|DETOX|nos
-6028|pawss|DETOX|alc
-6029|ciwa-ar|DETOX|alc
-6030|alcohol detox|DETOX|alc
-6031|etoh sz|DETOX|alc
+6009|dts|DETOX|alc
+6010|minds|DETOX|alc
+6011|minnesota detoxification scale|DETOX|alc
+6012|sews|DETOX|alc
+6013|severity of ethanol withdrawal scale|DETOX|alc
+6014|clinical institute withdrawal assessment|DETOX|alc
+6015|alcoholic hallucinosis|DETOX|alc
+6016|withdrawal seizures|DETOX|alc
+6017|withdrawal delirium|DETOX|alc
+6018|withdrawal szs|DETOX|alc
+6019|etoh withdrawal|DETOX|alc
+6020|aws scale|DETOX|alc
+6021|saws|DETOX|alc
+6022|aws|DETOX|alc
+6023|alcohol withdrawal|DETOX|alc
+6024|alcohol sz|DETOX|alc
+6025|detox protocol|DETOX|nos
+6026|withdrawal protocol|DETOX|nos
+6027|pawss|DETOX|alc
+6028|ciwa-ar|DETOX|alc
+6029|alcohol detox|DETOX|alc
+6030|etoh sz|DETOX|alc
 7000|difficulty obtaining food|FOODINSECURE|sdoh
 7001|does not obtain food|FOODINSECURE|sdoh
 7002|food insecurities|FOODINSECURE|sdoh
