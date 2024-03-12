@@ -666,14 +666,9 @@
 2157|weight loss|COVID|symptom
 2158|worsening joint pains|COVID|symptom
 3000|xylazine|XYLA|drug
-3001|sedazin|XYLA|drug
-3002|chanazine|XYLA|drug
-3003|xylamed|XYLA|drug
-3004|rompun|XYLA|drug
-3005|sedazine|XYLA|drug
-3006|anased|XYLA|drug
-3007|dexmedetomidine|A2AG|drug
-3008|medetomidine|A2AG|drug
+3001|tranq|XYLA|drug
+3002|tranq dope|XYLA|drug
+3003|zylazine|XYLA|drug
 4000|for controlled substances outside|PDMP|response1
 4001|do not raise significant safety concerns|PDMP|response2
 4002|concerns will be discussed with the patient|PDMP|response3
