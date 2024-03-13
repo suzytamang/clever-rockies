@@ -665,6 +665,9 @@
 2156|weakness|COVID|symptom
 2157|weight loss|COVID|symptom
 2158|worsening joint pains|COVID|symptom
+2159|ventilator|COVID|symptom
+2160|intubation|COVID|symptom
+2161|oxygen level|COVID|symptom
 3000|xylazine|XYLA|drug
 3001|tranq|XYLA|drug
 3002|tranq dope|XYLA|drug
