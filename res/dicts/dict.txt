@@ -1,6 +1,5 @@
 1|.|DOT|boundry
-2|,|PUNCT|boundry
-3|;|DOT|boundry
+2|;|DOT|boundry
 10|old|HX|modifier
 11|hx|HX|modifier
 12|h/o|HX|modifier
