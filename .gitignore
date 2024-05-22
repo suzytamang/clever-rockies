@@ -3,3 +3,4 @@
 *.amltmp
 *.swp
 **/.venv/
+**/.vscode
