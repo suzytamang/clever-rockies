@@ -2,10 +2,3 @@ __pycache__
 .amlignore
 *.amltmp
 *.swp
-
-# Added to prevent addition of python virtual environment
-.venv
-
-# Added to prevent addition of vscode artifacts
-.vscode
-
