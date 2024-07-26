@@ -2,3 +2,4 @@ __pycache__
 .amlignore
 *.amltmp
 *.swp
+.vscode
