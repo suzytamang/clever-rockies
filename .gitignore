@@ -2,5 +2,6 @@
 .amlignore
 *.amltmp
 *.swp
-**/.venv/
-**/.vscode
+.venv
+.vscode
+
