@@ -668,9 +668,6 @@
 2160|intubation|COVID|symptom
 2161|oxygen level|COVID|symptom
 3000|xylazine|XYLA|drug
-3001|tranq|XYLA|drug
-3002|tranq dope|XYLA|drug
-3003|zylazine|XYLA|drug
 4000|for controlled substances outside|PDMP|response1
 4001|do not raise significant safety concerns|PDMP|response2
 4002|concerns will be discussed with the patient|PDMP|response3
