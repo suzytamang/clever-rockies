@@ -14146,3 +14146,4 @@
 43002|wouldn't mind not waking up|PPAIN|0411402
 43003|write a suicide|PPAIN|0411402
 43004|wrote a suicide|PPAIN|0411402
+44000|DOD OUD report|DODOUD|report
