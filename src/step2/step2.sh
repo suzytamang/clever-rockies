@@ -73,9 +73,6 @@ python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-target
 # access to lethal means
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets LETHALMEANS --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/LETHALMEANS --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
-# long covid and mental health
-python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets COVID --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/COVID --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
-
 # food security
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets FOODINSECURE --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/FOODINSECURE --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
