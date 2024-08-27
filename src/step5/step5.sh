@@ -29,6 +29,7 @@ terms=(
   LETHALMEANS 
   FOODINSECURE 
   ADL
+  DODOUD
 )
 
 cd "$(dirname "$0")"
