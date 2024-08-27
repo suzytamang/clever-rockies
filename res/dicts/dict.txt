@@ -14146,3 +14146,5 @@
 43002|wouldn't mind not waking up|PPAIN|0411402
 43003|write a suicide|PPAIN|0411402
 43004|wrote a suicide|PPAIN|0411402
+44000|PERCDATA_OUD|DODOUD|report
+44001|Pt on DOD OUD report assessed and does not meet criteria for opioid use disorder|DODOUD|report
