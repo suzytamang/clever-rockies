@@ -22,3 +22,4 @@ python cleverRules.py ../../output202210/DETOX DETOX
 python cleverRules.py ../../output202210/LETHALMEANS LETHALMEANS
 python cleverRules.py ../../output202210/FOODINSECURE FOODINSECURE
 python cleverRules.py ../../output202210/ADL ADL
+python cleverRules.py ../../output202210/DODOUD DODOUD
