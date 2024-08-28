@@ -1,8 +1,9 @@
 #!/usr/bin/bash
 
 LEXICON=../../res/dicts/dict.txt
-METADATA=/tmp/workspacezone/metadata/lastmodifieddatetime_month=202210.txt
-OUTPUT=../../output202210
+# METADATA=/tmp/workspacezone/metadata/lastmodifieddatetime_month=202408.txt
+METADATA=../../corpus202408/test_notes_with_metadata_one_line.txt
+OUTPUT=../../output202408
 ANTS=linkedAnts.txt
 
 cd "$(dirname "$0")"
@@ -28,5 +29,5 @@ python3 organize.py $OUTPUT/HOUSING $LEXICON $METADATA $OUTPUT/HOUSING/$ANTS
 python3 organize.py $OUTPUT/DETOX $LEXICON $METADATA $OUTPUT/DETOX/$ANTS
 python3 organize.py $OUTPUT/FOODINSECURE $LEXICON $METADATA $OUTPUT/FOODINSECURE/$ANTS
 python3 organize.py $OUTPUT/LETHALMEANS $LEXICON $METADATA $OUTPUT/LETHALMEANS/$ANTS
-python3 organize.py $OUTPUT/COVID $LEXICON $METADATA $OUTPUT/COVID/$ANTS
 python3 organize.py $OUTPUT/ADL $LEXICON $METADATA $OUTPUT/ADL/$ANTS
+python3 organize.py $OUTPUT/DODOUD $LEXICON $METADATA $OUTPUT/DODOUD/$ANTS

@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #LEXICON=$1
-OUTPUT=../../output202210
+OUTPUT=../../output202408
 #CROSSCLASS=$2
 ASSESSMENTTERMS=../../res/assessment_terms.txt
 OTHERTERMS=../../res/other_terms_to_drop.txt
@@ -29,6 +29,7 @@ terms=(
   LETHALMEANS 
   FOODINSECURE 
   ADL
+  DODOUD
 )
 
 cd "$(dirname "$0")"
