@@ -2,9 +2,8 @@
 
 LEXICON=../../res/dicts/dict.txt
 HEADERS=../../res/headers.txt
-# CORPUS=/tmp/workspacezone/tsv/lastmodifieddatetime_month=202408.txt
-CORPUS=../../corpus202408/test_notes_with_metadata_one_line.txt
-OUTPUT=../../output202408
+CORPUS=/tmp/workspacezone/tsv/lastmodifieddatetime_month=202210.txt
+OUTPUT=../../output202210
 SNIPPETS=250
 LGCONTEXT=3
 RGCONTEXT=2
@@ -74,14 +73,14 @@ python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-target
 # access to lethal means
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets LETHALMEANS --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/LETHALMEANS --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
+# long covid and mental health
+python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets COVID --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/COVID --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
+
 # food security
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets FOODINSECURE --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/FOODINSECURE --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
 # acitivites of daily living.  Specifically, bathing, dressing and eating.
 python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets ADL --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/ADL --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
-
-# department of defense opioid use disorder
-python3 sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets DODOUD --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/DODOUD --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
 
 #python3 sequencer.py --lexicon ../../res/dicts/dict.txt --section-headers ../../res/headers.txt --main-targets IDU --snippet-length 200 --snippets --notes /tmp/workspacezone/tsv/lastmodifieddatetime_month=202204.txt --workers 8 --output ../../output/IDU --left-gram-context 3 --right-gram-context 2
 
