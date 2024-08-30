@@ -833,9 +833,8 @@
 18002|falls|FALL|nos
 19000|mdhaq|FSDA|assessment
 19001|basdai|FSDA|assessment
-19003|cdai|FSDA|assessment
-19004|basdai|FSDA|assessment
-19005|sf-36|FSDA|assessment
+19002|cdai|FSDA|assessment
+19003|sf-36|FSDA|assessment
 20000|caffeine use disorder|CAFFEINEDO|diagnosis
 20001|caffeine abuse|CAFFEINEDO|diagnosis
 20002|caffeine addiction|CAFFEINEDO|diagnosis
