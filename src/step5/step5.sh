@@ -1,34 +1,34 @@
 #!/usr/bin/bash
 
 #LEXICON=$1
-OUTPUT=../../output202408
+OUTPUT=../../output202210
 #CROSSCLASS=$2
 ASSESSMENTTERMS=../../res/assessment_terms.txt
 OTHERTERMS=../../res/other_terms_to_drop.txt
 
 terms=(
   XYLA
-  A2AG
-  PDMP 
-  CAFFINEDO 
-  BTRAITS 
-  BDD 
-  GAMINGDO 
-  GAMBLINGDO 
-  BEHAVIORAD 
-  MISOPHONIA 
-  IDU 
-  JOBINSTABLE 
-  JUSTICE 
-  LIVESALONE 
-  LONELINESS 
-  SOCIALCONNECT 
-  STRAUMA 
-  HOUSING 
-  DETOX 
-  LETHALMEANS 
-  FOODINSECURE 
-  ADL
+  # A2AG
+  # PDMP 
+  # CAFFINEDO 
+  # BTRAITS 
+  # BDD 
+  # GAMINGDO 
+  # GAMBLINGDO 
+  # BEHAVIORAD 
+  # MISOPHONIA 
+  # IDU 
+  # JOBINSTABLE 
+  # JUSTICE 
+  # LIVESALONE 
+  # LONELINESS 
+  # SOCIALCONNECT 
+  # STRAUMA 
+  # HOUSING 
+  # DETOX 
+  # LETHALMEANS 
+  # FOODINSECURE 
+  # ADL
   DODOUD
 )
 
