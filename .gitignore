@@ -12,3 +12,5 @@ __pycache__
 
 # Hides VSCode-specific settings
 .vscode/settings.json
+.vscode
+
