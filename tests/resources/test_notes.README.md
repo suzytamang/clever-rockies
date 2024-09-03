@@ -28,7 +28,7 @@ Excerpt from source .docx file.  *Table built via https://www.tablesgenerator.co
 | 18 | DETOX | ciwa protocol | POS | Term wraps across EOL. |
 | 19 | IDU | ssp | No snippet | Term is partial match of ‘ SSP2’. |
 | 20 | DETOX | detox | No snippet | Term is partial match of ‘detoxing’ at BOL. |
-| 21 | HOPELESS | desire to change | POS | Term immediately followed by ) |
+| 21 | HOPELESS | desire to change | POS | Term immediately followed by \) |
 | 22 | HOPELESS | desire to continue | NEG | NEGEX modifier ‘no’ followed by EOL before term on the next line. |
 | 23 | MST | rape | No snippet | Term is partial match of ‘rapel’. |
 | 24 | MST | rape | No snippet | Term is partial match of ‘rapelling’. |
