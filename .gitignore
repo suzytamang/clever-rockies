@@ -9,3 +9,6 @@ __pycache__
 
 # local virtual environment
 .venv
+
+# Hides VSCode-specific settings
+.vscode/settings.json
