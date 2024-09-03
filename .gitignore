@@ -13,4 +13,5 @@
 # local virtual environment
 .venv
 
-.vscode/
+# Hides VSCode-specific settings
+.vscode/settings.json
