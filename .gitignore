@@ -2,6 +2,15 @@
 .amlignore
 *.amltmp
 *.swp
-.venv
-.vscode
 
+
+
+
+####################################
+# Local environment exclusions
+####################################
+
+# local virtual environment
+.venv
+
+.vscode/
