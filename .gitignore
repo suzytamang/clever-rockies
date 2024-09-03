@@ -2,3 +2,10 @@ __pycache__
 .amlignore
 *.amltmp
 *.swp
+
+####################################
+# Local environment exclusions
+####################################
+
+# local virtual environment
+.venv
