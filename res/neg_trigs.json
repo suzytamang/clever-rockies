@@ -27,6 +27,7 @@
         "CGS": ["NEGEX"],
         "FALL": ["NEGEX"],
         "FSDA": [],
-	"DODOUD": []
+	"DODOUD": [],
+	"CA_SYMPTOM": ["NEGEX"]
 
 }
