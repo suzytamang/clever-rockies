@@ -27,5 +27,6 @@
 	"CGS": [],
 	"FALL": ["FAM"],
 	"FSDA": [],
-	"DODOUD": []
+	"DODOUD": [],
+	"CA_SYMPTOM": ["FAM","HX","HYP","SCREEN","RISK","PREV"]
 }
