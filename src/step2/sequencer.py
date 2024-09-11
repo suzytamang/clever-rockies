@@ -13,11 +13,14 @@ import os
 import time  # noqa
 import warnings  # noqa
 from argparse import ArgumentParser
-from multiprocessing import (Pool,  # noqa
-                             JoinableQueue,
-                             Process, Queue,  # noqa
-                             log_to_stderr,  # noqa
-                             current_process)
+from multiprocessing import (
+    Pool,  # noqa
+    JoinableQueue,
+    Process,
+    Queue,  # noqa
+    log_to_stderr,  # noqa
+    current_process,
+)
 import queue as qmod
 from os import listdir
 from os.path import isfile, join
@@ -422,7 +425,8 @@ class Batch:
             try:
                 batch = self.next_batch()
                 if batch is None:
-                    self.queue.task_done()
+                    if isinstance(self.queue, str) is False:
+                        self.queue.task_done()
                     return
                 for line in batch:
                     ext = process_note(
@@ -543,7 +547,6 @@ if __name__ == "__main__":
 
     if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         ngram_contexts = NGramContext(args.left_gram, args.right_gram)
-    
 
     if args.workers > 0:
         queue = JoinableQueue(maxsize=args.workers)
