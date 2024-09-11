@@ -363,7 +363,7 @@ class Batch:
         output_folder,
         ngram_contexts,
     ):
-        self.queue = queue
+        self.queue: JoinableQueue = queue
         self.snippet_length = snippet_length
         self.snippets = snippets
         self.headers = headers
@@ -378,7 +378,7 @@ class Batch:
     def next_batch(self):
         if not isinstance(self.queue, str):
             try:
-                batch = queue.get(True)
+                batch = self.queue.get(True)
                 if isinstance(batch, ExitProcess):
                     return None
                 return batch
