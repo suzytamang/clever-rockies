@@ -545,7 +545,7 @@ if __name__ == "__main__":
     import logging
 
     if args.workers > 0:
-        queue = JoinableQueue(args.workers)
+        queue = JoinableQueue(maxsize=args.workers)
         batch = Batch(
             queue,
             args.snippet_length,
