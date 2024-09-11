@@ -454,7 +454,7 @@ class Batch:
                             self.ngram_contexts,
                         )
                         if self.ngram_contexts:
-                            ngram_contexts.dump_contexts(
+                            self.ngram_contexts.dump_contexts(
                                 lefts, rights, fcontext_left, fcontext_right,
                             )
             except Exception as e:
