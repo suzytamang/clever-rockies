@@ -117,7 +117,9 @@ class NoteExtraction:
 
 
 class MainTargetHit:
-    def __init__(self, note, offset, size_context, term, context_terms):
+    def __init__(
+        self, note, offset, size_context, term, context_terms, include_shorter: bool
+    ):
         self.note = note
         self.offset = offset
         self.size_context = size_context
@@ -127,6 +129,7 @@ class MainTargetHit:
         self.context_hits = []
         self.top_offset = self.offset + len(self.term.label)
         self.header = None
+        self._include_shorter: bool = include_shorter
 
     def dump(self, i, out_extraction, out_discover, snippets):
         header_str = ""
@@ -225,7 +228,7 @@ class MainTargetHit:
                                 continue
                     self.add_context(term, hit, i)
                     offset = hit + len(term.label)
-        if not args.include_shorter:
+        if self._include_shorter is False:
             self.only_longest_context()
 
 
@@ -433,7 +436,7 @@ class Batch:
                         line,
                         self.snippet_length,
                         self.snippets,
-                        headers,
+                        self.headers,
                         self.main_terms,
                         self.context_terms,
                     )
@@ -515,6 +518,7 @@ if __name__ == "__main__":
     if not args.output_folder:
         print("Output folder must be provided with -o/--output")
         sys.exit(-1)
+
     if os.path.exists(args.output_folder):
         print(("Output folder '%s' already exists" % (args.output_folder)))
         print("This tool will create an empty folder to save clean data")
