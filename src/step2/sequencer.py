@@ -14,7 +14,7 @@ import warnings  # noqa
 from argparse import ArgumentParser
 from multiprocessing import (Pool,  # noqa
                              JoinableQueue,
-                             Process,  # noqa
+                             Process, Queue,  # noqa
                              log_to_stderr,  # noqa
                              current_process)
 import queue as qmod
@@ -350,7 +350,7 @@ class ExitProcess:
 class Batch:
     def __init__(
         self,
-        queue,
+        queue: JoinableQueue,
         snippet_length,
         snippets,
         headers,
