@@ -48,7 +48,8 @@ run_sequencer() {
     else
         echo >&2 "Running Sequencer on Main Target: \"$main_target\""
         cmd="python sequencer.py --lexicon \""${lexicon}"\" --section-headers \""${headers}"\" --main-targets \""${main_target}"\" --snippet-length \""${SNIPPETS}"\" --snippets --notes \""${corpus_src}"\" --workers \""${WORKERS}"\" --output \""${full_output_path}"\" --left-gram-context \""${LGCONTEXT}"\" --right-gram-context \""${RGCONTEXT}"\""
-        echo >&2 "$cmd"
+        # echo >&2 "$cmd"
+        eval "$cmd"
         echo "0"
     fi
     
@@ -61,6 +62,10 @@ fi
 if [[ -z "$output" ]]; then
     output="$OUTPUT"
 fi
+
+# if [[ "$test_notes" == "1" ]]; then
+#     rm -rf "$output"
+# fi
 
 echo "Processing corpus: $corpus_src"
 echo "Output Root: $output"
