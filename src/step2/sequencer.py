@@ -4,6 +4,7 @@
 # *** it is important to note that only the extraction.txt file is required to develop a rule based extractor.  Additional textual features are provided in the extraction.txt file, and other extractor.py output; however, they are inteded to be used in the development of statistical extractors trained on a small portion of development data that is labeled by CLEVER during rule execution
 
 import pdb
+import logging
 import sys
 import codecs
 from collections import defaultdict
@@ -542,7 +543,7 @@ if __name__ == "__main__":
 
     if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         ngram_contexts = NGramContext(args.left_gram, args.right_gram)
-    import logging
+    
 
     if args.workers > 0:
         queue = JoinableQueue(maxsize=args.workers)
