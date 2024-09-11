@@ -233,10 +233,11 @@ class MainTargetHit:
 
 
 class Note:
-    def __init__(self, _id, text):
+    def __init__(self, _id, text, include_shorter: bool):
         self._id = _id
         self.text = text
         self.text_lower = text.lower()
+        self._include_shorter: bool = include_shorter
 
     def extract(self, main_terms, context_terms, size_context, headers):
         nt = NoteExtraction(self)
@@ -256,13 +257,13 @@ class Note:
                     #           continue
                     # if self.text[hit+len(term.label)] not in END_TOKEN:
                     break
-                target = MainTargetHit(self, hit, size_context, term, context_terms)
+                target = MainTargetHit(self, hit, size_context, term, context_terms, self._include_shorter)
                 target.extract_context_terms()
                 nt.add_target(target)
                 offset = hit + len(term.label)
         if nt.any_targets():
             nt.match_headers(headers)
-            if not args.include_shorter:
+            if self._include_shorter is False:
                 nt.only_longest_targets()
             return nt
         return None
@@ -339,13 +340,15 @@ class NGramContext:
             )
 
 
-def process_note(line, offset_size, snippets, headers, main_terms, context_terms):
+def process_note(
+    line, offset_size, snippets, headers, main_terms, context_terms, include_shorter: bool
+):
     parts = line.split("\t")
     if len(parts) == 1:
         return
     _id = parts[0]
     text = " ".join(parts[1:])
-    note = Note(_id, text)
+    note = Note(_id, text, include_shorter)
     note_extraction = note.extract(main_terms, context_terms, offset_size, headers)
     return note_extraction
 
@@ -365,6 +368,7 @@ class Batch:
         context_terms,
         output_folder,
         ngram_contexts,
+        include_shorter
     ):
         self.queue: JoinableQueue = queue
         self.snippet_length = snippet_length
@@ -374,6 +378,7 @@ class Batch:
         self.context_terms = context_terms
         self.output_folder = output_folder
         self.ngram_contexts = ngram_contexts
+        self._include_shorter = include_shorter
 
         if isinstance(self.queue, str):
             self.notes_file = open(self.queue, "r")
@@ -439,6 +444,7 @@ class Batch:
                         self.headers,
                         self.main_terms,
                         self.context_terms,
+                        self._include_shorter
                     )
                     if ext:
                         lefts, rights = ext.dump(
@@ -449,7 +455,7 @@ class Batch:
                         )
                         if self.ngram_contexts:
                             ngram_contexts.dump_contexts(
-                                lefts, rights, fcontext_left, fcontext_right
+                                lefts, rights, fcontext_left, fcontext_right,
                             )
             except Exception as e:
                 print(e)
@@ -563,6 +569,7 @@ if __name__ == "__main__":
             context_terms,
             args.output_folder,
             ngram_contexts,
+            args.include_shorter
         )
         pool = Pool(args.workers, batch.process)
         batch = []
@@ -590,6 +597,7 @@ if __name__ == "__main__":
             context_terms,
             args.output_folder,
             ngram_contexts,
+            args.include_shorter
         )
         batch.process()
 
