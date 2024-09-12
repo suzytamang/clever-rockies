@@ -4,4 +4,4 @@
 *.swp
 .venv
 .vscode
-
+tests/output/
