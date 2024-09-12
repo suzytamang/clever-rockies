@@ -4,8 +4,8 @@ import sys
 
 from step4.ruleFcns import assignLabel, term_offsets
 
-
 ppath = sys.argv[1]
+# TODO - add validation check to make sure this exists
 fins = ppath + "/linkedAnts.txt"
 aclass = sys.argv[2]
 print("Processing:", fins)
