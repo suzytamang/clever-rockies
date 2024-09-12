@@ -2,8 +2,16 @@
 .amlignore
 *.amltmp
 *.swp
+
+# Excluding path to python virtual environment
 .venv
+
+# Excluding relative path to test output
+tests/output/*
+
+# Excluding VSCode workspace file and configuration, since VSCode not widely used at this time
+clever-rockies.code-workspace
 .vscode
 
-tests/output/*
-clever-rockies.code-workspace
+# Excluding flake8 configuration for now; should be included, however, for linting
+.flake8
