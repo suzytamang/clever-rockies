@@ -26,8 +26,10 @@ from os import listdir
 from os.path import isfile, join
 import importlib  # noqa
 
-# consider using psutil
-# from resource import getrusage, RUSAGE_SELF
+try:
+    from resource import getrusage, RUSAGE_SELF
+except:
+    print("Could not load 'resource'", file=sys.stderr)
 
 
 END_TOKEN = set(["(", ")", ";", ":", ",", ".", " ", "?", "!", "\\", "/", "-", "'"])
