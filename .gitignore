@@ -4,4 +4,5 @@
 *.swp
 .venv
 .vscode
-
+tests/output/
+*.code-workspace
