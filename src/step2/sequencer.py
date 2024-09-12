@@ -257,7 +257,9 @@ class Note:
                     #           continue
                     # if self.text[hit+len(term.label)] not in END_TOKEN:
                     break
-                target = MainTargetHit(self, hit, size_context, term, context_terms, self._include_shorter)
+                target = MainTargetHit(
+                    self, hit, size_context, term, context_terms, self._include_shorter
+                )
                 target.extract_context_terms()
                 nt.add_target(target)
                 offset = hit + len(term.label)
@@ -341,7 +343,13 @@ class NGramContext:
 
 
 def process_note(
-    line, offset_size, snippets, headers, main_terms, context_terms, include_shorter: bool
+    line,
+    offset_size,
+    snippets,
+    headers,
+    main_terms,
+    context_terms,
+    include_shorter: bool,
 ):
     parts = line.split("\t")
     if len(parts) == 1:
@@ -368,7 +376,7 @@ class Batch:
         context_terms,
         output_folder,
         ngram_contexts,
-        include_shorter
+        include_shorter,
     ):
         self.queue: JoinableQueue = queue
         self.snippet_length = snippet_length
@@ -394,6 +402,7 @@ class Batch:
                 print("qmod empty")
                 return []
         else:
+            # FIXME - prefer "is None" to avoid future issues with a comparator
             if self.notes_file == None:
                 return None
             batch = []
@@ -444,7 +453,7 @@ class Batch:
                         self.headers,
                         self.main_terms,
                         self.context_terms,
-                        self._include_shorter
+                        self._include_shorter,
                     )
                     if ext:
                         lefts, rights = ext.dump(
@@ -455,7 +464,10 @@ class Batch:
                         )
                         if self.ngram_contexts:
                             self.ngram_contexts.dump_contexts(
-                                lefts, rights, fcontext_left, fcontext_right,
+                                lefts,
+                                rights,
+                                fcontext_left,
+                                fcontext_right,
                             )
             except Exception as e:
                 print(e)
@@ -569,7 +581,7 @@ if __name__ == "__main__":
             context_terms,
             args.output_folder,
             ngram_contexts,
-            args.include_shorter
+            args.include_shorter,
         )
         pool = Pool(args.workers, batch.process)
         batch = []
@@ -597,7 +609,7 @@ if __name__ == "__main__":
             context_terms,
             args.output_folder,
             ngram_contexts,
-            args.include_shorter
+            args.include_shorter,
         )
         batch.process()
 
