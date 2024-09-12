@@ -4,22 +4,29 @@
 
 import pandas as pd
 import os
-import re
-import sys
 import json
-import csv
 import argparse
-import pattern
-from os.path import exists
-#import spacy
+
+# import spacy
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-t','--target', type = str, required = True, 
-                    help = 'Path for TARGET class')
-parser.add_argument('-d','--dictionary', type =str, required = True, 
-                    help = 'Path and filename for the dictionary')
-parser.add_argument('-c','--crossclass', type =str, required = True, 
-                    help = 'File name of the cross_class_items list. This file is assumed to be in the same location as the dictionary')
+parser.add_argument(
+    "-t", "--target", type=str, required=True, help="Path for TARGET class"
+)
+parser.add_argument(
+    "-d",
+    "--dictionary",
+    type=str,
+    required=True,
+    help="Path and filename for the dictionary",
+)
+parser.add_argument(
+    "-c",
+    "--crossclass",
+    type=str,
+    required=True,
+    help="File name of the cross_class_items list. This file is assumed to be in the same location as the dictionary",
+)
 args = parser.parse_args()
 
 DICTIONARY_DATA = args.dictionary
@@ -27,57 +34,70 @@ NEG_DATA = os.path.join(args.target, "allNeg.txt")
 POS_DATA = os.path.join(args.target, "allPos.txt")
 CROSS_LIST = args.crossclass
 
-cross_tagging_removed_POS=os.path.join(args.target, "allPos_cross_tag.txt")
-cross_tagging_removed_NEG=os.path.join(args.target, "allNeg_cross_tag.txt")
-output_POS=os.path.join(args.target, "allPos_cross_tag_removed.txt")
-output_NEG=os.path.join(args.target, "allNeg_cross_tag_removed.txt")
-dict_file =pd.read_csv(DICTIONARY_DATA, sep="|",header=0)
+cross_tagging_removed_POS = os.path.join(args.target, "allPos_cross_tag.txt")
+cross_tagging_removed_NEG = os.path.join(args.target, "allNeg_cross_tag.txt")
+output_POS = os.path.join(args.target, "allPos_cross_tag_removed.txt")
+output_NEG = os.path.join(args.target, "allNeg_cross_tag_removed.txt")
+dict_file = pd.read_csv(DICTIONARY_DATA, sep="|", header=0)
 
-dict_file.columns =['dict_ID','TERM','CLASS','SUBCLASS']
+dict_file.columns = ["dict_ID", "TERM", "CLASS", "SUBCLASS"]
 
 
-def cross_tag_search(DATA,OUTPUT_DATA,REMOVED_DATA,cross_class):
-    
-    #DATA: either all_POS_patched.txt or all_NEG_patched.txt from step4
-    #OUTPUT_DATA: results after removed cross class tag
-    #REMOVED_DATA: removed tags
-    if os.path.exists(DATA) and os.path.getsize(DATA)>0:
-        all_data =pd.read_csv(DATA, sep="|", header = None, on_bad_lines = 'warn', keep_default_na = False)
-        print("Processing "+ DATA +".....")
-        to_be_dropped =[]
-        for each_snippet_ID,each_dict_ID, each_snippet in zip(all_data[2], all_data[13],all_data[18]):
+def cross_tag_search(DATA, OUTPUT_DATA, REMOVED_DATA, cross_class):
+
+    # DATA: either all_POS_patched.txt or all_NEG_patched.txt from step4
+    # OUTPUT_DATA: results after removed cross class tag
+    # REMOVED_DATA: removed tags
+    if os.path.exists(DATA) and os.path.getsize(DATA) > 0:
+        all_data = pd.read_csv(
+            DATA, sep="|", header=None, on_bad_lines="warn", keep_default_na=False
+        )
+        print("Processing " + DATA + ".....")
+        to_be_dropped = []
+        for each_snippet_ID, each_dict_ID, each_snippet in zip(
+            all_data[2], all_data[13], all_data[18]
+        ):
             if str(each_dict_ID) in cross_class:
-                #if each_dict_ID == 8750:
+                # if each_dict_ID == 8750:
                 #    print(each_snippet_ID,each_dict_ID)
                 for each_parent in cross_class[str(each_dict_ID)]:
-                    if dict_file['TERM'].loc[dict_file["dict_ID"]==each_parent].to_string(index=False) in each_snippet:
-                        to_be_dropped.append(each_snippet_ID) 
+                    if (
+                        dict_file["TERM"]
+                        .loc[dict_file["dict_ID"] == each_parent]
+                        .to_string(index=False)
+                        in each_snippet
+                    ):
+                        to_be_dropped.append(each_snippet_ID)
         after_cross_tags_removed = all_data[~all_data[2].isin(to_be_dropped)]
         removed_cross_tags = all_data[all_data[2].isin(to_be_dropped)]
         if not after_cross_tags_removed.empty:
-            after_cross_tags_removed.to_csv(OUTPUT_DATA,sep='|',index= False, header = False)
+            after_cross_tags_removed.to_csv(
+                OUTPUT_DATA, sep="|", index=False, header=False
+            )
         else:
-            open(OUTPUT_DATA,'w').close()
+            open(OUTPUT_DATA, "w").close()
         if not removed_cross_tags.empty:
-            removed_cross_tags.to_csv(REMOVED_DATA,sep='|',index= False, header = False)
+            removed_cross_tags.to_csv(REMOVED_DATA, sep="|", index=False, header=False)
         else:
-            open(REMOVED_DATA,'w').close()
+            open(REMOVED_DATA, "w").close()
     return
 
-cross_class_sub_path= os.path.join(os.path.dirname(args.dictionary),CROSS_LIST)
-if os.path.exists(cross_class_sub_path):
-	with open(os.path.join(os.path.dirname(args.dictionary),CROSS_LIST)) as file:
-		cross_class_items_data = file.read()
-else:
-	print("cross_class_items file in the dictionary folder does not exist. Use clever_dict_creator.py with the -g option to create one.")
-cross_class_sub = json.loads(cross_class_items_data)
-cross_tag_search(NEG_DATA,output_NEG,cross_tagging_removed_NEG, cross_class_sub)
-cross_tag_search(POS_DATA,output_POS,cross_tagging_removed_POS, cross_class_sub)
 
+cross_class_sub_path = os.path.join(os.path.dirname(args.dictionary), CROSS_LIST)
+if os.path.exists(cross_class_sub_path):
+    with open(os.path.join(os.path.dirname(args.dictionary), CROSS_LIST)) as file:
+        cross_class_items_data = file.read()
+else:
+    print(
+        "cross_class_items file in the dictionary folder does not exist. Use clever_dict_creator.py with the -g option to create one."
+    )
+cross_class_sub = json.loads(cross_class_items_data)
+cross_tag_search(NEG_DATA, output_NEG, cross_tagging_removed_NEG, cross_class_sub)
+cross_tag_search(POS_DATA, output_POS, cross_tagging_removed_POS, cross_class_sub)
 
 
 ##### TESTING #####
-'''if os.path.exists(NEG_DATA) and os.path.getsize(NEG_DATA)>0:
+"""if os.path.exists(NEG_DATA) and os.path.getsize(NEG_DATA)>0:
     all_Neg =pd.read_csv(NEG_DATA, sep="|", header = None, on_bad_lines = 'warn', keep_default_na = False)
 
     print("Processing allNeg......")
@@ -133,4 +153,4 @@ def cross_class_substrings():
         and each_class!=sub_str_class:
                 cross_class.setdefault(sub_str_id,[]).append(each_id)
     return cross_class
-'''
+"""
