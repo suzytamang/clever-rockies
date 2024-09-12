@@ -32,13 +32,24 @@ echo $PYTHON_EXE
 
 #### Executing test notes from command line
 
-```bash
-TEST_NOTES_PATH="$(realpath tests/resources/test_notes/test_notes.txt)"
-OUTPUT="$(realpath tests/output)"
-LEXICON_PATH="$(realpath res/dicts/dict.txt)"
-HEADERS_PATH="$(realpath res/headers.txt)"
+Need to set the PYTHON_PATH to point to the ```src``` directory.
 
-./src/step2/step2.sh "$TEST_NOTES_PATH" "$OUTPUT"
+```bash
+export PYTHONPATH="$(realpath ./src)"
+```
+
+The following is used to setup testing
+
+```bash
+export NOTES_PATH="$(realpath tests/resources/test_notes/test_notes.txt)"
+export METADATA_PATH="$(realpath tests/resources/test_notes/test_metadata.tsv)"
+export CLEVER_OUTPUT="$(realpath tests/output)"
+export LEXICON_PATH="$(realpath res/dicts/dict.txt)"
+export HEADERS_PATH="$(realpath res/headers.txt)"
+
+./src/step2/step2.sh "$NOTES_PATH" "$CLEVER_OUTPUT"
+cd src
+export PYTHONPATH="$(realpath "$(pwd)")"
 
 ```
 
