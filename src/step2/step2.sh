@@ -1,5 +1,10 @@
 #!/usr/bin/bash
 
+############################################################################
+# This is an example of a data-driven approach to calling the code.  This
+# will help limit errors owing to manually changing method calls.  
+############################################################################
+
 LEXICON=../../res/dicts/dict.txt
 HEADERS=../../res/headers.txt
 CORPUS=/tmp/workspacezone/tsv/lastmodifieddatetime_month=202210.txt
@@ -24,8 +29,6 @@ if [[ "$corpus_src"=="test_notes" ]]; then
     test_notes=1
     corpus_src="$(realpath "../../tests/resources/test_notes/test_notes_with_metadata_one_line.txt")"
 fi
-
-# below we show an example bash command for Step 2, tagging of text.  Each example corresponds with a different target clinical practice.
 
 run_sequencer() {
 
@@ -63,10 +66,6 @@ if [[ -z "$output" ]]; then
     output="$OUTPUT"
 fi
 
-# if [[ "$test_notes" == "1" ]]; then
-#     rm -rf "$output"
-# fi
-
 echo "Processing corpus: $corpus_src"
 echo "Output Root: $output"
 echo "Lexicon: $lexicon"
@@ -79,6 +78,9 @@ for m in ${main_targets[@]}; do
         exit "1"
     fi
 done
+
+
+############ Previous Code; also within source control, kept here for ease of reference/undo
 
 # # xylazine
 # python sequencer.py --lexicon $LEXICON --section-headers $HEADERS --main-targets XYLA --snippet-length $SNIPPETS --snippets --notes $CORPUS --workers $WORKERS --output $OUTPUT/XYLA --left-gram-context $LGCONTEXT --right-gram-context $RGCONTEXT
