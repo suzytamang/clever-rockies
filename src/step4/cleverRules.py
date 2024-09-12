@@ -1,7 +1,9 @@
 # TODO: Remove output to screen.
 
-import os, sys, re
-from ruleFcns import *
+import sys
+
+from step4.ruleFcns import assignLabel, term_offsets
+
 
 ppath = sys.argv[1]
 fins = ppath + "/linkedAnts.txt"
