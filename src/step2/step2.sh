@@ -14,21 +14,23 @@ LGCONTEXT=3
 RGCONTEXT=2
 WORKERS=8
 
-main_targets=(XYLA A2AG PDMP CAFFINEDO BTRAITS BDD GAMINGDO GAMBLINGDO BEHAVIORAD MISOPHONIA IDU LONELINESS LIVESALONE JOBINSTABLE STRAUMA JUSTICE SOCIALCONNECT HOUSING DETOX LETHALMEANS FOODINSECURE ADL DODOUD IDU)
+main_targets=(XYLA A2AG PDMP CAFFINEDO BTRAITS BDD GAMINGDO GAMBLINGDO BEHAVIORAD MISOPHONIA IDU LONELINESS LIVESALONE JOBINSTABLE STRAUMA JUSTICE SOCIALCONNECT HOUSING DETOX LETHALMEANS FOODINSECURE ADL DODOUD)
 
-cd "$(dirname "$0")"
+pushd "$(dirname "$0")"
 
 corpus_src="$1"
 output="$2"
-lexicon="$(realpath "$LEXICON")"
-headers="$(realpath "$HEADERS")"
+lexicon="$(realpath "${LEXICON}")"
+headers="$(realpath "${HEADERS}")"
 
-test_notes=0
-if [[ "$corpus_src"=="test_notes" ]]; then
-    echo >&2 "Using test notes"
-    test_notes=1
-    corpus_src="$(realpath "../../tests/resources/test_notes/test_notes_with_metadata_one_line.txt")"
-fi
+# The following could be used to create a static indication to use test data
+# test_notes=0
+# if [[ "$corpus_src"=="test_notes" ]]; then
+#     echo >&2 "Using test notes"
+#     test_notes=1
+#     corpus_src="$(realpath "../../tests/resources/test_notes/test_notes.txt")"
+# fi
+
 
 run_sequencer() {
 
@@ -40,20 +42,20 @@ run_sequencer() {
 
     local full_output_path="$(realpath "${output_path}/${main_target}")"
 
-    echo >&2 "output_path: $output_path"
-    echo >&2 "corpus_src: $corpus_src"
-    echo >&2 "lexicon: $lexicon"
-    echo >&2 "headers: $headers"
+    # echo >&2 "output_path: $output_path"
+    # echo >&2 "corpus_src: $corpus_src"
+    # echo >&2 "lexicon: $lexicon"
+    # echo >&2 "headers: $headers"
 
     if [[ -z "$main_target" ]]; then
         echo >&2 "Main target empty"
         echo "1"
     else
+        python_path="${PYTHON_EXE:=python}"
         echo >&2 "Running Sequencer on Main Target: \"$main_target\""
-        cmd="python sequencer.py --lexicon \""${lexicon}"\" --section-headers \""${headers}"\" --main-targets \""${main_target}"\" --snippet-length \""${SNIPPETS}"\" --snippets --notes \""${corpus_src}"\" --workers \""${WORKERS}"\" --output \""${full_output_path}"\" --left-gram-context \""${LGCONTEXT}"\" --right-gram-context \""${RGCONTEXT}"\""
+        cmd="\"${python_path}\" sequencer.py --lexicon \""${lexicon}"\" --section-headers \""${headers}"\" --main-targets \""${main_target}"\" --snippet-length \""${SNIPPETS}"\" --snippets --notes \""${corpus_src}"\" --workers \""${WORKERS}"\" --output \""${full_output_path}"\" --left-gram-context \""${LGCONTEXT}"\" --right-gram-context \""${RGCONTEXT}"\""
         # echo >&2 "$cmd"
-        eval "$cmd"
-        echo "0"
+        echo "$(eval "${cmd}")"
     fi
     
 }
@@ -66,18 +68,20 @@ if [[ -z "$output" ]]; then
     output="$OUTPUT"
 fi
 
-echo "Processing corpus: $corpus_src"
-echo "Output Root: $output"
-echo "Lexicon: $lexicon"
-echo "Headers: $headers"
+# echo "Processing corpus: $corpus_src"
+# echo "Output Root: $output"
+# echo "Lexicon: $lexicon"
+# echo "Headers: $headers"
 
 for m in ${main_targets[@]}; do
     results="$(run_sequencer "$m" "$corpus_src" "$output" "$lexicon" "$headers")"
-    if [[ "$results" == "1" ]]; then
-        echo >&2 "Error encountered; exiting at step \"$m\""
-        exit "1"
+    if [[ ! -z "$results" ]]; then
+        echo >&2 "Error encountered; exiting at step \"$m\": ${results}"
+        break
     fi
 done
+
+# popd
 
 
 ############ Previous Code; also within source control, kept here for ease of reference/undo
