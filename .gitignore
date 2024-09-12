@@ -15,3 +15,6 @@ clever-rockies.code-workspace
 
 # Excluding flake8 configuration for now; should be included, however, for linting
 .flake8
+
+# Excluding local pyright configuration
+pyrightconfig.json
