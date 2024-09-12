@@ -557,7 +557,7 @@ if __name__ == "__main__":
     main_terms = [x for x in terms if x._class in main_targets_index]
     context_terms = [x for x in terms if x._class not in main_targets_index]
     if len(main_terms) == 0:
-        sys.stderr.write("Main targets not found - exiting\n")
+        sys.stderr.write(f"Main targets not found ({args.main_targets}) - exiting\n")
         sys.exit(-1)
 
     if not args.snippets and (args.right_gram > 0 or args.left_gram > 0):
