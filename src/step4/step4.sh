@@ -2,6 +2,7 @@
 
 python_path="${PYTHON_EXE:=python}"
 script_directory="$(realpath "$0" | sed 's|\(.*\)/.*|\1|')"
+common_directory="$(dirname "${script_directory}")/common"
 
 pushd "${script_directory}" > /dev/null
 

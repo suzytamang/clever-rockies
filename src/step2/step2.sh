@@ -7,12 +7,31 @@
 
 LEXICON=../../res/dicts/dict.txt
 HEADERS=../../res/headers.txt
-CORPUS=/tmp/workspacezone/tsv/lastmodifieddatetime_month=202210.txt
-OUTPUT=../../output202210
+# CORPUS=/tmp/workspacezone/tsv/lastmodifieddatetime_month=202210.txt
+
+
+if [[ ! -z "${CLEVER_OUTPUT}" ]]; then
+    OUTPUT="${CLEVER_OUTPUT}"
+else
+    OUTPUT="$(realpath ../../output202210)"
+fi
+
+if [[ ! -z "${CORPUS}" ]]; then
+    corpus_src="${CORPUS}"
+else
+    corpus_src="$(realpath ../../output202210)"
+fi
+
+if [[ ! -z "${CLEVER_NUM_WORKERS}" ]]; then
+    WORKERS=( "${CLEVER_NUM_WORKERS}" )
+else
+    WORKERS=8
+fi
+
 SNIPPETS=250
 LGCONTEXT=3
 RGCONTEXT=2
-WORKERS=8
+
 
 main_targets=(XYLA A2AG PDMP CAFFINEDO BTRAITS BDD GAMINGDO GAMBLINGDO BEHAVIORAD MISOPHONIA IDU LONELINESS LIVESALONE JOBINSTABLE STRAUMA JUSTICE SOCIALCONNECT HOUSING DETOX LETHALMEANS FOODINSECURE ADL DODOUD)
 
