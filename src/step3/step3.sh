@@ -1,9 +1,10 @@
 #!/usr/bin/bash
 
+python_path="${PYTHON_EXE:=python}"
+script_directory="$(realpath "$0" | sed 's|\(.*\)/.*|\1|')"
 
 cd "$(dirname "$0")"
 
-python_path="${PYTHON_EXE:=python}"
 LEXICON="$(realpath ../../res/dicts/dict.txt)"
 ANTS=linkedAnts.txt
 if [[ ! -z "${METADATA_PATH}" ]]; then
@@ -11,11 +12,13 @@ if [[ ! -z "${METADATA_PATH}" ]]; then
 else
     METADATA="$(realpath /tmp/workspacezone/METADATA/lastmodifieddatetime_month=202210.txt)"
 fi
+echo >&2 "METADATA: ${OUTPUT}"
 if [[ ! -z "${CLEVER_OUTPUT}" ]]; then
     OUTPUT="${CLEVER_OUTPUT}"
 else
     OUTPUT="$(realpath ../../output202210)"
 fi
+echo >&2 "OUTPUT: ${OUTPUT}"
 
 "${python_path}" organize.py "${OUTPUT}/XYLA" "${LEXICON}" "${METADATA}" "${OUTPUT}/XYLA/$ANTS"
 "${python_path}" organize.py "${OUTPUT}/A2AG" "${LEXICON}" "${METADATA}" "${OUTPUT}/A2AG/$ANTS"
