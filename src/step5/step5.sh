@@ -6,6 +6,15 @@ common_directory="$(dirname "${script_directory}")/common"
 project_directory="$(dirname "${script_directory}")"
 res_directory="$(dirname "${project_directory}")/res"
 
+get_terms() {
+  main_targets_path="${common_directory}/main_targets"
+  local terms
+  oldIFS="$IFS"
+  IFS=$'\n' terms=($(<"$main_targets_path"))
+  IFS="$oldIFS"
+  echo "${terms[@]}"
+}
+
 # echo "python_path: ${python_path}"
 # echo "script_directory: ${script_directory}"
 # echo "project_directory: ${project_directory}"
@@ -35,11 +44,7 @@ else
 fi
 echo >&2 "OTHERTERMS: ${OTHERTERMS}"
 
-main_targets_path="${common_directory}/main_targets"
-
-oldIFS="$IFS"
-IFS=$'\n' terms=($(<"$main_targets_path"))
-IFS="$oldIFS"
+terms=($(get_terms))
 
 pushd "$script_directory" > /dev/null
 
