@@ -10,11 +10,16 @@ def templated(path, target, stoplist):
 
     # Drop snippets that meet criteria.
 
+    # print(path, file=sys.stderr)
+    # print(target, file=sys.stderr)
     fd_dropped = open(path + target + "/filtered_out.txt", "w")
 
     for label in labels:
 
         fin = path + target + label + "_unfiltered.txt"
+        # print(path, file=sys.stderr)
+        # print(target, file=sys.stderr)
+        # print(label, file=sys.stderr)
         fd_filtered = open(path + target + label + ".txt", "w")
 
         try:
