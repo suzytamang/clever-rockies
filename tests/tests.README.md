@@ -55,3 +55,6 @@ export PYTHONPATH="$(realpath "$(pwd)")"
 
 
 
+### Database
+
+OMHSP_PERC_NLP
