@@ -11,8 +11,12 @@
             "id": "46d1afa45be11ef8",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Notes/Notes from 10-2-24 Meeting.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Notes/Notes from 10-2-24 Meeting.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Notes/Notes from 10-2-24 Meeting.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Notes/Notes from 10-2-24 Meeting.md"
+              }
             }
           }
         ]
@@ -138,6 +146,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "46d1afa45be11ef8",
-  "lastOpenFiles": []
+  "active": "78ba352ef70b7f80",
+  "lastOpenFiles": [
+    "CLEVER SOPs/Untitled",
+    "CLEVER SOPs/Appendix I - Tools",
+    "CLEVER SOPs/Working Title - CLEVER SOPs.md",
+    "Notes/Notes from 10-2-24 Meeting.md",
+    "CLEVER SOPs/Tools/MAVA.md",
+    "CLEVER SOPs/Use Cases",
+    "CLEVER SOPs/Triggers/Overview.md",
+    "CLEVER SOPs/Concept/Overview.md",
+    "CLEVER SOPs/Definitions/Overview.md",
+    "CLEVER SOPs/Roles/Overview.md",
+    "CLEVER SOPs/Terms/Overview.md",
+    "CLEVER SOPs/Tools/Overview.md",
+    "CLEVER SOPs/Triggers/Overview 1.md",
+    "CLEVER SOPs/Triggers",
+    "CLEVER SOPs/Terms",
+    "CLEVER SOPs/Concept",
+    "CLEVER SOPs/Definitions",
+    "CLEVER SOPs/Roles",
+    "CLEVER SOPs/Tools",
+    "CLEVER SOPs",
+    "Notes"
+  ]
 }
