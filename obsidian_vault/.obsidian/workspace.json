@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/NA Triggers.md",
+                "file": "CLEVER SOPs/Appendix I/Terminology.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/NA Triggers.md",
+                "file": "CLEVER SOPs/Appendix I/Terminology.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/NA Triggers.md",
+                "file": "CLEVER SOPs/Appendix I/Terminology.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/NA Triggers.md"
+                "file": "CLEVER SOPs/Appendix I/Terminology.md"
               }
             }
           }
@@ -148,8 +148,8 @@
   },
   "active": "46d1afa45be11ef8",
   "lastOpenFiles": [
-    "CLEVER SOPs/Appendix I/Negation Triggers.md",
     "CLEVER SOPs/Appendix I/NA Triggers.md",
+    "CLEVER SOPs/Appendix I/Negation Triggers.md",
     "CLEVER SOPs/Appendix I/Terminology.md",
     "Notes/Notes from 10-2-24 Meeting.md",
     "CLEVER SOPs/Appendix II - Tools",
