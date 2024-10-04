@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/Terminology.md",
+                "file": "CLEVER SOPs/CLEVER - Workflows and Standard Operating Procedures.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/Terminology.md",
+                "file": "CLEVER SOPs/Content/Appendix II - Tools/Appendix II - Tools.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/Terminology.md",
+                "file": "CLEVER SOPs/Content/Appendix II - Tools/Appendix II - Tools.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CLEVER SOPs/Appendix I/Terminology.md"
+                "file": "CLEVER SOPs/Content/Appendix II - Tools/Appendix II - Tools.md"
               }
             }
           }
@@ -138,6 +138,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "webpage-html-export:Export Vault to HTML": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -146,25 +147,105 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "46d1afa45be11ef8",
+  "floating": {
+    "id": "1c6bc19f22305bea",
+    "type": "floating",
+    "children": [
+      {
+        "id": "935d16d4a58e896c",
+        "type": "window",
+        "children": [
+          {
+            "id": "75f9c48eb386d3b9",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "1b1fe4db0a5906d3",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "Notes/Notes from 10-2-24 Meeting.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": -1112,
+        "y": 206,
+        "width": 1024,
+        "height": 800,
+        "maximize": false,
+        "zoom": 0
+      },
+      {
+        "id": "fdbd0df469261fd9",
+        "type": "window",
+        "children": [
+          {
+            "id": "3b2be8ab73441d68",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "c6717bf5b310d9d2",
+                "type": "leaf",
+                "state": {
+                  "type": "markdown",
+                  "state": {
+                    "file": "CLEVER SOPs/Content/Appendix II - Tools/Appendix II - Tools.md",
+                    "mode": "source",
+                    "source": false
+                  }
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical",
+        "x": 510,
+        "y": 540,
+        "width": 900,
+        "height": 500,
+        "maximize": false,
+        "zoom": 0
+      }
+    ]
+  },
+  "active": "c6717bf5b310d9d2",
   "lastOpenFiles": [
+    "CLEVER SOPs/Content/Appendix I - Resource Files/Terminology.md",
+    "CLEVER SOPs/Content/Appendix I - Resource Files/NA Triggers.md",
+    "CLEVER SOPs/Content/Appendix I - Resource Files/Appendix I - Resource Files.md",
+    "CLEVER SOPs/CLEVER - Workflows and Standard Operating Procedures.md",
+    "CLEVER SOPs/Content/Appendix I - Resource Files/Negation Triggers.md",
+    "CLEVER SOPs/Content/Appendix II - Tools/Appendix II - Tools.md",
+    "CLEVER SOPs/Content/Appendix II - Tools/CLEVER-Rockies.md",
+    "CLEVER SOPs/Content/Appendix II - Tools/MAVA.md",
+    "CLEVER SOPs/Content/Use Cases/Use Case - TBD 3.md",
+    "CLEVER SOPs/Content/Use Cases/Use Case - TBD 2.md",
+    "CLEVER SOPs/Content/Use Cases/Use Case - TBD 1.md",
+    "CLEVER SOPs/Content/CLEVER Components.md",
+    "Notes/Notes from 10-2-24 Meeting.md",
+    "CLEVER SOPs/Content/Roles.md",
+    "CLEVER SOPs/Terms.md",
+    "CLEVER SOPs/Appendix II - Tools/CLEVER-Rockies.md",
+    "CLEVER SOPs/Use Cases/Use Case - TBD 3.md",
+    "CLEVER SOPs/Tools/Overview.md",
+    "CLEVER SOPs/Use Cases/Use Case - TBD 2.md",
+    "CLEVER SOPs/Use Cases/Use Case - TBD 1.md",
+    "CLEVER SOPs/Triggers.md",
+    "CLEVER SOPs/Roles.md",
+    "CLEVER SOPs/Appendix II - Tools/MAVA.md",
+    "CLEVER SOPs/Appendix I/Terminology.md",
     "CLEVER SOPs/Appendix I/NA Triggers.md",
     "CLEVER SOPs/Appendix I/Negation Triggers.md",
-    "CLEVER SOPs/Appendix I/Terminology.md",
-    "Notes/Notes from 10-2-24 Meeting.md",
     "CLEVER SOPs/Appendix II - Tools",
-    "Notes/Questions.md",
     "CLEVER SOPs/Appendix I",
-    "CLEVER SOPs/Working Title - CLEVER SOPs.md",
-    "CLEVER SOPs/Tools/MAVA.md",
     "CLEVER SOPs/Use Cases",
-    "CLEVER SOPs/Triggers/Overview.md",
-    "CLEVER SOPs/Concept/Overview.md",
-    "CLEVER SOPs/Definitions/Overview.md",
-    "CLEVER SOPs/Roles/Overview.md",
-    "CLEVER SOPs/Terms/Overview.md",
-    "CLEVER SOPs/Tools/Overview.md",
-    "CLEVER SOPs/Triggers/Overview 1.md",
     "CLEVER SOPs/Triggers",
     "CLEVER SOPs/Terms",
     "CLEVER SOPs/Concept",

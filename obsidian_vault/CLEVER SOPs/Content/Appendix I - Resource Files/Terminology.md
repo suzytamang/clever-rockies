@@ -1,6 +1,6 @@
 res\dicts\dict.txt
 
-```csv
+```css
 37704|extrem happiness|PPAIN|0110101
 37705|extreme happiness|PPAIN|0110101
 37706|feel on top of the world|PPAIN|0110101
