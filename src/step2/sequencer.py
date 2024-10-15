@@ -28,7 +28,7 @@ import importlib  # noqa
 
 try:
     # TODO can use psutil
-    from resource import getrusage, RUSAGE_SELF
+    from resource import getrusage, RUSAGE_SELF  # type: ignore
 except:
     # print("Could not load 'resource'", file=sys.stderr)
     pass
