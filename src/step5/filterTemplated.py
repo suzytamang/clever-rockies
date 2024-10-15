@@ -1,5 +1,12 @@
-def templated(path, target, stoplist):
+import os
+import sys
+from pathlib import Path
 
+
+def templated(path, target, stoplist):
+    
+    print(f"target: {target}")
+    
     # NOTE: Removes templated text, mostly assessment related, sometimes medication list.
 
     # TODO: Have match with terms in stoplist account for end tokens (group but not groups).
@@ -9,19 +16,24 @@ def templated(path, target, stoplist):
     labels = ["/allPos", "/allNeg"]
 
     # Drop snippets that meet criteria.
-
-    # print(path, file=sys.stderr)
-    # print(target, file=sys.stderr)
-    fd_dropped = open(path + target + "/filtered_out.txt", "w")
+    
+    path = str(Path(path).absolute())
+    
+    filterest_out_file_path = os.path.join(path, target, "filtered_out.txt")
+    print(path, file=sys.stderr)
+    print(target, file=sys.stderr)
+    print(filterest_out_file_path, file=sys.stderr)
+    
+    fd_dropped = open(filterest_out_file_path, "w")
 
     for label in labels:
 
         fin = path + target + label + "_unfiltered.txt"
-        # print(path, file=sys.stderr)
-        # print(target, file=sys.stderr)
-        # print(label, file=sys.stderr)
-        fd_filtered = open(path + target + label + ".txt", "w")
-
+        
+        target_label_output_file_path = os.path.join(Path(path).absolute(), target, label + ".txt")
+        print(target_label_output_file_path, file=sys.stderr)
+        fd_filtered = open(target_label_output_file_path, "w")
+        break
         try:
             with open(fin) as f:
 

@@ -3,6 +3,7 @@
 METADATA_PATH=
 CLEVER_OUTPUT=
 CORPUS=
+CLEVER_TARGET_FILE=
 USING_TEST_NOTES=0
 
 show_help() {
@@ -47,6 +48,15 @@ set_output_path() {
         exit 1
     fi
     CLEVER_OUTPUT="$output_path"
+}
+
+set_target_file() {
+    local target_file="$1"
+    if [[ ! -f "$target_file" ]]; then
+        echo >&2 "Invalid target file path: \"$target_file\""
+        exit 1
+    fi
+    CLEVER_TARGET_FILE="$target_file"
 }
 
 metadata_not_set() {
@@ -101,6 +111,11 @@ do
         set_output_path "$1"
         shift
         ;;
+    --target_file)
+        shift
+        set_target_file "$1"
+        shift
+        ;;
     *)
         shift
         ;;
@@ -128,35 +143,49 @@ export CORPUS="${CORPUS}"
 export METADATA_PATH="${METADATA_PATH}"
 export CLEVER_NUM_WORKERS=8
 
-#######################################
-# STEP 2
-#######################################
-
-if [[ "$USING_TEST_NOTES"=="1" ]]; then
-    mkdir -p "${CLEVER_OUTPUT}"
-    if [[ "$(find "${CLEVER_OUTPUT}"/ -type d -empty)" != "${CLEVER_OUTPUT}"/ ]]; then
-        rm -rf "${CLEVER_OUTPUT}"/*
+get_terms() {
+    if [[ -f "$CLEVER_TARGET_FILE" ]]; then
+        main_targets_path="$CLEVER_TARGET_FILE"
+    else
+        main_targets_path="${common_directory}/main_targets"
     fi
-fi
-pushd ./step2 > /dev/null
-./step2.sh
-popd > /dev/null
+  
+  local terms
+  oldIFS="$IFS"
+  IFS=$'\n' terms=($(<"$main_targets_path"))
+  IFS="$oldIFS"
+  echo "${terms[@]}"
+}
 
-#######################################
-# STEP 3
-#######################################
+# #######################################
+# # STEP 2
+# #######################################
 
-pushd ./step3 > /dev/null
-./step3.sh
-popd > /dev/null
+# if [[ "$USING_TEST_NOTES"=="1" ]]; then
+#     mkdir -p "${CLEVER_OUTPUT}"
+#     if [[ "$(find "${CLEVER_OUTPUT}"/ -type d -empty)" != "${CLEVER_OUTPUT}"/ ]]; then
+#         rm -rf "${CLEVER_OUTPUT}"/*
+#     fi
+# fi
+# pushd ./step2 > /dev/null
+# ./step2.sh
+# popd > /dev/null
 
-#######################################
-# STEP 4
-#######################################
+# #######################################
+# # STEP 3
+# #######################################
 
-pushd ./step4 > /dev/null
-./step4.sh
-popd > /dev/null
+# pushd ./step3 > /dev/null
+# ./step3.sh
+# popd > /dev/null
+
+# #######################################
+# # STEP 4
+# #######################################
+
+# pushd ./step4 > /dev/null
+# ./step4.sh
+# popd > /dev/null
 
 #######################################
 # STEP 5
