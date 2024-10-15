@@ -18,3 +18,5 @@ clever-rockies.code-workspace
 
 # Excluding local pyright configuration
 pyrightconfig.json
+tests/output/
+*.code-workspace
