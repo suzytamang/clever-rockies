@@ -55,3 +55,13 @@ export PYTHONPATH="$(realpath "$(pwd)")"
 
 
 
+
+
+### Expected output for test notes
+
+allPOS.txt
+allNEG.txt
+allNA.txt
+allPOS_unfiltered.txt
+allNEG_unfiltered.txt
+allNA_unfiltered.txt
