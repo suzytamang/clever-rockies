@@ -1,151 +1,128 @@
+import os
+import sys
+import argparse
+
+
+def remove_templated_data(snippet, stoplist, title):
+    omit = 0
+    testsnip = snippet.lower()
+
+    # Look for strings associated with assessments/semi-structured data
+    for term in stoplist:
+        if term.lower() in testsnip:
+            omit = 1
+            break
+
+    if omit == 0:
+        # Check for group notes by looking at Standard Note Title
+        if "GROUP" in title:
+            omit = 1
+            # Conditions based on frequency
+        elif testsnip.count("(") > 4:
+            omit = 1
+        elif testsnip.count(" x ") > 3:
+            omit = 1
+        elif testsnip.count("[") > 2:
+            omit = 1
+        elif testsnip.count("?") > 1:
+            omit = 1
+        elif (testsnip.count("yes") + testsnip.count("denied") + testsnip.count("no")) > 3:
+            omit = 1
+        elif testsnip.count("_x_") > 0:
+            omit = 1
+        elif testsnip.count("'y'") > 0:
+            omit = 1
+        elif testsnip.count(" n ") > 0:
+            omit = 1
+        elif testsnip.count("during the past month") + \
+                testsnip.count("most of the day") + \
+                testsnip.count("nearly every day") > 1:
+            omit = 1
+
+    return omit
+
+
+import os
+import shutil
+
 def templated(path, target, stoplist):
-
-    #NOTE: Removes templated text, mostly assessment related, sometimes medication list.
-
-    #TODO: Have match with terms in stoplist account for end tokens (group but not groups).
-    #TODO: Filter # points but not 'stuck points'.
-    #TODO: Filter "several days" but not "for several days".
-  
     labels = ['/allPos', '/allNeg']
 
-    # Drop snippets that meet criteria.
-
-    fd_dropped = open(path+target + "/filtered_out.txt", "w")
-  
     for label in labels:
-  
         fin = path + target + label + "_unfiltered.txt"
-        fd_filtered = open(path + target + label + ".txt", "w")
-  
-        try:
-            with open(fin) as f:
-      
-                for line in f:
-      
-                    omit = 0
-                    tmp = line.strip().split("|")
-                    # Snippet starts with the pre-fix 'SNIPPET: '.
-                    snippet = tmp[snippet_column][9:]
-                    testsnip = snippet.lower()
-                    # look for strings associated with assessments/semi-structured data
-                    for term in stoplist:
-                        if term.lower() in testsnip:
-                            print("OMIT 0:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                            break
-      
-                    if omit == 0:
-                        # check for group notes by looking at Standard Note Title
-                        if "GROUP" in tmp[title_column]:
-                            print("OMIT 1:", tmp[title_column], file=fd_dropped, flush=True)
-                            omit = 1           
-                        # Conditions based on frequency.
-                        elif testsnip.count("(") > 4:
-                            print("OMIT 2:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count(" x ") > 3:
-                            print("OMIT 3:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count("[") > 2:
-                            print("OMIT 4:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count("?") > 1:
-                            print("OMIT 5:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif (testsnip.count("yes") + \
-                            testsnip.count("denied") + \
-                            testsnip.count("no")) > 3:
-                            print("OMIT 6:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count("_x_") > 0:
-                            print("OMIT 7:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count("'y'") > 0:
-                            print("OMIT 8:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        elif testsnip.count(" n ") > 0:
-                            print("OMIT 9:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-                        # : catches few and wrong at that.
-                        #elif testsnip.count(":") > 6:
-                        #    print("OMIT 10:", snippet, file=fd_dropped, flush=True)
-                        #    omit = 1
-                        # Combined 11 and 12 in 13.
-                        #elif testsnip.count("most of the time") > 1:
-                        #    print("OMIT 11:", snippet, file=fd_dropped, flush=True)
-                        #    omit = 1
-                        #elif testsnip.count("nearly every day") > 1:
-                        #    print("OMIT 12:", snippet, file=fd_dropped, flush=True)
-                        #    omit = 1
-                        elif testsnip.count("during the past month") + \
-                            testsnip.count("most of the day") + \
-                            testsnip.count("nearly every day") > 1:
-                            print("OMIT 13:", snippet, file=fd_dropped, flush=True)
-                            omit = 1
-      
-                    if omit == 0:
-                        fd_filtered.write(line)
-  
-        except IOError:
-            print("No or empty file by the name ", fin)
-  
-        fd_filtered.close()
-  
-    fd_dropped.close()
-  
-    return
+        fout_filtered_path = path + target + label + "_filtered.txt"
+        fout_unfiltered_path = path + target + label + "_unfiltered.txt"
+        fd_dropped_path = path + target + "/filtered_out" + label + ".txt"
+
+        # Create directories if they don't exist
+        os.makedirs(os.path.dirname(fout_filtered_path), exist_ok=True)
+        os.makedirs(os.path.dirname(fd_dropped_path), exist_ok=True)
+
+        # Check if unfiltered file exists
+        if not os.path.exists(fin):
+            print(f"Input file not found: {fin}")
+            continue
+
+        # Open filtered and dropped files for writing
+        with open(fout_filtered_path, "w") as fout_filtered, open(fd_dropped_path, "w") as fd_dropped:
+            try:
+                with open(fin, "r") as f:
+                    for line in f:
+                        tmp = line.strip().split("|")
+                        snippet = tmp[snippet_column][9:]  # Remove "SNIPPET: " prefix
+                        testsnip = snippet.lower()
+                        title = tmp[title_column]
+
+                        omit = remove_templated_data(snippet, stoplist, title)
+
+                        if omit == 0:
+                            fout_filtered.write(line)
+                        else:
+                            fd_dropped.write(line)
+
+            except IOError:
+                print(f"Error reading file: {fin}")
+
+    print("Filtering complete.")
 
 
 if __name__ == "__main__":
-
-    import argparse
-    import sys
-  
-    # Takes output path and target concept as input.
-    # Assumes labelled snippets are available.
-  
     parser = argparse.ArgumentParser()
-    parser.add_argument('-p','--path', type =str, required = True, 
-                        help = 'path of directory where output lives')
-    parser.add_argument('-t','--target', type = str, required = True, 
-                        help = 'Label used for the target concept in the output directory')
-    parser.add_argument('-a','--assessment_terms', type = str, required = True, 
-                        help = 'File with list of terms that indicate assessment')
-    parser.add_argument('-o','--other_terms', type = str, required = False, default='file.txt', 
-                        help = 'Optional other file with terms that should trigger dropping the snippet')
-    parser.add_argument('-sp','--snippet_position', type = int, required = True, 
-                        help = 'Position of text in snippet (one-based column number)')
-    parser.add_argument('-tp','--title_position', type = int, required = True, 
-                        help = 'Position of standard title in snippet (one-based column number)')
-  
+    parser.add_argument('-p', '--path', type=str, required=True,
+                        help='path of directory where output lives')
+    parser.add_argument('-t', '--target', type=str, required=True,
+                        help='Label used for the target concept in the output directory')
+    parser.add_argument('-a', '--assessment_terms', type=str, required=True,
+                        help='File with list of terms that indicate assessment')
+    parser.add_argument('-o', '--other_terms', type=str, required=False, default='file.txt',
+                        help='Optional other file with terms that should trigger dropping the snippet')
+    parser.add_argument('-sp', '--snippet_position', type=int, required=True,
+                        help='Position of text in snippet (one-based column number)')
+    parser.add_argument('-tp', '--title_position', type=int, required=True,
+                        help='Position of standard title in snippet (one-based column number)')
+
     args = parser.parse_args()
-  
-    path   = args.path
+
+    path = args.path
     target = args.target
     assess = args.assessment_terms
-    other  = args.other_terms
+    other = args.other_terms
     snippet_column = args.snippet_position - 1
     title_column = args.title_position - 1
-  
-    # Combine assessment terms and (optional) other terms.
-  
+
+    # Combine assessment terms and (optional) other terms
+    stoplist = []
     try:
         with open(assess) as fa:
-            assessment_terms = fa.read()
-  
+            stoplist.extend([line.strip() for line in fa if line.strip()])
     except IOError:
         sys.exit("No file by the name " + assess + ". Filter aborted.")
-  
-    if other == 'file.txt':
-        other_terms = ''
-    else:
+
+    if other != 'file.txt':
         try:
             with open(other) as fo:
-                other_terms = fo.read()
+                stoplist.extend([line.strip() for line in fo if line.strip()])
         except IOError:
             sys.exit("No file by the name " + other + ". Filter aborted.")
-  
-    stoplist = assessment_terms.split("\n") + other_terms.split("\n")
-    stoplist = [term for term in stoplist if term]
-  
+
     templated(path, target, stoplist)
