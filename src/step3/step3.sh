@@ -1,32 +1,49 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
-LEXICON=../../res/dicts/dict.txt
-METADATA=/tmp/workspacezone/metadata/lastmodifieddatetime_month=202210.txt
-OUTPUT=../../output202210
-ANTS=linkedAnts.txt
+# Define constants
+LEXICON="../../res/dicts/dict.txt"
+METADATA="../../tests/resources/test_notes/metadata/test_metadata_one_line.txt"
+OUTPUT="../../tests/outputs"
+ANTS="linkedAnts.txt"
 
+# Change to the script's directory
 cd "$(dirname "$0")"
 
-python3 organize.py $OUTPUT/XYLA $LEXICON $METADATA $OUTPUT/XYLA/$ANTS
-python3 organize.py $OUTPUT/A2AG $LEXICON $METADATA $OUTPUT/A2AG/$ANTS
-python3 organize.py $OUTPUT/PDMP $LEXICON $METADATA $OUTPUT/PDMP/$ANTS
-python3 organize.py $OUTPUT/CAFFINEDO $LEXICON $METADATA $OUTPUT/CAFFINEDO/$ANTS
-python3 organize.py $OUTPUT/BTRAITS $LEXICON $METADATA $OUTPUT/BTRAITS/$ANTS
-python3 organize.py $OUTPUT/BDD $LEXICON $METADATA $OUTPUT/BDD/$ANTS
-python3 organize.py $OUTPUT/GAMINGDO $LEXICON $METADATA $OUTPUT/GAMINGDO/$ANTS
-python3 organize.py $OUTPUT/GAMBLINGDO $LEXICON $METADATA $OUTPUT/GAMBLINGDO/$ANTS
-python3 organize.py $OUTPUT/BEHAVIORAD $LEXICON $METADATA $OUTPUT/BEHAVIORAD/$ANTS
-python3 organize.py $OUTPUT/MISOPHONIA $LEXICON $METADATA $OUTPUT/MISOPHONIA/$ANTS
-python3 organize.py $OUTPUT/IDU $LEXICON $METADATA $OUTPUT/IDU/$ANTS
-python3 organize.py $OUTPUT/JOBINSTABLE $LEXICON $METADATA $OUTPUT/JOBINSTABLE/$ANTS
-python3 organize.py $OUTPUT/JUSTICE $LEXICON $METADATA $OUTPUT/JUSTICE/$ANTS
-python3 organize.py $OUTPUT/LIVESALONE $LEXICON $METADATA $OUTPUT/LIVESALONE/$ANTS
-python3 organize.py $OUTPUT/LONELINESS $LEXICON $METADATA $OUTPUT/LONELINESS/$ANTS
-python3 organize.py $OUTPUT/SOCIALCONNECT $LEXICON $METADATA $OUTPUT/SOCIALCONNECT/$ANTS
-python3 organize.py $OUTPUT/STRAUMA $LEXICON $METADATA $OUTPUT/STRAUMA/$ANTS
-python3 organize.py $OUTPUT/HOUSING $LEXICON $METADATA $OUTPUT/HOUSING/$ANTS
-python3 organize.py $OUTPUT/DETOX $LEXICON $METADATA $OUTPUT/DETOX/$ANTS
-python3 organize.py $OUTPUT/FOODINSECURE $LEXICON $METADATA $OUTPUT/FOODINSECURE/$ANTS
-python3 organize.py $OUTPUT/LETHALMEANS $LEXICON $METADATA $OUTPUT/LETHALMEANS/$ANTS
-python3 organize.py $OUTPUT/ADL $LEXICON $METADATA $OUTPUT/ADL/$ANTS
-python3 organize.py $OUTPUT/DODOUD $LEXICON $METADATA $OUTPUT/DODOUD/$ANTS
+# Function to run organize.py with common arguments
+run_organize() {
+    local target=$1
+    python3 organize.py "$OUTPUT/$target" "$LEXICON" "$METADATA" "$OUTPUT/$target/$ANTS"
+}
+
+# Read targets from the unique_targets.txt file
+TARGETS_FILE="../../res/unique_targets.txt"
+
+if [ ! -f "$TARGETS_FILE" ]; then
+    echo "Error: $TARGETS_FILE not found!"
+    echo "Please run grabtargets.sh first to generate the unique targets list."
+    exit 1
+fi
+
+# Read targets into an array
+readarray -t targets < "$TARGETS_FILE"
+
+# Check if targets were successfully read
+if [ ${#targets[@]} -eq 0 ]; then
+    echo "Error: No targets found in $TARGETS_FILE"
+    exit 1
+fi
+
+echo "Loaded ${#targets[@]} targets from $TARGETS_FILE"
+
+# overwrite Array of targets with static one below for testing 2+- concept(s)
+#targets=(
+#    "LONELINESS" "XYLA"
+#)
+
+# Run organize.py for each target
+for target in "${targets[@]}"; do
+    echo "Processing organize $target..."
+    run_organize "$target"
+done
+
+echo "All targets processed."

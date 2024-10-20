@@ -207,6 +207,7 @@ class MainTargetHit:
             self.only_longest_context()
 
 class Note:
+    # question logic 
     def __init__(self,_id,text):
         self._id = _id
         self.text = text
