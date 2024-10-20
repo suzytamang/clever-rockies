@@ -1,25 +1,48 @@
+#!/usr/bin/env bash
+
+# Define constants
+OUTPUT="../../tests/outputs"
+NEG_TRIGS="../../res/neg_trigs.json"
+NA_TRIGS="../../res/na_trigs.json"
+
+# Change to the script's directory
 cd "$(dirname "$0")"
 
-python cleverRules.py ../../output202210/XYLA XYLA
-python cleverRules.py ../../output202210/A2AG A2AG
-python cleverRules.py ../../output202210/PDMP PDMP
-python cleverRules.py ../../output202210/CAFFINEDO CAFFINEDO
-python cleverRules.py ../../output202210/BTRAITS BTRAITS
-python cleverRules.py ../../output202210/BDD BDD
-python cleverRules.py ../../output202210/GAMINGDO GAMINGDO
-python cleverRules.py ../../output202210/GAMBLINGDO GAMBLINGDO
-python cleverRules.py ../../output202210/BEHAVIORAD BEHAVIORAD
-python cleverRules.py ../../output202210/MISOPHONIA MISOPHONIA
-python cleverRules.py ../../output202210/IDU IDU
-python cleverRules.py ../../output202210/JOBINSTABLE JOBINSTABLE
-python cleverRules.py ../../output202210/JUSTICE JUSTICE
-python cleverRules.py ../../output202210/LIVESALONE LIVESALONE
-python cleverRules.py ../../output202210/LONELINESS LONELINESS
-python cleverRules.py ../../output202210/SOCIALCONNECT SOCIALCONNECT
-python cleverRules.py ../../output202210/STRAUMA STRAUMA
-python cleverRules.py ../../output202210/HOUSING HOUSING
-python cleverRules.py ../../output202210/DETOX DETOX
-python cleverRules.py ../../output202210/LETHALMEANS LETHALMEANS
-python cleverRules.py ../../output202210/FOODINSECURE FOODINSECURE
-python cleverRules.py ../../output202210/ADL ADL
-python cleverRules.py ../../output202210/DODOUD DODOUD
+# Function to run cleverRules.py with common arguments
+run_clever_rules() {
+    local target=$1
+    python cleverRules.py "$OUTPUT/$target" "$target" "$NEG_TRIGS" "$NA_TRIGS"
+}
+
+# Read targets from the unique_targets.txt file
+TARGETS_FILE="../../res/unique_targets.txt"
+
+if [ ! -f "$TARGETS_FILE" ]; then
+    echo "Error: $TARGETS_FILE not found!"
+    echo "Please run grabtargets.sh first to generate the unique targets list."
+    exit 1
+fi
+
+# Read targets into an array
+readarray -t targets < "$TARGETS_FILE"
+
+# Check if targets were successfully read
+if [ ${#targets[@]} -eq 0 ]; then
+    echo "Error: No targets found in $TARGETS_FILE"
+    exit 1
+fi
+
+echo "Loaded ${#targets[@]} targets from $TARGETS_FILE"
+
+# overwrite Array of targets with static one below for testing 2+- concept(s)
+#targets=(
+#    "LONELINESS" "XYLA"
+#)
+
+# Run cleverRules.py for each target
+for target in "${targets[@]}"; do
+    echo "Processing run_clever_rules $target..."
+    run_clever_rules "$target"
+done
+
+echo "All targets processed."

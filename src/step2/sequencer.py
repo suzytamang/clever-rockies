@@ -3,22 +3,16 @@
 # output: for target mentions detected using a maximum string length, right truncated partial string matching, CLEVER's output files include right and left n-gram features (context_left.txt, context_right.txt), candidate event snippets that can be used for additional processing steps such as SNOMED-CT concept extraction (discover.txt), and CLEVER's extraction files (extraction.txt). 
 # *** it is important to note that only the extraction.txt file is required to develop a rule based extractor.  Additional textual features are provided in the extraction.txt file, and other extractor.py output; however, they are inteded to be used in the development of statistical extractors trained on a small portion of development data that is labeled by CLEVER during rule execution
 
-import pdb
-import sys
 import codecs
-from collections import defaultdict
-import re
 import os
-import time
-import warnings
-from argparse import ArgumentParser
-from multiprocessing import Pool,JoinableQueue,Process,log_to_stderr,current_process
 import queue as qmod
+import re
+import sys
+from argparse import ArgumentParser
+from collections import defaultdict
+from multiprocessing import Pool, JoinableQueue, current_process
 from os import listdir
 from os.path import isfile, join
-import importlib
-from resource import getrusage, RUSAGE_SELF
-
 
 END_TOKEN = set(["(",")",";",":",",","."," ","?","!","\\","/","-","'"])
 #END_TOKEN = set(["."," ","?","!","\\","/","-"])
@@ -220,14 +214,11 @@ class Note:
                 hit = self.text_lower.find(term.label,offset)
                 if hit == -1:
                     break
-                if (self.text[hit+len(term.label)] not in END_TOKEN) or (self.text[hit-1] not in END_TOKEN):
-                #    # if hit is PUNCT then do nothing (add it to context), else check both sides of term
-                #    if term._class != 'DOT':
-                #       if (snip[hit+lt] not in END_TOKEN) or (snip[hit-1] not in END_TOKEN):
-                #           offset = hit +len(term.label)
-                #           continue
-                #if self.text[hit+len(term.label)] not in END_TOKEN:
+                if (hit+len(term.label) == len(self.text_lower) and (hit != 0) and (self.text_lower[hit-1] not in END_TOKEN)):
                     break
+                if (self.text_lower[hit+len(term.label)] not in END_TOKEN) or (self.text_lower[hit-1] not in END_TOKEN and hit != 0):
+                    offset = hit + 1
+                    continue
                 target = MainTargetHit(self,hit,size_context,term,context_terms)
                 target.extract_context_terms()
                 nt.add_target(target)
@@ -453,7 +444,6 @@ if __name__ == "__main__":
 
     if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         ngram_contexts = NGramContext(args.left_gram,args.right_gram)
-    import logging
     if args.workers > 0:
         queue = JoinableQueue(args.workers)
         batch = Batch(queue,args.snippet_length,args.snippets,
