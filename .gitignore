@@ -6,4 +6,4 @@
 .vscode
 tests/output/
 *.code-workspace
-
+notebooks/
