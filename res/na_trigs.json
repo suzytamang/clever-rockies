@@ -21,7 +21,7 @@
         "GAMBLINGDO": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "BEHAVIORAD": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "CAPACITY": ["FAM"],
-        "CONNECT": ["FAM"],
+        "CONNECT": [],
         "HOPELESS": ["FAM"],
         "PPAIN": ["FAM"],
 	"CGS": [],
