@@ -1,6 +1,10 @@
 import os, sys, glob, re
+import json
 
-# S372-DM|COLON_COLON_COLON_HX_COLON_HX_#DM#_PUNCT_DM-NEURO_HX_HX_DOT|COLON_COLON_COLON_HX_COLON_HX_#DM#_PUNCT_DM-NEURO_HX_HX_DOT|diabetes|995|42562|"Nursing/Other"|3166-07-11 17:49:00 EST|XXXX|DM|1188|206|UK|NULL|colon:COLON:1:82:-124,colon:COLON:1:108:-98,colon:COLON:1:119:-87,history of:HX:746:127:-79,colon:COLON:1:153:-53,history of:HX:746:195:-11,comma:PUNCT:6:230:24,neuropathy:DM-NEURO:1204:250:44,ho:HX:745:262:56,history:HX:747:291:85,period:DOT:2:327:121|SNIPPET: h:   [**3113-9-8**]     Sex:  MService:  C MEDHISTORY OF PRESENT ILLNESS:  This is a 53-year-old white malewith a history of diabetes mellitus type 2, hypertension,with neuropathy who presented with a four day history ofchest pain and diaphoresis.  Of note,
+def load_trigs_dict(trigs_path):
+    with open(trigs_path, 'r') as f:
+        return json.load(f)
+
 def term_offsets(term, string):
     string_lower = string.lower()
     pattern = re.compile(re.escape(term))
@@ -10,7 +14,7 @@ def term_offsets(term, string):
     return offsets
 
 
-def assignLabel(cevent,trigs_list):
+def assignLabel(cevent, neg_trigs, na_trigs):
     sem = 1
     tmp = cevent.split("|")
     #print(tmp)
@@ -24,7 +28,7 @@ def assignLabel(cevent,trigs_list):
     sentsem= checkSentence(cseq[0],cseq[1])
     if sentsem == 1: 
         return ["POSITIVE",tclass]
-    label = cleverRule(cseq,tclass, trigs_list)
+    label = cleverRule(cseq,tclass, neg_trigs, na_trigs)
     return label 
 
 def formatSeq(seq,tclass):
@@ -42,18 +46,19 @@ def formatSeq(seq,tclass):
         rseq = tmp[1].split("_")
     return [lseq,rseq]
 
-def cleverRule(cseq,tclass, trigs_list):
+def cleverRule(cseq, tclass, neg_trigs, na_trigs):
     pos = "POSITIVE"
     neg = "NEGATIVE"
     na = "NO_APPLICABLE"
+
     #trigs = ["NEGEX","HX","HYP","SCREEN","RISK","FAM","PREV"]
-    if trigs_list:
-        trigs = trigs_list
-        na_trigs = ["FAM"]
-    else:
-        
-        trigs = ["NEGEX","HX","HYP","SCREEN","RISK","PREV"]
-        na_trigs = ["FAM"]
+    # if trigs_list:
+    #     trigs = trigs_list
+    #     na_trigs = ["FAM"]
+    # else:
+
+    #     trigs = ["NEGEX","HX","HYP","SCREEN","RISK","PREV"]
+    #     na_trigs = ["FAM"]
     if cseq[0] == None:
         llseq = 0
         pre1 = "DOT"
@@ -90,7 +95,7 @@ def cleverRule(cseq,tclass, trigs_list):
                         if pre3 == tag and pre1 != "DOT": 
                             return [na,tag] 
         # determine the boundry that was detected and the modifier type
-    for tag in trigs:
+    for tag in neg_trigs:
         if llseq > 0: 
             pre1 = lseq[llseq-1]
             if pre1 == tag: 
