@@ -60,4 +60,4 @@ for target in "${targets[@]}"; do
     run_sequencer "$target"
 done
 
-echo "All targets processed."
+echo "All targets processed.."

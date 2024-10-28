@@ -35,6 +35,6 @@ if [ $? -eq 0 ] && [ -f "$UNIQUE_TARGETS_FILE" ]; then
     echo "Unique targets have been saved to $UNIQUE_TARGETS_FILE"
     echo "Number of unique targets: $(wc -l < "$UNIQUE_TARGETS_FILE")"
 else
-    echo "Error:  Failed to create $UNIQUE_TARGETS_FILE"
+    echo "Error:   Failed to create $UNIQUE_TARGETS_FILE"
     exit 1
 fi

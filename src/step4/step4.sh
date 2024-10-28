@@ -45,4 +45,4 @@ for target in "${targets[@]}"; do
     run_clever_rules "$target"
 done
 
-echo "All targets processed."
+echo "All targets processed.."

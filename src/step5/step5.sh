@@ -48,4 +48,4 @@ for target in "${targets[@]}"; do
     run_filter_templated "$target"
 done
 
-echo "All targets processed."
+echo "All targets processed.."

@@ -27,5 +27,5 @@ conda activate $ENV_NAME
 echo "Installing packages..."
 conda install numpy pandas pyspark scikit-learn -y
 
-echo "$ENV_NAME environment setup complete.."
+echo "$ENV_NAME environment setup complete..."
 

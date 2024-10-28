@@ -119,4 +119,4 @@ for target in "${targets[@]}"; do
     #run_cross_class_filter "$target"
 done
 
-echo "All targets processed.."
+echo "All targets processed..."

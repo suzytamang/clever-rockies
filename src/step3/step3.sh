@@ -46,4 +46,4 @@ for target in "${targets[@]}"; do
     run_organize "$target"
 done
 
-echo "All targets processed."
+echo "All targets processed.."
