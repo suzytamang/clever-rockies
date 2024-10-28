@@ -23,7 +23,7 @@ OUTPUT="$TESTS_DIR/outputs_min"
 SNIPPETS=250
 LGCONTEXT=3
 RGCONTEXT=2
-WORKERS=8
+WORKERS=1
 
 # Store the initial directory
 INITIAL_DIR=$(pwd)
