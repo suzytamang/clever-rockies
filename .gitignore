@@ -7,3 +7,4 @@
 tests/output/
 *.code-workspace
 notebooks/
+.ipynb_checkpoints/
