@@ -49,7 +49,7 @@ def formatSeq(seq,tclass):
 def cleverRule(cseq, tclass, neg_trigs, na_trigs):
     pos = "POSITIVE"
     neg = "NEGATIVE"
-    na = "NO_APPLICABLE"
+    na = "NOT_APP"
 
     #trigs = ["NEGEX","HX","HYP","SCREEN","RISK","FAM","PREV"]
     # if trigs_list:
