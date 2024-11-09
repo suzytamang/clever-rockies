@@ -17,7 +17,7 @@ import queue as qmod
 from os import listdir
 from os.path import isfile, join
 import importlib
-from resource import getrusage, RUSAGE_SELF
+#from resource import getrusage, RUSAGE_SELF
 
 
 END_TOKEN = set(["(",")",";",":",",","."," ","?","!","\\","/","-","'"])
