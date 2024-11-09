@@ -72,6 +72,23 @@ def cleverRule(cseq, tclass, neg_trigs, na_trigs):
         rseq = cseq[1]
         lrseq = len(rseq)
 
+    for tag in neg_trigs:
+        if llseq > 0:
+            pre1 = lseq[llseq-1]
+            if pre1 == tag:
+                return [neg,tag]
+        if lrseq > 0:
+            post1 = rseq[0]
+            if post1 == tag:
+                return [neg,tag]
+        if llseq > 2:
+            pre2 = lseq[llseq-2]
+            if pre2 == tag and pre1 != "DOT":
+                return [neg,tag]
+                if llseq > 3 and tag != "NEGEX":
+                        pre3 = lseq[llseq-3]
+                        if pre3 == tag and pre1 != "DOT":
+                            return [neg,tag]
 
     # Determine the NA label
     for tag in na_trigs:
@@ -95,25 +112,9 @@ def cleverRule(cseq, tclass, neg_trigs, na_trigs):
                         if pre3 == tag and pre1 != "DOT": 
                             return [na,tag] 
         # determine the boundry that was detected and the modifier type
-    for tag in neg_trigs:
-        if llseq > 0: 
-            pre1 = lseq[llseq-1]
-            if pre1 == tag: 
-                return [neg,tag] 
-        if lrseq > 0:
-            post1 = rseq[0]
-            if post1 == tag: 
-                return [neg,tag]
-        if llseq > 2:
-            pre2 = lseq[llseq-2]
-            if pre2 == tag and pre1 != "DOT": 
-                return [neg,tag]
-                if llseq > 3 and tag != "NEGEX":
-                        pre3 = lseq[llseq-3]
-                        if pre3 == tag and pre1 != "DOT": 
-                            return [neg,tag] 
-        #PROBABLY POSITIVE...
-        # target class
+
+    #PROBABLY POSITIVE...
+    # target class
     if tclass == "DM":
         #print "POS: ",tclass, cseq
         return [pos,tclass]
