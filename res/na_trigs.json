@@ -10,7 +10,7 @@
         "JUSTICE": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "STRAUMA": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "LIVESALONE": [],
-        "LONELINESS": ["RISK"],
+        "LONELINESS": [],
         "JOBINSTABLE": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "ADL": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
         "CAFFEINEDO": ["FAM","HX","HYP","SCREEN","RISK","PREV"],
