@@ -16,18 +16,16 @@ This repo includes the Python3 version of CLEVER code from the Program Evaluatio
 
 ## Setup and Installation
 1. Create a new Conda environment with Python 3.12:
-conda create -n clever_env python=3.12
+`conda create -n clever_env python=3.12 pandas`
 
 2. Activate the environment:
-conda activate clever_env
-
-3. Create an output folder.
+`conda activate clever_env`
 
 ## Important Note on Working Directory
 CLEVER relies on relative file paths. Always ensure you are in the correct directory before running any scripts. Incorrect working directories will likely result in file not found errors or unexpected behavior. When in doubt, use `pwd` (print working directory) to verify your current location in the file system.
 
 ## Running CLEVER
-You can run CLEVER using either the shell scripts (.sh) on a Linux system or the Python scripts (.py) in any Conda environment like the one you just created.
+You can run CLEVER using Python scripts (.py) in any Conda environment like the one you just created.
 You must change to the appropriate directory before running the scripts. 
 
 ### Generate Targets
@@ -37,9 +35,6 @@ Before running the main steps, you need to generate all the targets:
 # Change to the src directory
 cd src
 
-# Using shell script
-./grabtargets.sh
-
 # Or using Python script
 python grabtargets.py
 
@@ -48,21 +43,43 @@ cd ..
 ```
 
 ### Testing Functionality
-To test functionality and provide sample input/output text files for later modification:
+
+To test functionality and provide sample input/output text files for later modification, you can use the `run_all_steps.py` script. This script now supports different logging levels for console output while always maintaining detailed debug logs in a file.
 
 ```bash
-# Change to the tests/resources directory
-cd tests/resources
+# Change to the tests directory
+cd src
 
-# Using shell script
-./run_all_steps.sh
+# Run the script with different logging levels:
 
-# Or using Python script
+# Default (quiet) mode - only warnings and errors on console
 python run_all_steps.py
 
+# Verbose mode - INFO level messages on console
+python run_all_steps.py --info
+
+# Debug mode - All DEBUG level messages on console
+python run_all_steps.py --debug
+
+# Explicitly set quiet mode (same as default)
+python run_all_steps.py --quiet
+
 # Return to the root directory
-cd ../..
+cd ..
 ```
+The script will always generate a detailed log file in the run directory, named with the current timestamp (e.g., run_all_20230615_120101.log).
+Logging Levels:
+
+    --quiet (default): Only WARNING and ERROR messages are displayed on the console.
+    --info: INFO, WARNING, and ERROR messages are displayed on the console.
+    --debug: All messages including DEBUG are displayed on the console.
+
+Regardless of the chosen console logging level, all DEBUG and above messages are always written to the log file for comprehensive debugging if needed.
+Note:
+
+The run_all_steps.sh shell script is deprecated and has been replaced by this Python script for improved functionality and flexibility.
+Ensure you run the grabtargets.py script in the src directory before running run_all_steps.py to generate the necessary input files.
+
 
 ### Main Steps
 

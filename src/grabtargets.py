@@ -3,21 +3,27 @@
 import os
 import sys
 
-# Path to the dict.txt file
-DICT_FILE = "../res/dicts/dict.txt"
+# Get the directory of the current script
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Go up one level to the parent directory
+PARENT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# Define paths
+DICT_FILE = os.path.join(PARENT_DIR, "res", "dicts", "dict.txt")
+RUN_DIR = os.path.join(PARENT_DIR, "run")
 
 # Output files
-OUTPUT = "../run"
-FULL_CONCEPTS_FILE = os.path.join(OUTPUT, "unique_concepts_full.txt")
-UNIQUE_TARGETS_FILE = os.path.join(OUTPUT, "unique_targets.txt")
+FULL_CONCEPTS_FILE = os.path.join(RUN_DIR, "unique_concepts_full.txt")
+UNIQUE_TARGETS_FILE = os.path.join(RUN_DIR, "unique_targets.txt")
+
+# Create the 'run' directory if it doesn't exist
+os.makedirs(RUN_DIR, exist_ok=True)
 
 # Check if the input file exists
 if not os.path.isfile(DICT_FILE):
     print(f"Error: {DICT_FILE} not found!")
     sys.exit(1)
-    
-os.makedirs(OUTPUT, exist_ok=True)
-print(f"Removed and recreated directory: {OUTPUT}")
 
 # Extract all unique concepts and save to the full concepts file
 print(f"Extracting all unique concepts from {DICT_FILE}...")
