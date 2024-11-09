@@ -7,13 +7,17 @@ import sys
 DICT_FILE = "../res/dicts/dict.txt"
 
 # Output files
-FULL_CONCEPTS_FILE = "../res/unique_concepts_full.txt"
-UNIQUE_TARGETS_FILE = "../res/unique_targets.txt"
+OUTPUT = "../run"
+FULL_CONCEPTS_FILE = os.path.join(OUTPUT, "unique_concepts_full.txt")
+UNIQUE_TARGETS_FILE = os.path.join(OUTPUT, "unique_targets.txt")
 
 # Check if the input file exists
 if not os.path.isfile(DICT_FILE):
     print(f"Error: {DICT_FILE} not found!")
     sys.exit(1)
+    
+os.makedirs(OUTPUT, exist_ok=True)
+print(f"Removed and recreated directory: {OUTPUT}")
 
 # Extract all unique concepts and save to the full concepts file
 print(f"Extracting all unique concepts from {DICT_FILE}...")
