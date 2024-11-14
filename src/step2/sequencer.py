@@ -17,7 +17,7 @@ import queue as qmod
 from os import listdir
 from os.path import isfile, join
 import importlib
-from resource import getrusage, RUSAGE_SELF
+#from resource import getrusage, RUSAGE_SELF
 
 
 END_TOKEN = set(["(",")",";",":",",","."," ","?","!","\\","/","-","'"])
@@ -218,16 +218,25 @@ class Note:
             offset = 0
             while True:
                 hit = self.text_lower.find(term.label,offset)
+
+                continue_loop = False
+
                 if hit == -1:
+                    continue_loop = False
+                elif (term.label == self.text_lower):
+                    continue_loop = True
+                elif hit+len(term.label) == len(self.text_lower) and (hit != 0) and (self.text_lower[hit-1] not in END_TOKEN):
+                    continue_loop = False
+                elif hit+len(term.label) == len(self.text_lower) and (hit != 0) and (self.text_lower[hit-1]  in END_TOKEN):
+                    continue_loop = True
+                elif (self.text_lower[hit+len(term.label)] not in END_TOKEN) or (self.text_lower[hit-1] not in END_TOKEN and hit != 0):
+                    continue_loop = False
+                else:
+                    continue_loop = True
+
+                if not continue_loop:
                     break
-                if (self.text[hit+len(term.label)] not in END_TOKEN) or (self.text[hit-1] not in END_TOKEN):
-                #    # if hit is PUNCT then do nothing (add it to context), else check both sides of term
-                #    if term._class != 'DOT':
-                #       if (snip[hit+lt] not in END_TOKEN) or (snip[hit-1] not in END_TOKEN):
-                #           offset = hit +len(term.label)
-                #           continue
-                #if self.text[hit+len(term.label)] not in END_TOKEN:
-                    break
+
                 target = MainTargetHit(self,hit,size_context,term,context_terms)
                 target.extract_context_terms()
                 nt.add_target(target)

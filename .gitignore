@@ -7,3 +7,8 @@
 tests/output/
 *.code-workspace
 notebooks/
+.ipynb_checkpoints/
+res/unique_concepts_full.txt
+res/unique_targets.txt
+tests/output*
+run/

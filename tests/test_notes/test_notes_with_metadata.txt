@@ -99,7 +99,7 @@ MilST# from a cliff.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 Category: Psychosocial Well-Being 
-Problem: I am at risk for homelessness, something else and loneliness #25 NA LONLINESS# related 
+Problem: I am at risk for living in temporary quarters, something else and pan handling #25 NA HOUSING# related 
 to COVID restrictions 
 Goal: I will be socially and mentally stimulated during the COVID pandemic. 
 
@@ -110,10 +110,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Patient was: ambulatory and in constant pain. Was it due to injury? No, If yes, #27 IMPROPER MATCH PPAIN# explain: ECG via MUSE done within 10 minutes.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 
-runny nose [ ], body aches [ ], crooked fingers [ ] #28 IMPROPER MATCH COVID#.
+all alone [ ], something else [ ], something else too [ ] #28 IMPROPER MATCH CONNECT#.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 
-runny nose [ ], body aches [ ] #29 POS COVID#.
+all alone [ ], something else [ ] #29 POS CONNECT#.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 
 Patient was: in constant pain. Scoring Pain: 1-3 Mild pain 4-6 Moderate pain > 6 Severe pain #30 IMPROPER MATCH PPAIN#.
@@ -125,5 +125,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Please call the emotional crisis line #32 IMPROPER MATCH PPAIN# if you are experiencing symptoms again.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. #PERCDATA_OUD# Pt on DOD OUD report assessed and does not meet criteria for opioid use disorder #PERCDATA_OUD#. #33 POS DODOUD#
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+incididunt ut labore et dolore magna aliqua. #PERCDATA_NO_OUD# Pt on DOD OUD
+report assessed and does not meet criteria for opioid use disorder
+#PERCDATA_NO_OUD#. #33 POS DODOUD#
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
+1400684061777|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Bereavement: Session 5: Finding Your Guides
+#34 POS PPAIN# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
+1400684061778|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Doing good, so you look in the mirror and think:
+#35 POS PPAIN# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
+1400684061779|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus. #36 POS PPAIN#  Patient complains of: Insomnia
+1400684061780|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing
+elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi
+tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo
+laoreet sit amet cursus. #37 POS PPAIN#  Patient is in good spirits.

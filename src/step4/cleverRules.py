@@ -6,7 +6,12 @@ from ruleFcns import *
 ppath = sys.argv[1]
 fins = ppath + "/linkedAnts.txt"
 aclass = sys.argv[2]
+neg_trigs_file_path = sys.argv[3]
+na_trigs_file_path = sys.argv[4]
 print("Processing:", fins)
+
+neg_trigs_dict = load_trigs_dict(neg_trigs_file_path)
+na_trigs_dict = load_trigs_dict(na_trigs_file_path)
 
 ptPEvents = {}
 ptNEvents = {}
@@ -29,7 +34,7 @@ with open(fins) as f:
         #print("TEMP",tmp)
         if aclass not in tmp:
             continue
-        label = assignLabel(tmp, trigs)
+
         tmpe = tmp.split("|")
         cid = tmpe[0]
         tseq = tmpe[1]
@@ -49,15 +54,19 @@ with open(fins) as f:
         gender = tmpe[17]
         upcode = tmpe[18]
         snippet = tmpe[len(tmpe)-1]
+
+        label = assignLabel(tmp, neg_trigs_dict.get(tclass, []), na_trigs_dict.get(tclass, []))
         # SNIPPET POSTPROCESSING
         # remove the first and last token in the snippet to help readability"
         tokens = snippet.split(" ")
-        if len(tokens) >= 3:
+        # print(f'+++++++++++++++++++snippet = {snippet}')
+        if len(tokens) >= 3: # moved to filter step
                 tmp = snippet.rsplit(' ', 1)[0]
                 tmp = ' '.join(tmp.split()[2:])
-                snippet = "SNIPPET:"+tmp
+                snippet_fc = "SNIPPET:"+tmp
+        # print(f'-------------------snippet = {snippet}')
         # add the snippet offset to the output field "noteAndSnippetOffset"
-        x = term_offsets(longseq, snippet)
+        x = term_offsets(longseq, snippet_fc)
         termid = termid+":"+str(x)
         #print(termid, longseq, snippet)
         #print(termid,longseq,snippet)
@@ -73,7 +82,7 @@ with open(fins) as f:
         if label[0] == "NEGATIVE":
                 print(sum_out, file=fout_neg)
                 print(long_out, file=fout_all)
-        if label[0] == "NO_APPLICABLE":
+        if label[0] == "NOT_APP":
                 print(sum_out, file=fout_na)
                 print(long_out, file=fout_all)
 fout_pos.close()

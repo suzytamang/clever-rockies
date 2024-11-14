@@ -1,3 +1,21 @@
+import re
+
+def process_snippet(snippet):
+    tokens = snippet.split(" ")
+    if len(tokens) >= 3:
+        tmp = snippet.rsplit(' ', 1)[0]
+        tmp = ' '.join(tmp.split()[2:])
+        return "SNIPPET:" + tmp
+    return snippet
+
+def transform_snippet_id(old_id):
+    # Assuming old_id format is "S<number>-<concept>"
+    match = re.match(r'S(\d+)-(\w+)', old_id)
+    if match:
+        number, concept = match.groups()
+        return f"{concept}-{number}"
+    return old_id  # Return original if it doesn't match expected format
+
 def templated(path, target, stoplist):
 
     #NOTE: Removes templated text, mostly assessment related, sometimes medication list.
@@ -6,7 +24,7 @@ def templated(path, target, stoplist):
     #TODO: Filter # points but not 'stuck points'.
     #TODO: Filter "several days" but not "for several days".
   
-    labels = ['/allPos', '/allNeg']
+    labels = ['/allPos', '/allNeg', '/allNA']
 
     # Drop snippets that meet criteria.
 
@@ -25,7 +43,9 @@ def templated(path, target, stoplist):
                     omit = 0
                     tmp = line.strip().split("|")
                     # Snippet starts with the pre-fix 'SNIPPET: '.
-                    snippet = tmp[snippet_column][9:]
+                    # snippet = tmp[snippet_column][9:]
+                    # testsnip = snippet.lower()
+                    snippet = tmp[snippet_column]  # Use the full snippet for filtering
                     testsnip = snippet.lower()
                     # look for strings associated with assessments/semi-structured data
                     for term in stoplist:
@@ -83,8 +103,17 @@ def templated(path, target, stoplist):
                             print("OMIT 13:", snippet, file=fd_dropped, flush=True)
                             omit = 1
       
+                    # if omit == 0:
+                    #     fd_filtered.write(line)
+
                     if omit == 0:
-                        fd_filtered.write(line)
+                        # Only process the snippet if it passes the filter
+                        processed_snippet = process_snippet(snippet)
+                        # Replace the original snippet with the processed one
+                        tmp[snippet_column] = processed_snippet
+                        # Transform the snippet ID before writing
+                        tmp[1] = transform_snippet_id(tmp[1])  # Assuming snippetID is the second column
+                        fd_filtered.write("|".join(tmp) + "\n")
   
         except IOError:
             print("No or empty file by the name ", fin)
