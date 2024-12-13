@@ -787,47 +787,47 @@
 13026|unfair dismissal from job|JOBINSTABLE|sdoh
 13027|voluntary resignation|JOBINSTABLE|sdoh
 13028|without employment|JOBINSTABLE|sdoh
-15000|difficulty bathing|ADL|bathing
-15001|trouble bathing|ADL|bathing
-15002|help bathing|ADL|bathing
-15003|difficulty showering|ADL|bathing
-15004|trouble showering|ADL|bathing
-15005|help shower|ADL|bathing
-15006|helps with bathing|ADL|bathing
-15007|helps with showering|ADL|bathing
-15008|help bathe|ADL|bathing
-15009|cleaning himself|ADL|bathing
-15010|cleaning herself|ADL|bathing
-15011|cannot bathe|ADL|bathing
-15012|cannot shower|ADL|bathing
-15013|help washing|ADL|bathing
-15014|getting in tub|ADL|bathing
-15015|getting in shower|ADL|bathing
-15016|assistance with bathing|ADL|bathing
-15017|assistance with showering|ADL|bathing
-16000|difficulty dressing|ADL|dressing
-16001|trouble dressing|ADL|dressing
-16002|difficutly undressing|ADL|dressing
-16003|trouble undressing|ADL|dressing
-16004|cannot dress self|ADL|dressing
-16005|helps dress|ADL|dressing
-16006|dresses him|ADL|dressing
-16007|dresses her|ADL|dressing
-16008|put on clothes|ADL|dressing
-16009|take off clothes|ADL|dressing
-16010|cannot get dressed|ADL|dressing
-16011|help getting dressed|ADL|dressing
-17000|needs to be fed|ADL|feeding
-17001|difficulty eating|ADL|feeding
-17002|help with feeding|ADL|feeding
-17003|help eating|ADL|feeding
-17004|cutting food|ADL|feeding
-17005|buttering bread|ADL|feeding
-17006|arranging food|ADL|feeding
-17007|difficulty feeding|ADL|feeding
-17008|doesn't choke|ADL|feeding
-17009|feeds him|ADL|feeding
-17010|feeds her|ADL|feeding
+15000|difficulty bathing|ADLB|bathing
+15001|trouble bathing|ADLB|bathing
+15002|help bathing|ADLB|bathing
+15003|difficulty showering|ADLB|bathing
+15004|trouble showering|ADLB|bathing
+15005|help shower|ADLB|bathing
+15006|helps with bathing|ADLB|bathing
+15007|helps with showering|ADLB|bathing
+15008|help bathe|ADLB|bathing
+15009|cleaning himself|ADLB|bathing
+15010|cleaning herself|ADLB|bathing
+15011|cannot bathe|ADLB|bathing
+15012|cannot shower|ADLB|bathing
+15013|help washing|ADLB|bathing
+15014|getting in tub|ADLB|bathing
+15015|getting in shower|ADLB|bathing
+15016|assistance with bathing|ADLB|bathing
+15017|assistance with showering|ADLB|bathing
+16000|difficulty dressing|ADLD|dressing
+16001|trouble dressing|ADLD|dressing
+16002|difficutly undressing|ADLD|dressing
+16003|trouble undressing|ADLD|dressing
+16004|cannot dress self|ADLD|dressing
+16005|helps dress|ADLD|dressing
+16006|dresses him|ADLD|dressing
+16007|dresses her|ADLD|dressing
+16008|put on clothes|ADLD|dressing
+16009|take off clothes|ADLD|dressing
+16010|cannot get dressed|ADLD|dressing
+16011|help getting dressed|ADLD|dressing
+17000|needs to be fed|ADLF|feeding
+17001|difficulty eating|ADLF|feeding
+17002|help with feeding|ADLF|feeding
+17003|help eating|ADLF|feeding
+17004|cutting food|ADLF|feeding
+17005|buttering bread|ADLF|feeding
+17006|arranging food|ADLF|feeding
+17007|difficulty feeding|ADLF|feeding
+17008|doesn't choke|ADLF|feeding
+17009|feeds him|ADLF|feeding
+17010|feeds her|ADLF|feeding
 18000|fall|FALL|nos
 18001|fell|FALL|nos
 18002|falls|FALL|nos
