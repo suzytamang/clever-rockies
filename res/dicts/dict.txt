@@ -817,6 +817,9 @@
 16009|take off clothes|ADLD|dressing
 16010|cannot get dressed|ADLD|dressing
 16011|help getting dressed|ADLD|dressing
+16012|never dressed|ADLD|dressing
+16013|dresses you|ADLD|dressing
+16014|clothes on|ADLD|dressing
 17000|needs to be fed|ADLF|feeding
 17001|difficulty eating|ADLF|feeding
 17002|help with feeding|ADLF|feeding
