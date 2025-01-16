@@ -5,12 +5,30 @@ def load_trigs_dict(trigs_path):
     with open(trigs_path, 'r') as f:
         return json.load(f)
 
-def term_offsets(term, string):
+def term_offsets(term, tags, string):
+
+    # Determine position of occurrences of main target term within a snippet.
+
     string_lower = string.lower()
     pattern = re.compile(re.escape(term))
     offsets = []
     for match in pattern.finditer(string_lower):
         offsets.append(match.start())
+
+    # Determine main target term that triggered the snippet and add to offsets.
+    # This was added to support other apps (e.g. MAVA) that display snippets.
+
+    tag_list = tags.split('^')
+    main_tag_list = [x for x in tag_list if x.startswith(term)]
+    main_tag_positions = []
+
+    for tag in main_tag_list:
+        relative_pos = int(tag.split(':')[-1])
+        main_tag_positions.append(relative_pos)
+
+    main_tag_index = len([x for x in main_tag_positions if x < 0])
+    offsets = f'{str(offsets)}:{offsets[main_tag_index]}'
+
     return offsets
 
 

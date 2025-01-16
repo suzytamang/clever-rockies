@@ -445,7 +445,10 @@ if __name__ == "__main__":
     headers = read_headers(args.section_headers)
 
     main_terms = [x for x in terms if x._class in main_targets_index]
-    context_terms = [x for x in terms if x._class not in main_targets_index]
+
+    # For target terms in the context to be tagged as well, context terms need to include all terms.
+    context_terms = terms
+
     if len(main_terms) == 0:
         sys.stderr.write("Main targets not found - exiting")
         sys.exit(-1)

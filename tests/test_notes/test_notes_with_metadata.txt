@@ -131,12 +131,25 @@ report assessed and does not meet criteria for opioid use disorder
 #PERCDATA_NO_OUD#. #33 POS DODOUD#
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 1400684061777|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Bereavement: Session 5: Finding Your Guides
-#34 POS PPAIN# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
+#34 POS PPAIN, check term is at BoS# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
 1400684061778|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Doing good, so you look in the mirror and think:
-#35 POS PPAIN# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
-1400684061779|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus. #36 POS PPAIN#  Patient complains of: Insomnia
+#35 POS PPAIN, check term is at BoS# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo laoreet sit amet cursus.
+1400684061779|26768497|460|2018-07-10 18:27:00|TRIAGE
+NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing
+elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi
+tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo
+laoreet sit amet cursus. #36 POS PPAIN, check term is at EoS#  Patient complains of: Insomnia
 1400684061780|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing
 elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi
 tincidunt. Morbi tristique senectus et netus et malesuada fames. Libero justo
-laoreet sit amet cursus. #37 POS PPAIN#  Patient is in good spirits.
+laoreet sit amet cursus. #37 POS PPAIN, check term is at EoS#  Patient is in good spirits.
+1400684061781|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. 
+#38 POS PPAIN, check 2 snippet offsets, 1st tagged# in good spirits Libero
+justo laoreet #PPAIN ignore# pretty good sit amet cursus. Patient is #PPAIN
+ignore# in good spirits. Fusce convallis et nisl ac varius. #PPAIN ignore# bereavement 
+In tempor ex a sollicitudin fringilla. Integer volutpat lectus ac purus tempus, imperdiet consectetur urna sagittis. Maecenas semper, magna lobortis posuere porta, diam sapien condimentum elit, eu molestie ex urna sed nibh. Aenean aliquam nisl in urna gravida, sed semper sapien efficitur. Donec mollis magna eu velit ultrices, eu malesuada elit mollis.
+1400684061782|26768497|460|2018-07-10 18:27:00|TRIAGE NOTE|1600975008518|23|M|I|Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  Luctus accumsan tortor posuere ac ut. Ullamcorper velit sed ullamcorper morbi tincidunt. Morbi tristique senectus et netus et malesuada fames. 
+#PPAIN ignore# in good spirits Libero justo laoreet #PPAIN ignore# pretty good sit amet cursus. Patient is #39 POS PPAIN, check 2 snippet offsets, 2nd tagged# in good spirits. Fusce convallis et nisl ac varius. #PPAIN ignore# bereavement 
+In tempor ex a sollicitudin fringilla. Integer volutpat lectus ac purus tempus, imperdiet consectetur urna sagittis. Maecenas semper, magna lobortis posuere porta, diam sapien condimentum elit, eu molestie ex urna sed nibh. Aenean aliquam nisl in urna gravida, sed semper sapien efficitur. Donec mollis magna eu velit ultrices, eu malesuada elit mollis.
