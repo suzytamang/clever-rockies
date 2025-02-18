@@ -103,14 +103,11 @@ def templated(path, target, stoplist):
                             print("OMIT 13:", snippet, file=fd_dropped, flush=True)
                             omit = 1
       
-                    # if omit == 0:
-                    #     fd_filtered.write(line)
-
                     if omit == 0:
                         # Only process the snippet if it passes the filter
-                        processed_snippet = process_snippet(snippet)
-                        # Replace the original snippet with the processed one
-                        tmp[snippet_column] = processed_snippet
+                        # Moved dropping first and last token back to step 4 as it should only happen if those
+                        # tokens are not part of a tagged term.
+                        tmp[snippet_column] = snippet
                         # Transform the snippet ID before writing
                         tmp[1] = transform_snippet_id(tmp[1])  # Assuming snippetID is the second column
                         fd_filtered.write("|".join(tmp) + "\n")

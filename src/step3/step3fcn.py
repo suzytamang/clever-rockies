@@ -2,9 +2,10 @@ import glob
 
 # this function loads the different sequences that the annotation tools tag
 def loadSeqs(seqFiles,noteDict,termDict):
+    #TODO: window argument passed to getTagseq is hardcoded, should probably be parameter.
     sid = 0
     ants = {}
-    #print seqFiles
+
     for name in glob.glob(seqFiles):
         print("LOADING FILE: ",name)
         fin = open(name,"r")
