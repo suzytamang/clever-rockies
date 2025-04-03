@@ -13987,9 +13987,3 @@
 43003|write a suicide|PPAIN|0411402
 43004|wrote a suicide|PPAIN|0411402
 44000|PERCDATA_NO_OUD|DODOUD|report
-45000|STORM risk estimate|CARA|self-harm
-45001|Suicide-related event or overdose in the next year|CARA|self-harm
-45002|Suicide-related event, overdose, fall or accident in the next 3 years|CARA|self-harm
-46000|suicide|SB|self-harm
-46001|suicidal|SB|self-harm
-46002|suicidality|SB|self-harm
