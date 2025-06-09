@@ -6,13 +6,12 @@ This repo includes the Python3 version of CLEVER code from the Program Evaluatio
 
 ### Original Development Team
 - Suzanne Tamang
-- Manual 
-- Tanya
 
 ### Continued Development Team
-- Suzanne Tamang
-- Asqar Shotqara
+- Suzanne Tamang 
+- Michael Stringer
 - Esther Meerwijk
+- Asqar Shotqara
 
 ## Setup and Installation
 1. Create a new Conda environment with Python 3.12:
