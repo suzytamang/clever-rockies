@@ -166,9 +166,9 @@ class MainTargetHit:
             rend = ltext
         self.linit = linit
         self.rend = rend
-        l = self.note.text[linit : self.offset]
-        r = self.note.text[self.offset + len(self.term.label) : rend]
-        return l, r
+        lhs = self.note.text[linit : self.offset]
+        rhs = self.note.text[self.offset + len(self.term.label) : rend]
+        return lhs, rhs
 
     def add_context(self, term, hit, side):
         if side == 0:  # left
