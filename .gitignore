@@ -12,3 +12,6 @@ res/unique_concepts_full.txt
 res/unique_targets.txt
 tests/output*
 run/
+
+# ignore env if local
+vaParts/
