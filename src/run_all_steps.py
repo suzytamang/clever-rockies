@@ -30,6 +30,10 @@ TESTS_DIR = os.path.join(BASE_DIR, "tests")
 SRC_DIR = os.path.join(BASE_DIR, "src")
 RUN_DIR = os.path.join(BASE_DIR, "run")
 
+# if the run directory does not exist, create (DMW)
+from pathlib import Path
+Path(RUN_DIR).mkdir(exist_ok=True)
+
 # Define constants
 LEXICON = os.path.join(RES_DIR, "dicts", "dict.txt")
 HEADERS = os.path.join(RES_DIR, "headers.txt")
