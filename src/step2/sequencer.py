@@ -3,21 +3,21 @@
 # output: for target mentions detected using a maximum string length, right truncated partial string matching, CLEVER's output files include right and left n-gram features (context_left.txt, context_right.txt), candidate event snippets that can be used for additional processing steps such as SNOMED-CT concept extraction (discover.txt), and CLEVER's extraction files (extraction.txt).
 # *** it is important to note that only the extraction.txt file is required to develop a rule based extractor.  Additional textual features are provided in the extraction.txt file, and other extractor.py output; however, they are inteded to be used in the development of statistical extractors trained on a small portion of development data that is labeled by CLEVER during rule execution
 
-import pdb
+import pdb  # noqa
 import sys
 import codecs
 from collections import defaultdict
 import re
 import os
-import time
-import warnings
+import time  # noqa
+import warnings  # noqa
 from argparse import ArgumentParser
-from multiprocessing import Pool, JoinableQueue, Process, log_to_stderr, current_process
+from multiprocessing import Pool, JoinableQueue, Process, log_to_stderr, current_process  # noqa
 import queue as qmod
 from os import listdir
 from os.path import isfile, join
-import importlib
-import logging
+import importlib  # noqa
+import logging  # noqa
 
 # from resource import getrusage, RUSAGE_SELF
 
