@@ -7,6 +7,9 @@ import sys
 import argparse
 import logging
 from datetime import datetime
+from multiprocessing import freeze_support
+
+
 
 def parse_args():
     parser = argparse.ArgumentParser(description="Run all steps of the processing pipeline.")
@@ -100,14 +103,13 @@ logging.debug(f"METADATA: {METADATA}")
 logging.debug(f"OUTPUT: {OUTPUT}")
 logging.debug(f"RUN_DIR: {RUN_DIR}")
 
-yes_clean_last_run: bool = args.get('yes_clean_last_run',  False)
+yes_clean_last_run = args.yes_clean_last_run
 
-if os.path.exists(OUTPUT) is True:
-    if yes_clean_last_run is False:
-        confirm = input(f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): ").lower().strip()
-        if confirm != 'y':
-            logging.info("Operation cancelled.")
-            sys.exit(0)
+if os.path.exists(OUTPUT) is True and yes_clean_last_run is False:
+    confirm = input(f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): ").lower().strip()
+    if confirm != 'y':
+        logging.info("Operation cancelled.")
+        sys.exit(0)
 
 shutil.rmtree(OUTPUT, ignore_errors=True)
 os.makedirs(OUTPUT, exist_ok=True)
@@ -135,22 +137,57 @@ logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 # Function to run sequencer.py (Step 2)
 def run_sequencer(target):
     logging.debug(f"Processing sequencer {target}...")
-    result = subprocess.run([
-        "python", os.path.join(SRC_DIR, "step2", "sequencer.py"),
-        "--lexicon", LEXICON,
-        "--section-headers", HEADERS,
-        "--main-targets", target,
-        "--snippet-length", str(SNIPPETS),
-        "--snippets",
-        "--notes", CORPUS,
-        "--workers", str(WORKERS),
-        "--output", os.path.join(OUTPUT, target),
-        "--left-gram-context", str(LGCONTEXT),
-        "--right-gram-context", str(RGCONTEXT)
-    ], capture_output=True, text=True)
-    logging.debug(f"STDOUT for {target} sequencer: {result.stdout}")
-    if result.stderr:
-        logging.warning(f"STDERR for {target} sequencer: {result.stderr}")
+    from step2 import sequencer
+    from contextlib import redirect_stdout, redirect_stderr
+
+    import io
+
+    stdout_buffer = io.StringIO()
+    stderr_buffer = io.StringIO()
+
+    with redirect_stdout(stdout_buffer), redirect_stderr(stderr_buffer):
+        argv = [
+                "--lexicon",
+                LEXICON,
+                "--section-headers",
+                HEADERS,
+                "--main-targets",
+                target,
+                "--snippet-length",
+                str(SNIPPETS),
+                "--snippets",
+                "--notes",
+                CORPUS,
+                "--workers",
+                str(WORKERS),
+                "--output",
+                os.path.join(OUTPUT, target),
+                "--left-gram-context",
+                str(LGCONTEXT),
+                "--right-gram-context",
+                str(RGCONTEXT),
+            ]
+        sequencer.main(argv)
+
+    # result = subprocess.run([
+    #     "python", os.path.join(SRC_DIR, "step2", "sequencer.py"),
+    #     "--lexicon", LEXICON,
+    #     "--section-headers", HEADERS,
+    #     "--main-targets", target,
+    #     "--snippet-length", str(SNIPPETS),
+    #     "--snippets",
+    #     "--notes", CORPUS,
+    #     "--workers", str(WORKERS),
+    #     "--output", os.path.join(OUTPUT, target),
+    #     "--left-gram-context", str(LGCONTEXT),
+    #     "--right-gram-context", str(RGCONTEXT)
+    # ], capture_output=True, text=True)
+
+    stdout_result = stdout_buffer.getvalue()
+    stderr_result = stderr_buffer.getvalue()
+    logging.debug(f"STDOUT for {target} sequencer: {stdout_result}")
+    if stderr_result:
+        logging.warning(f"STDERR for {target} sequencer: {stderr_result}")
 
 # Function to run organize.py (Step 3)
 def run_organize(target):
@@ -208,19 +245,21 @@ def run_cross_class_filter(target):
     if result.stderr:
         logging.warning(f"STDERR for {target} cross_class_filter: {result.stderr}")
 
-# Main execution loop
-for target in targets:
-    run_sequencer(target)
-    run_organize(target)
-    run_clever_rules(target)
-    run_filter_templated(target)
-    # run_cross_class_filter(target)
+if __name__ == "__main__":
 
-# Run make_one_out.py
-logging.info("Running make_one_out.py...")
-result = subprocess.run(["python3", os.path.join(SRC_DIR, "make_one_out.py"), OUTPUT], capture_output=True, text=True)
-logging.info(f"STDOUT: {result.stdout}")
-if result.stderr:
-    logging.warning(f"STDERR: {result.stderr}")
+    # Main execution loop
+    for target in targets:
+        run_sequencer(target)
+        run_organize(target)
+        run_clever_rules(target)
+        run_filter_templated(target)
+        # run_cross_class_filter(target)
 
-logging.info("All targets processed.")
+    # Run make_one_out.py
+    logging.info("Running make_one_out.py...")
+    result = subprocess.run(["python3", os.path.join(SRC_DIR, "make_one_out.py"), OUTPUT], capture_output=True, text=True)
+    logging.info(f"STDOUT: {result.stdout}")
+    if result.stderr:
+        logging.warning(f"STDERR: {result.stderr}")
+
+    logging.info("All targets processed.")
