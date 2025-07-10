@@ -17,6 +17,7 @@ import queue as qmod
 from os import listdir
 from os.path import isfile, join
 import importlib
+import logging
 
 # from resource import getrusage, RUSAGE_SELF
 
@@ -559,7 +560,7 @@ def main(argv=None):
 
     if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         ngram_contexts = NGramContext(args.left_gram, args.right_gram)
-    import logging
+    
 
     if args.workers > 0:
         queue = JoinableQueue(args.workers)
