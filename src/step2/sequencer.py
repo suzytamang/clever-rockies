@@ -12,7 +12,13 @@ import os
 import time  # noqa
 import warnings  # noqa
 from argparse import ArgumentParser
-from multiprocessing import Pool, JoinableQueue, Process, log_to_stderr, current_process  # noqa
+from multiprocessing import (
+    Pool,
+    JoinableQueue,
+    Process,
+    log_to_stderr,
+    current_process,
+)  # noqa
 import queue as qmod
 from os import listdir
 from os.path import isfile, join
@@ -560,7 +566,6 @@ def main(argv=None):
 
     if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         ngram_contexts = NGramContext(args.left_gram, args.right_gram)
-    
 
     if args.workers > 0:
         queue = JoinableQueue(args.workers)
