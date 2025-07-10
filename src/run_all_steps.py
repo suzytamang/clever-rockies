@@ -17,7 +17,7 @@ def parse_args():
                        help="Set console logging level to INFO")
     group.add_argument('--quiet', action='store_const', dest='log_level', const=logging.WARNING,
                        help="Set console logging level to WARNING (default)")
-    group.add_argument('--clean', action='store_const', dest='clean_last_run', const=True,
+    group.add_argument('--clean', action='store_const', dest='yes_clean_last_run', const=True,
                        help="Answer yes to all question to clean up previous runs")
     
     parser.set_defaults(log_level=logging.WARNING)  # This makes quiet (WARNING) the default
@@ -100,11 +100,14 @@ logging.debug(f"METADATA: {METADATA}")
 logging.debug(f"OUTPUT: {OUTPUT}")
 logging.debug(f"RUN_DIR: {RUN_DIR}")
 
+yes_clean_last_run: bool = args.get('yes_clean_last_run',  False)
+
 if os.path.exists(OUTPUT) is True:
-    confirm = input(f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): ").lower().strip()
-    if confirm != 'y':
-        logging.info("Operation cancelled.")
-        sys.exit(0)
+    if yes_clean_last_run is False:
+        confirm = input(f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): ").lower().strip()
+        if confirm != 'y':
+            logging.info("Operation cancelled.")
+            sys.exit(0)
 
 shutil.rmtree(OUTPUT, ignore_errors=True)
 os.makedirs(OUTPUT, exist_ok=True)
