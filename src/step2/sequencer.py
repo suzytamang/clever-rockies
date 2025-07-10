@@ -442,7 +442,7 @@ def main(argv=None):
         print("This tool will create an empty folder to save clean data")
         sys.exit(-1)
 
-    os.mkdir(args.output_folder)
+    os.makedirs(args.output_folder, exist_ok=True)
     main_targets_index = set(["MBC","METS","BCTRIG"])
     if len(args.main_targets) > 0:
         main_targets_index = set([x.strip() for x in args.main_targets[0].split(",")])
