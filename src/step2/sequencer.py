@@ -337,6 +337,8 @@ class Batch:
         self.main_terms = main_terms
         self.context_terms = context_terms
         self.output_folder = output_folder
+        if os.path.exists(self.output_folder) is False:
+            os.makedirs(self.output_folder, exist_ok=True)
         self.ngram_contexts = ngram_contexts
 
         if isinstance(self.queue,str):
