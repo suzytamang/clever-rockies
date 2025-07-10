@@ -399,7 +399,10 @@ class Batch:
             except Exception as e:
                 print(e)
                 continue
-if __name__ == "__main__":
+
+
+def main(argv=None):
+
     parser = ArgumentParser()
     parser.add_argument("-o", "--output", dest="output_folder", default=None,
                         help="output folder", metavar="FILE")
@@ -415,7 +418,7 @@ if __name__ == "__main__":
     parser.add_argument("-t", "--main-targets", dest="main_targets",
                         action="append", default=[],
                         help=("the word classes to use as a main target "
-                              "(can be used multiple times)"),
+                            "(can be used multiple times)"),
                         metavar="TARGET")
     parser.add_argument("-ln", "--snippet-length",
             dest="snippet_length", type=int, default=150)
@@ -425,7 +428,8 @@ if __name__ == "__main__":
     parser.add_argument('--no-snippets', dest='snippets',  action='store_false')
     parser.add_argument('--left-gram-context', dest='left_gram',default=3)
     parser.add_argument('--right-gram-context', dest='right_gram',default=2)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
+
     args.workers = int(args.workers)
 
     if not args.output_folder:
@@ -455,7 +459,7 @@ if __name__ == "__main__":
 
     if not args.snippets and (args.right_gram > 0 or args.left_gram > 0):
         sys.stderr.write(("If snippets are disabled context "
-                          "ngrams cannot be extracted"))
+                        "ngrams cannot be extracted"))
         sys.exit(-1)
     ngram_contexts = None
     if args.left_gram:
@@ -496,3 +500,8 @@ if __name__ == "__main__":
 
     if ngram_contexts:
         ngram_contexts.aggregate(args.output_folder)
+
+
+
+if __name__ == "__main__":
+    main()
