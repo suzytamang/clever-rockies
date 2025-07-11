@@ -62,7 +62,7 @@ WORKERS = 2
 
 # Set up logging
 def setup_logging(args):
-    log_file = os.path.join(RUN_DIR, f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+    log_file = os.path.join(RUN_DIR, 'logs', f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
 
     console_level = args.log_level  # This will be WARNING by default
 
