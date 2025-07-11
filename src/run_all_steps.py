@@ -7,24 +7,49 @@ import sys
 import argparse
 import logging
 from datetime import datetime
+from pathlib import Path
 from multiprocessing import freeze_support
 
 
-
 def parse_args():
-    parser = argparse.ArgumentParser(description="Run all steps of the processing pipeline.")
+    parser = argparse.ArgumentParser(
+        description="Run all steps of the processing pipeline."
+    )
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('--debug', action='store_const', dest='log_level', const=logging.DEBUG,
-                       help="Set console logging level to DEBUG")
-    group.add_argument('--info', action='store_const', dest='log_level', const=logging.INFO,
-                       help="Set console logging level to INFO")
-    group.add_argument('--quiet', action='store_const', dest='log_level', const=logging.WARNING,
-                       help="Set console logging level to WARNING (default)")
-    group.add_argument('--clean', action='store_const', dest='yes_clean_last_run', const=True,
-                       help="Answer yes to all question to clean up previous runs")
-    
-    parser.set_defaults(log_level=logging.WARNING)  # This makes quiet (WARNING) the default
+    group.add_argument(
+        "--debug",
+        action="store_const",
+        dest="log_level",
+        const=logging.DEBUG,
+        help="Set console logging level to DEBUG",
+    )
+    group.add_argument(
+        "--info",
+        action="store_const",
+        dest="log_level",
+        const=logging.INFO,
+        help="Set console logging level to INFO",
+    )
+    group.add_argument(
+        "--quiet",
+        action="store_const",
+        dest="log_level",
+        const=logging.WARNING,
+        help="Set console logging level to WARNING (default)",
+    )
+    group.add_argument(
+        "--clean",
+        action="store_const",
+        dest="yes_clean_last_run",
+        const=True,
+        help="Answer yes to all question to clean up previous runs",
+    )
+
+    parser.set_defaults(
+        log_level=logging.WARNING
+    )  # This makes quiet (WARNING) the default
     return parser.parse_args()
+
 
 # Define base paths
 # Get the directory of the current script
@@ -37,7 +62,6 @@ SRC_DIR = os.path.join(BASE_DIR, "src")
 RUN_DIR = os.path.join(BASE_DIR, "run")
 
 # if the run directory does not exist, create (DMW)
-from pathlib import Path
 Path(RUN_DIR).mkdir(exist_ok=True)
 
 # Define constants
@@ -51,7 +75,9 @@ NA_TRIGS = os.path.join(RES_DIR, "na_trigs.json")
 CROSS_CLASS_FILE = os.path.join(RES_DIR, "ccf.json")
 
 CORPUS = os.path.join(TESTS_DIR, "test_notes", "tsv", "test_notes_one_line.txt")
-METADATA = os.path.join(TESTS_DIR, "test_notes", "metadata", "test_metadata_one_line.txt")
+METADATA = os.path.join(
+    TESTS_DIR, "test_notes", "metadata", "test_metadata_one_line.txt"
+)
 OUTPUT = os.path.join(RUN_DIR, "outputs_min")
 
 
@@ -60,22 +86,25 @@ LGCONTEXT = 3
 RGCONTEXT = 2
 WORKERS = 2
 
+
 # Set up logging
 def setup_logging(args):
-    log_file = os.path.join(RUN_DIR, 'logs', f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log")
+    log_file = os.path.join(
+        RUN_DIR, "logs", f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    )
 
     console_level = args.log_level  # This will be WARNING by default
 
     # Set up file handler (always DEBUG level)
     file_handler = logging.FileHandler(log_file)
     file_handler.setLevel(logging.DEBUG)
-    file_formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+    file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
     file_handler.setFormatter(file_formatter)
 
     # Set up console handler (level based on user input)
     console_handler = logging.StreamHandler()
     console_handler.setLevel(console_level)
-    console_formatter = logging.Formatter('%(levelname)s: %(message)s')
+    console_formatter = logging.Formatter("%(levelname)s: %(message)s")
     console_handler.setFormatter(console_formatter)
 
     # Set up root logger
@@ -86,6 +115,7 @@ def setup_logging(args):
 
     logging.info(f"Console logging level set to: {logging.getLevelName(console_level)}")
     logging.debug("File logging level set to: DEBUG")
+
 
 # Parse command-line arguments
 args = parse_args()
@@ -106,8 +136,14 @@ logging.debug(f"RUN_DIR: {RUN_DIR}")
 yes_clean_last_run = args.yes_clean_last_run
 
 if os.path.exists(OUTPUT) is True and yes_clean_last_run is False:
-    confirm = input(f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): ").lower().strip()
-    if confirm != 'y':
+    confirm = (
+        input(
+            f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): "
+        )
+        .lower()
+        .strip()
+    )
+    if confirm != "y":
         logging.info("Operation cancelled.")
         sys.exit(0)
 
@@ -118,21 +154,6 @@ logging.info(f"Removed and recreated directory: {OUTPUT}")
 # Read targets from the unique_targets.txt file
 TARGETS_FILE = os.path.join(RUN_DIR, "unique_targets.txt")
 
-if not os.path.isfile(TARGETS_FILE):
-    logging.error(f"Error: {TARGETS_FILE} not found!")
-    from grabtargets import grab_targets
-    grab_targets()
-    # logging.error("Please run grabtargets.sh first to generate the unique targets list.")
-    # sys.exit(1)
-
-with open(TARGETS_FILE, 'r') as f:
-    targets = [line.strip() for line in f if line.strip()]
-
-if not targets:
-    logging.error(f"Error: No targets found in {TARGETS_FILE}")
-    sys.exit(1)
-
-logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
 # Function to run sequencer.py (Step 2)
 def run_sequencer(target):
@@ -147,26 +168,26 @@ def run_sequencer(target):
 
     with redirect_stdout(stdout_buffer), redirect_stderr(stderr_buffer):
         argv = [
-                "--lexicon",
-                LEXICON,
-                "--section-headers",
-                HEADERS,
-                "--main-targets",
-                target,
-                "--snippet-length",
-                str(SNIPPETS),
-                "--snippets",
-                "--notes",
-                CORPUS,
-                "--workers",
-                str(WORKERS),
-                "--output",
-                os.path.join(OUTPUT, target),
-                "--left-gram-context",
-                str(LGCONTEXT),
-                "--right-gram-context",
-                str(RGCONTEXT),
-            ]
+            "--lexicon",
+            LEXICON,
+            "--section-headers",
+            HEADERS,
+            "--main-targets",
+            target,
+            "--snippet-length",
+            str(SNIPPETS),
+            "--snippets",
+            "--notes",
+            CORPUS,
+            "--workers",
+            str(WORKERS),
+            "--output",
+            os.path.join(OUTPUT, target),
+            "--left-gram-context",
+            str(LGCONTEXT),
+            "--right-gram-context",
+            str(RGCONTEXT),
+        ]
         sequencer.main(argv)
 
     # result = subprocess.run([
@@ -189,63 +210,116 @@ def run_sequencer(target):
     if stderr_result:
         logging.warning(f"STDERR for {target} sequencer: {stderr_result}")
 
+
 # Function to run organize.py (Step 3)
 def run_organize(target):
     logging.debug(f"Processing organize {target}...")
-    result = subprocess.run([
-        "python3", os.path.join(SRC_DIR, "step3", "organize.py"),
-        os.path.join(OUTPUT, target),
-        LEXICON,
-        METADATA,
-        os.path.join(OUTPUT, target, ANTS)
-    ], capture_output=True, text=True)
+    result = subprocess.run(
+        [
+            "python3",
+            os.path.join(SRC_DIR, "step3", "organize.py"),
+            os.path.join(OUTPUT, target),
+            LEXICON,
+            METADATA,
+            os.path.join(OUTPUT, target, ANTS),
+        ],
+        capture_output=True,
+        text=True,
+    )
     logging.debug(f"STDOUT for {target} organize: {result.stdout}")
     if result.stderr:
         logging.warning(f"STDERR for {target} organize: {result.stderr}")
 
+
 # Function to run cleverRules.py (Step 4)
 def run_clever_rules(target):
     logging.debug(f"Processing run_clever_rules {target}...")
-    result = subprocess.run([
-        "python", os.path.join(SRC_DIR, "step4", "cleverRules.py"),
-        os.path.join(OUTPUT, target),
-        target,
-        NEG_TRIGS,
-        NA_TRIGS
-    ], capture_output=True, text=True)
+    result = subprocess.run(
+        [
+            "python",
+            os.path.join(SRC_DIR, "step4", "cleverRules.py"),
+            os.path.join(OUTPUT, target),
+            target,
+            NEG_TRIGS,
+            NA_TRIGS,
+        ],
+        capture_output=True,
+        text=True,
+    )
     logging.debug(f"STDOUT for {target} run_clever_rules: {result.stdout}")
     if result.stderr:
         logging.warning(f"STDERR for {target} run_clever_rules: {result.stderr}")
 
+
 # Function to run filterTemplated.py (Step 5)
 def run_filter_templated(target):
     logging.debug(f"Filtering tagged templated text for {target}")
-    result = subprocess.run([
-        "python3", os.path.join(SRC_DIR, "step5", "filterTemplated.py"),
-        "-p", OUTPUT + "/",  # Add a trailing slash here
-        "-t", target,
-        "-a", ASSESSMENTTERMS,
-        "-o", OTHERTERMS,
-        "-sp", "14",
-        "-tp", "6"
-    ], capture_output=True, text=True)
+    result = subprocess.run(
+        [
+            "python3",
+            os.path.join(SRC_DIR, "step5", "filterTemplated.py"),
+            "-p",
+            OUTPUT + "/",  # Add a trailing slash here
+            "-t",
+            target,
+            "-a",
+            ASSESSMENTTERMS,
+            "-o",
+            OTHERTERMS,
+            "-sp",
+            "14",
+            "-tp",
+            "6",
+        ],
+        capture_output=True,
+        text=True,
+    )
     logging.debug(f"STDOUT for {target} filterTemplated: {result.stdout}")
     if result.stderr:
         logging.warning(f"STDERR for {target} filterTemplated: {result.stderr}")
 
+
 def run_cross_class_filter(target):
     logging.debug(f"Running cross-class filter for {target}...")
-    result = subprocess.run([
-        "python3", os.path.join(SRC_DIR, "step5", "cross_class_filter.py"),
-        "-t", os.path.join(OUTPUT, target),
-        "-d", LEXICON,
-        "-c", CROSS_CLASS_FILE
-    ], capture_output=True, text=True)
+    result = subprocess.run(
+        [
+            "python3",
+            os.path.join(SRC_DIR, "step5", "cross_class_filter.py"),
+            "-t",
+            os.path.join(OUTPUT, target),
+            "-d",
+            LEXICON,
+            "-c",
+            CROSS_CLASS_FILE,
+        ],
+        capture_output=True,
+        text=True,
+    )
     logging.debug(f"STDOUT for {target} cross_class_filter: {result.stdout}")
     if result.stderr:
         logging.warning(f"STDERR for {target} cross_class_filter: {result.stderr}")
 
+
 if __name__ == "__main__":
+
+    freeze_support()
+
+    if not os.path.isfile(TARGETS_FILE):
+        logging.error(f"Error: {TARGETS_FILE} not found!")
+        from grabtargets import grab_targets
+
+        grab_targets()
+        # logging.error("Please run grabtargets.sh first to generate the unique targets list.")
+        # sys.exit(1)
+
+    with open(TARGETS_FILE, "r") as f:
+        targets = [line.strip() for line in f if line.strip()]
+
+    if not targets:
+        logging.error(f"Error: No targets found in {TARGETS_FILE}")
+        sys.exit(1)
+    else:
+        logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
     # Main execution loop
     for target in targets:
@@ -257,7 +331,11 @@ if __name__ == "__main__":
 
     # Run make_one_out.py
     logging.info("Running make_one_out.py...")
-    result = subprocess.run(["python3", os.path.join(SRC_DIR, "make_one_out.py"), OUTPUT], capture_output=True, text=True)
+    result = subprocess.run(
+        ["python3", os.path.join(SRC_DIR, "make_one_out.py"), OUTPUT],
+        capture_output=True,
+        text=True,
+    )
     logging.info(f"STDOUT: {result.stdout}")
     if result.stderr:
         logging.warning(f"STDERR: {result.stderr}")
