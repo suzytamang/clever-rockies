@@ -13,3 +13,4 @@ res/unique_targets.txt
 tests/output*
 run/
 envs/
+.env
