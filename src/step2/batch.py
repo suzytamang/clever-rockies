@@ -54,7 +54,7 @@ class Batch:
                 print("qmod empty")
                 return []
         else:
-            if self.notes_file == None:
+            if self.notes_file is None:
                 return None
             batch = []
             for line in self.notes_file:
