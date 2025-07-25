@@ -33,13 +33,19 @@ class StepRunner(ABC):
         raise NotImplementedError()
 
 
+class DirectStepRunner(StepRunner):
+
+    def run(self, target):
+        raise NotImplementedError
+
+
 class SubprocessStepRunner(StepRunner):
 
     def run(self, target) -> bool:
         self._logger.debug(f"Processing {self._step_name} {target}...")
         subprocess_params = self._build_subprocess_params()
 
-        if self._dry_run is False:
+        if self._dry_run is not True:
             result = subprocess.run(
                 *subprocess_params,
                 capture_output=True,
@@ -55,7 +61,7 @@ class SubprocessStepRunner(StepRunner):
             results_stderr = ""
 
         self._logger.debug(f"STDOUT for {target} sequencer: {result_stdout}")
-        if result.stderr:
+        if results_stderr:
             self._logger.warning(f"STDERR for {target} sequencer: {results_stderr}")
             return False
         return True
