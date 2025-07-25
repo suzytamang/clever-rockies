@@ -1,8 +1,9 @@
 import codecs
+from multiprocessing import current_process
 from batch import ExitProcess
 from note import Note
 import queue as qmod
-from threading import current_process
+
 import os
 
 
@@ -94,6 +95,7 @@ class Batch:
             try:
                 batch = self.next_batch()
                 if batch is None:
+                    assert isinstance(self._queue, qmod.Queue)
                     self._queue.task_done()
                     return
                 for line in batch:
