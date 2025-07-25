@@ -1,139 +1,39 @@
 #!/usr/bin/env python3
 
-import argparse
 import logging
 import os
 import subprocess
 import sys
-from datetime import datetime
+from dotenv import load_dotenv
 
 from common.folder_mgmt import clean_output_min_folder
-
-
-def parse_args():
-    parser = argparse.ArgumentParser(
-        description="Run all steps of the processing pipeline."
-    )
-    group = parser.add_mutually_exclusive_group()
-    group.add_argument(
-        "--debug",
-        action="store_const",
-        dest="log_level",
-        const=logging.DEBUG,
-        help="Set console logging level to DEBUG",
-    )
-    group.add_argument(
-        "--info",
-        action="store_const",
-        dest="log_level",
-        const=logging.INFO,
-        help="Set console logging level to INFO",
-    )
-    group.add_argument(
-        "--quiet",
-        action="store_const",
-        dest="log_level",
-        const=logging.WARNING,
-        help="Set console logging level to WARNING (default)",
-    )
-    parser.add_argument(
-        "--dry-run",
-        action="store_const",
-        dest="dry_run",
-        const=True,
-        help="Perform a dry run without running code to observe flow",
-    )
-    parser.add_argument(
-        "--clean-outputs-min",
-        action="store_const",
-        dest="clean_outputs_min",
-        const=True,
-        help="Quietly clean output_min",
-    )
-    parser.set_defaults(
-        log_level=logging.WARNING
-    )  # This makes quiet (WARNING) the default
-    return parser.parse_args()
-
-
-# Define base paths
-# Get the directory of the current script
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-# Go up one level to the parent directory
-BASE_DIR = os.path.dirname(SCRIPT_DIR)
-RES_DIR = os.path.join(BASE_DIR, "res")
-TESTS_DIR = os.path.join(BASE_DIR, "tests")
-SRC_DIR = os.path.join(BASE_DIR, "src")
-RUN_DIR = os.path.join(BASE_DIR, "run")
-
-# Define constants
-LEXICON = os.path.join(RES_DIR, "dicts", "dict.txt")
-HEADERS = os.path.join(RES_DIR, "headers.txt")
-ANTS = "linkedAnts.txt"
-ASSESSMENTTERMS = os.path.join(RES_DIR, "assessment_terms.txt")
-OTHERTERMS = os.path.join(RES_DIR, "other_terms_to_drop.txt")
-NEG_TRIGS = os.path.join(RES_DIR, "neg_trigs.json")
-NA_TRIGS = os.path.join(RES_DIR, "na_trigs.json")
-CROSS_CLASS_FILE = os.path.join(RES_DIR, "ccf.json")
-
-CORPUS = os.path.join(TESTS_DIR, "test_notes", "tsv", "test_notes_one_line.txt")
-METADATA = os.path.join(
-    TESTS_DIR, "test_notes", "metadata", "test_metadata_one_line.txt"
+from parse_args import parse_args
+from run_all_consts import (
+    ANTS,
+    ASSESSMENTTERMS,
+    CORPUS,
+    CROSS_CLASS_FILE,
+    HEADERS,
+    LEXICON,
+    METADATA,
+    NA_TRIGS,
+    NEG_TRIGS,
+    OTHERTERMS,
+    OUTPUT,
+    RUN_DIR,
+    SRC_DIR,
+    get_environment_var,
 )
-OUTPUT = os.path.join(RUN_DIR, "outputs_min")
+from setup_logging import setup_logging
 
-
-SNIPPETS = 250
-LGCONTEXT = 3
-RGCONTEXT = 2
-WORKERS = 2
-
+load_dotenv()
 
 # Set up logging
-def setup_logging(args):
-    log_file: str = os.path.join(
-        RUN_DIR, f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
-    )
-
-    console_level = args.log_level  # This will be WARNING by default
-
-    # Set up file handler (always DEBUG level)
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.DEBUG)
-    file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    file_handler.setFormatter(file_formatter)
-
-    # Set up console handler (level based on user input)
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(console_level)
-    console_formatter = logging.Formatter("%(levelname)s: %(message)s")
-    console_handler.setFormatter(console_formatter)
-
-    # Set up root logger
-    root_logger = logging.getLogger()
-    root_logger.setLevel(logging.DEBUG)  # This ensures all messages are processed
-    root_logger.addHandler(file_handler)
-    root_logger.addHandler(console_handler)
-
-    logging.info(f"Console logging level set to: {logging.getLevelName(console_level)}")
-    logging.debug("File logging level set to: DEBUG")
-
-
 # Parse command-line arguments
 args = parse_args()
 
 # Set up logging
 setup_logging(args)
-
-# Print paths for debugging
-logging.debug(f"BASE_DIR: {BASE_DIR}")
-logging.debug(f"RES_DIR: {RES_DIR}")
-logging.debug(f"TESTS_DIR: {TESTS_DIR}")
-logging.debug(f"SRC_DIR: {SRC_DIR}")
-logging.debug(f"CORPUS: {CORPUS}")
-logging.debug(f"METADATA: {METADATA}")
-logging.debug(f"OUTPUT: {OUTPUT}")
-logging.debug(f"RUN_DIR: {RUN_DIR}")
 
 
 clean_output_min_folder(OUTPUT, args.clean_outputs_min, logging)
@@ -156,6 +56,12 @@ if not targets:
     sys.exit(1)
 
 logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
+
+
+SNIPPETS = get_environment_var("SNIPPETS")
+LGCONTEXT = get_environment_var("LGCONTEXT")
+RGCONTEXT = get_environment_var("RGCONTEXT")
+WORKERS = get_environment_var("WORKERS")
 
 
 # Function to run sequencer.py (Step 2)
@@ -325,4 +231,5 @@ logging.info(f"STDOUT: {result.stdout}")
 if result.stderr:
     logging.warning(f"STDERR: {result.stderr}")
 
+logging.info("All targets processed.")
 logging.info("All targets processed.")
