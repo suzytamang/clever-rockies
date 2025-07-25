@@ -27,14 +27,15 @@
 				"envFile": "${workspaceFolder}/.env"
 			},
 			{
-				"name": "Run all steps (info)",
+				"name": "Run all steps (info, --clean-outputs-min)",
 				"type": "debugpy",
 				"request": "launch",
 				"program": "${workspaceFolder}/src/run_all_steps.py",
 				"console": "integratedTerminal",
 				"envFile": "${workspaceFolder}/.env",
 				"args": [
-					"--info"
+					"--info",
+					"--clean-outputs-min"
 				]
 			},
 			{
