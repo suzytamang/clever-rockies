@@ -1,6 +1,9 @@
+from glob import glob
 import logging
 import os
 from datetime import datetime
+from pathlib import Path
+import shutil
 
 from run_all_consts import (
     BASE_DIR,
@@ -17,13 +20,22 @@ from run_all_consts import (
 _logging_configured = False
 
 
+LOGGING_PREFIX = "run_all_"
+
+
 def setup_logging(args):
     global _logging_configured
     if _logging_configured:
         return  # Skip setup if already configured
 
+    # check for any existing logs, and archive them to keep the folder clean
+    move_old_logs()
+
+    dry_run_label = "__dry_run__" if args.dry_run else ""
+
     log_file = os.path.join(
-        RUN_DIR, f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+        RUN_DIR,
+        f"{LOGGING_PREFIX}{dry_run_label}{datetime.now().strftime('%Y%m%d_%H%M%S')}.log",
     )
 
     console_level = args.log_level  # Default is WARNING
@@ -60,3 +72,13 @@ def setup_logging(args):
     logging.debug(f"METADATA: {METADATA}")
     logging.debug(f"OUTPUT: {OUTPUT}")
     logging.debug(f"RUN_DIR: {RUN_DIR}")
+
+
+def move_old_logs():
+    log_archive: Path = Path(RUN_DIR) / "log_archive"
+    os.makedirs(log_archive, exist_ok=True)
+
+    existing_logs = glob(str(Path(RUN_DIR) / Path(f"{LOGGING_PREFIX}*")))
+    if len(existing_logs) > 0:
+        for existing_log in existing_logs:
+            shutil.move(existing_log, log_archive)
