@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
+import argparse
+import logging
 import os
 import shutil
 import subprocess
 import sys
-import argparse
-import logging
 from datetime import datetime
 
 
@@ -35,12 +35,19 @@ def parse_args():
         const=logging.WARNING,
         help="Set console logging level to WARNING (default)",
     )
-    group.add_argument(
+    parser.add_argument(
         "--dry-run",
         action="store_const",
         dest="dry_run",
-        const=False,
+        const=True,
         help="Perform a dry run without running code to observe flow",
+    )
+    parser.add_argument(
+        "--clean-outputs-min",
+        action="store_const",
+        dest="clean_outputs_min",
+        const=True,
+        help="Quietly clean output_min",
     )
     parser.set_defaults(
         log_level=logging.WARNING
@@ -127,13 +134,16 @@ logging.debug(f"METADATA: {METADATA}")
 logging.debug(f"OUTPUT: {OUTPUT}")
 logging.debug(f"RUN_DIR: {RUN_DIR}")
 
-confirm = (
-    input(
-        f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): "
+if args.clean_outputs_min is False:
+    confirm = (
+        input(
+            f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): "
+        )
+        .lower()
+        .strip()
     )
-    .lower()
-    .strip()
-)
+else:
+    confirm = "y"
 if confirm != "y":
     logging.info("Operation cancelled.")
     sys.exit(0)
