@@ -35,6 +35,13 @@ def parse_args():
         const=logging.WARNING,
         help="Set console logging level to WARNING (default)",
     )
+    group.add_argument(
+        "--dry-run",
+        action="store_const",
+        dest="dry_run",
+        const=False,
+        help="Perform a dry run without running code to observe flow",
+    )
     parser.set_defaults(
         log_level=logging.WARNING
     )  # This makes quiet (WARNING) the default
@@ -76,7 +83,7 @@ WORKERS = 2
 
 # Set up logging
 def setup_logging(args):
-    log_file = os.path.join(
+    log_file: str = os.path.join(
         RUN_DIR, f"run_all_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
     )
 
@@ -156,38 +163,61 @@ logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
 
 # Function to run sequencer.py (Step 2)
-def run_sequencer(target):
-    logging.debug(f"Processing sequencer {target}...")
-    result = subprocess.run(
-        [
-            "python",
-            os.path.join(SRC_DIR, "step2", "sequencer.py"),
-            "--lexicon",
-            LEXICON,
-            "--section-headers",
-            HEADERS,
-            "--main-targets",
-            target,
-            "--snippet-length",
-            str(SNIPPETS),
-            "--snippets",
-            "--notes",
-            CORPUS,
-            "--workers",
-            str(WORKERS),
-            "--output",
-            os.path.join(OUTPUT, target),
-            "--left-gram-context",
-            str(LGCONTEXT),
-            "--right-gram-context",
-            str(RGCONTEXT),
-        ],
-        capture_output=True,
-        text=True,
+def run_sequencer(target, dry_run) -> bool:
+    from common.step_runner import SubprocessStepRunner
+
+    runner = SubprocessStepRunner(
+        os.path.join(SRC_DIR, "step2", "sequencer.py"),
+        "sequencer",
+        logging,
+        {
+            "lexicon": LEXICON,
+            "section-headers": HEADERS,
+            "main-targets": target,
+            "snippet-length": str(SNIPPETS),
+            "snippets": None,
+            "notes": CORPUS,
+            "workers": str(WORKERS),
+            "output": os.path.join(OUTPUT, target),
+            "left-gram-context": str(LGCONTEXT),
+            "right-gram-context": str(RGCONTEXT),
+        },
+        dry_run=dry_run,
     )
-    logging.debug(f"STDOUT for {target} sequencer: {result.stdout}")
-    if result.stderr:
-        logging.warning(f"STDERR for {target} sequencer: {result.stderr}")
+
+    return runner.run(target)
+
+    # logging.debug(f"Processing sequencer {target}...")
+    # result = subprocess.run(
+    #     [
+    #         "python",
+    #         os.path.join(SRC_DIR, "step2", "sequencer.py"),
+    #         "--lexicon",
+    #         LEXICON,
+    #         "--section-headers",
+    #         HEADERS,
+    #         "--main-targets",
+    #         target,
+    #         "--snippet-length",
+    #         str(SNIPPETS),
+    #         "--snippets",
+    #         "--notes",
+    #         CORPUS,
+    #         "--workers",
+    #         str(WORKERS),
+    #         "--output",
+    #         os.path.join(OUTPUT, target),
+    #         "--left-gram-context",
+    #         str(LGCONTEXT),
+    #         "--right-gram-context",
+    #         str(RGCONTEXT),
+    #     ],
+    #     capture_output=True,
+    #     text=True,
+    # )
+    # logging.debug(f"STDOUT for {target} sequencer: {result.stdout}")
+    # if result.stderr:
+    #     logging.warning(f"STDERR for {target} sequencer: {result.stderr}")
 
 
 # Function to run organize.py (Step 3)
@@ -281,7 +311,8 @@ def run_cross_class_filter(target):
 
 # Main execution loop
 for target in targets:
-    run_sequencer(target)
+    if run_sequencer(target, args.dry_run) is False:
+        raise Exception("An error occured running sequencert")
     run_organize(target)
     run_clever_rules(target)
     run_filter_templated(target)
