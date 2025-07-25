@@ -1,6 +1,6 @@
-import END_TOKEN
 from note_extraction import NoteExtraction
 from main_target_hit import MainTargetHit
+from step2 import END_TOKEN
 
 
 class Note:
