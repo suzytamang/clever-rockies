@@ -1,0 +1,77 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"files.exclude": {
+			"vaParts/": true
+		},
+		"files.watcherExclude": {
+			"**/vaParts/**": true
+		},
+		"python-envs.defaultEnvManager": "ms-python.python:conda",
+		"python-envs.defaultPackageManager": "ms-python.python:conda",
+		"python-envs.pythonProjects": []
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Current File",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${file}",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env"
+			},
+			{
+				"name": "Run all steps (info)",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceFolder}/src/run_all_steps.py",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env",
+				"args": [
+					"--info"
+				]
+			},
+			{
+				"name": "Run all steps (info, --dryrun, --clean-outputs-min)",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceFolder}/src/run_all_steps.py",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env",
+				"args": [
+					"--info",
+					"--dry-run",
+					"--clean-outputs-min"
+				]
+			},
+			{
+				"name": "Run all steps (debug)",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceFolder}/src/run_all_steps.py",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env",
+				"args": [
+					"--debug"
+				]
+			},
+			{
+				"name": "Run all steps (quiet)",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceFolder}/src/run_all_steps.py",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env",
+				"args": [
+					"--quiet"
+				]
+			}
+		]
+	}
+}
