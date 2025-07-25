@@ -8,7 +8,8 @@
     ],
     "exclude": [
         "run/",
-        "res/"
+        "res/",
+        "envs/clever_env"
     ],
     "reportMissingImports": true,
     "reportMissingTypeStubs": false,
