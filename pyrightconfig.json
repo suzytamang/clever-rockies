@@ -1,0 +1,16 @@
+{
+    "strict": true,
+    "typeCheckingMode": "basic",
+    "venvPath": "./envs",
+    "venv": "clever_env",
+    "include": [
+        "src"
+    ],
+    "exclude": [
+        "run/",
+        "res/"
+    ],
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+    "reportShadowedImports": false
+}
