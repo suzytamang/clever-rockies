@@ -1,5 +1,4 @@
 {
-    "strict": true,
     "typeCheckingMode": "basic",
     "venvPath": "./envs",
     "venv": "clever_env",
