@@ -43,7 +43,7 @@ class NGramContext:
 
         onlyfiles = [
             os.path.join(output_folder, f)
-            for f in os.path.listdir(output_folder)
+            for f in os.listdir(output_folder)
             if os.path.isfile(os.path.join(output_folder, f))
         ]
         count_left = defaultdict(lambda: 0)
