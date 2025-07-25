@@ -3,10 +3,11 @@
 import argparse
 import logging
 import os
-import shutil
 import subprocess
 import sys
 from datetime import datetime
+
+from common.folder_mgmt import clean_output_min_folder
 
 
 def parse_args():
@@ -134,23 +135,8 @@ logging.debug(f"METADATA: {METADATA}")
 logging.debug(f"OUTPUT: {OUTPUT}")
 logging.debug(f"RUN_DIR: {RUN_DIR}")
 
-if args.clean_outputs_min is False:
-    confirm = (
-        input(
-            f"About to remove directory: {OUTPUT} \nAre you sure you want to proceed? (y/n): "
-        )
-        .lower()
-        .strip()
-    )
-else:
-    confirm = "y"
-if confirm != "y":
-    logging.info("Operation cancelled.")
-    sys.exit(0)
 
-shutil.rmtree(OUTPUT, ignore_errors=True)
-os.makedirs(OUTPUT, exist_ok=True)
-logging.info(f"Removed and recreated directory: {OUTPUT}")
+clean_output_min_folder(OUTPUT, args.clean_outputs_min, logging)
 
 # Read targets from the unique_targets.txt file
 TARGETS_FILE = os.path.join(RUN_DIR, "unique_targets.txt")
