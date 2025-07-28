@@ -60,7 +60,7 @@ logger.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
 
 # Function to run sequencer.py (Step 2)
-def run_sequencer(target: str, snippets: str | None, dry_run) -> bool:
+def run_sequencer(target: str, dry_run) -> bool:
 
     sequencer_parameters = SequencerParameters(
         workers=get_environment_var("WORKERS", int),
@@ -207,7 +207,7 @@ def run_cross_class_filter(target):
 
 # Main execution loop
 for target in targets:
-    if run_sequencer(target, args.snippets, args.dry_run) is False:
+    if run_sequencer(target, args.dry_run) is False:
         raise Exception("An error occured running sequencert")
     run_organize(target)
     run_clever_rules(target)
