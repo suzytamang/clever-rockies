@@ -1,5 +1,6 @@
 import argparse
-import logging
+
+from loguru import logging
 
 
 def parse_args():
@@ -45,4 +46,5 @@ def parse_args():
     parser.set_defaults(
         log_level=logging.WARNING
     )  # This makes quiet (WARNING) the default
+    return parser.parse_args()
     return parser.parse_args()

@@ -15,12 +15,13 @@ class SequencerParameters(StepParameters):
     left_gram: int
     snippet_length: int
     snippets: str | None
+    main_targets: List[str] | str
     lexicon: Path
     section_headers: Path
     output_folder: Path
     notes_file: Path
 
 
-TStepParameters = TypeVar("TStepParameters")
+TStepParameters = TypeVar("TStepParameters", bound=StepParameters)
 
-StepMethod = Callable[[TargetClass, TStepParameters], None]
+StepMethod = Callable[[TStepParameters], None]

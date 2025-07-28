@@ -1,15 +1,13 @@
 #!/usr/bin/env python3
 
-import logging
 import os
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 
 from common.folder_mgmt import clean_output_min_folder
-
 from common.parameters.sequencer_parameter import SequencerParameters
 from parse_args import parse_args
 from run_all_consts import (
@@ -38,33 +36,31 @@ load_dotenv()
 args = parse_args()
 
 # Set up logging
-setup_logging(args)
+logger = setup_logging(args)
 
 
-clean_output_min_folder(OUTPUT, args.clean_outputs_min, logging)
+clean_output_min_folder(OUTPUT, args.clean_outputs_min)
 
 # Read targets from the unique_targets.txt file
 TARGETS_FILE = os.path.join(RUN_DIR, "unique_targets.txt")
 
 if not os.path.isfile(TARGETS_FILE):
-    logging.error(f"Error: {TARGETS_FILE} not found!")
-    logging.error(
-        "Please run grabtargets.sh first to generate the unique targets list."
-    )
+    logger.error(f"Error: {TARGETS_FILE} not found!")
+    logger.error("Please run grabtargets.sh first to generate the unique targets list.")
     sys.exit(1)
 
 with open(TARGETS_FILE, "r") as fh:
     targets = [target for line in fh if (target := line.strip())]
 
 if not targets:
-    logging.error(f"Error: No targets found in {TARGETS_FILE}")
+    logger.error(f"Error: No targets found in {TARGETS_FILE}")
     sys.exit(1)
 
-logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
+logger.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
 
 # Function to run sequencer.py (Step 2)
-def run_sequencer(target, dry_run) -> bool:
+def run_sequencer(target: str, dry_run) -> bool:
 
     sequencer_parameters = SequencerParameters(
         workers=get_environment_var("WORKERS", int),
@@ -72,18 +68,20 @@ def run_sequencer(target, dry_run) -> bool:
         left_gram=get_environment_var("LGCONTEXT", int),
         snippet_length=get_environment_var("SNIPPETS", int),
         snippets=None,
+        main_targets=target,
         lexicon=LEXICON,
         section_headers=HEADERS,
         output_folder=Path(OUTPUT) / target,
-        notes_file=CORPUS
-        main_targets=
+        notes_file=CORPUS,
     )
 
     from common.step_runner import DirectStepRunner
 
-    runner = DirectStepRunner("sequencer", logging, sequencer_parameters, sequencer_main, dry_run=dry_run)
+    runner = DirectStepRunner(
+        "sequencer", sequencer_parameters, sequencer_main, dry_run=dry_run
+    )
 
-    return runner.run(target)
+    return runner.run()
 
     # logging.debug(f"Processing sequencer {target}...")
     # result = subprocess.run(
@@ -120,7 +118,7 @@ def run_sequencer(target, dry_run) -> bool:
 
 # Function to run organize.py (Step 3)
 def run_organize(target):
-    logging.debug(f"Processing organize {target}...")
+    logger.debug(f"Processing organize {target}...")
     result = subprocess.run(
         [
             "python3",
@@ -133,14 +131,14 @@ def run_organize(target):
         capture_output=True,
         text=True,
     )
-    logging.debug(f"STDOUT for {target} organize: {result.stdout}")
+    logger.debug(f"STDOUT for {target} organize: {result.stdout}")
     if result.stderr:
-        logging.warning(f"STDERR for {target} organize: {result.stderr}")
+        logger.warning(f"STDERR for {target} organize: {result.stderr}")
 
 
 # Function to run cleverRules.py (Step 4)
 def run_clever_rules(target):
-    logging.debug(f"Processing run_clever_rules {target}...")
+    logger.debug(f"Processing run_clever_rules {target}...")
     result = subprocess.run(
         [
             "python",
@@ -153,14 +151,14 @@ def run_clever_rules(target):
         capture_output=True,
         text=True,
     )
-    logging.debug(f"STDOUT for {target} run_clever_rules: {result.stdout}")
+    logger.debug(f"STDOUT for {target} run_clever_rules: {result.stdout}")
     if result.stderr:
-        logging.warning(f"STDERR for {target} run_clever_rules: {result.stderr}")
+        logger.warning(f"STDERR for {target} run_clever_rules: {result.stderr}")
 
 
 # Function to run filterTemplated.py (Step 5)
 def run_filter_templated(target):
-    logging.debug(f"Filtering tagged templated text for {target}")
+    logger.debug(f"Filtering tagged templated text for {target}")
     result = subprocess.run(
         [
             "python3",
@@ -181,13 +179,13 @@ def run_filter_templated(target):
         capture_output=True,
         text=True,
     )
-    logging.debug(f"STDOUT for {target} filterTemplated: {result.stdout}")
+    logger.debug(f"STDOUT for {target} filterTemplated: {result.stdout}")
     if result.stderr:
-        logging.warning(f"STDERR for {target} filterTemplated: {result.stderr}")
+        logger.warning(f"STDERR for {target} filterTemplated: {result.stderr}")
 
 
 def run_cross_class_filter(target):
-    logging.debug(f"Running cross-class filter for {target}...")
+    logger.debug(f"Running cross-class filter for {target}...")
     result = subprocess.run(
         [
             "python3",
@@ -202,9 +200,9 @@ def run_cross_class_filter(target):
         capture_output=True,
         text=True,
     )
-    logging.debug(f"STDOUT for {target} cross_class_filter: {result.stdout}")
+    logger.debug(f"STDOUT for {target} cross_class_filter: {result.stdout}")
     if result.stderr:
-        logging.warning(f"STDERR for {target} cross_class_filter: {result.stderr}")
+        logger.warning(f"STDERR for {target} cross_class_filter: {result.stderr}")
 
 
 # Main execution loop
@@ -217,15 +215,15 @@ for target in targets:
     # run_cross_class_filter(target)
 
 # Run make_one_out.py
-logging.info("Running make_one_out.py...")
+logger.info("Running make_one_out.py...")
 result = subprocess.run(
     ["python3", os.path.join(SRC_DIR, "make_one_out.py"), OUTPUT],
     capture_output=True,
     text=True,
 )
-logging.info(f"STDOUT: {result.stdout}")
+logger.info(f"STDOUT: {result.stdout}")
 if result.stderr:
-    logging.warning(f"STDERR: {result.stderr}")
+    logger.warning(f"STDERR: {result.stderr}")
 
-logging.info("All targets processed.")
-logging.info("All targets processed.")
+logger.info("All targets processed.")
+logger.info("All targets processed.")

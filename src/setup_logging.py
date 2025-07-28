@@ -5,7 +5,7 @@ from glob import glob
 from pathlib import Path
 import sys
 
-from loguru import logger
+from loguru import Logger, logger
 
 from run_all_consts import (
     BASE_DIR,
@@ -28,10 +28,10 @@ LOGGING_PREFIX = "run_all_"
 _logging_configured = False  # Ensure this is defined somewhere globally
 
 
-def setup_logging(args):
+def setup_logging(args) -> Logger:
     global _logging_configured
     if _logging_configured:
-        return
+        return logger
 
     move_old_logs()
 
@@ -64,6 +64,8 @@ def setup_logging(args):
     logger.debug(f"METADATA: {METADATA}")
     logger.debug(f"OUTPUT: {OUTPUT}")
     logger.debug(f"RUN_DIR: {RUN_DIR}")
+
+    return logger
 
 
 def move_old_logs():

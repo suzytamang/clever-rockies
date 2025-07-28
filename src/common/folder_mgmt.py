@@ -1,9 +1,10 @@
 import os
 import shutil
 import sys
+from loguru import logger  # initialized in run_all_steps.py currently
 
 
-def clean_output_min_folder(OUTPUT, clean_outputs_min, logger):
+def clean_output_min_folder(OUTPUT, clean_outputs_min):
     if clean_outputs_min is False:
         confirm = (
             input(
