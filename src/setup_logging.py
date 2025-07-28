@@ -1,4 +1,3 @@
-import os
 import shutil
 from datetime import datetime
 from glob import glob
@@ -8,39 +7,38 @@ import sys
 from loguru import logger
 
 
-from run_all_consts import (
-    BASE_DIR,
+from common.consts import (
     CORPUS,
     METADATA,
     OUTPUT,
+    PROJECT_ROOT,
     RES_DIR,
     RUN_DIR,
     SRC_DIR,
     TESTS_DIR,
+    get_environment_var,
 )
 
 # Global flag to track if logging has already been configured
 _logging_configured = False
 
-
-LOGGING_PREFIX = "run_all_"
+LOG_PATH: Path = get_environment_var("LOG_PATH", Path)
+LOGGING_PREFIX = get_environment_var("LOGGING_PREFIX", str)
 
 
 _logging_configured = False  # Ensure this is defined somewhere globally
 
 
-def setup_logging(args):
+def setup_logging(args, check_run_dir):
     global _logging_configured
     if _logging_configured:
         return logger
 
-    move_old_logs()
+    move_old_logs(check_run_dir)
 
-    dry_run_label = "__dry_run__" if args.dry_run else ""
-    log_file = os.path.join(
-        RUN_DIR,
-        f"{LOGGING_PREFIX}{dry_run_label}{datetime.now().strftime('%Y%m%d_%H%M%S')}.log",
-    )
+    log_file: Path = LOG_PATH / make_log_file_name(args.dry_run)
+
+    check_run_dir("logging", LOG_PATH)
 
     # Remove default Loguru handler
     logger.remove()
@@ -65,7 +63,7 @@ def setup_logging(args):
     _logging_configured = True
 
     # Print paths for debugging
-    logger.debug(f"BASE_DIR: {BASE_DIR}")
+    logger.debug(f"PROJECT_ROOT: {PROJECT_ROOT}")
     logger.debug(f"RES_DIR: {RES_DIR}")
     logger.debug(f"TESTS_DIR: {TESTS_DIR}")
     logger.debug(f"SRC_DIR: {SRC_DIR}")
@@ -77,11 +75,19 @@ def setup_logging(args):
     return logger
 
 
-def move_old_logs():
-    log_archive: Path = Path(RUN_DIR) / "log_archive"
-    os.makedirs(log_archive, exist_ok=True)
+def make_log_file_name(dry_run: bool):
+    dry_run_label = "__dry_run__" if dry_run else ""
+    return (
+        f"{LOGGING_PREFIX}{dry_run_label}{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+    )
+
+
+def move_old_logs(check_run_dir):
+    log_archive: Path = get_environment_var("LOG_ARCHIVE", Path)
+    check_run_dir("log archive", log_archive)
 
     existing_logs = glob(str(Path(RUN_DIR) / Path(f"{LOGGING_PREFIX}*")))
     if len(existing_logs) > 0:
         for existing_log in existing_logs:
-            shutil.move(existing_log, log_archive)
+            if not (Path(log_archive) / Path(existing_log)).exists():
+                shutil.move(existing_log, log_archive)

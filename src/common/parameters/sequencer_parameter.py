@@ -14,7 +14,6 @@ class SequencerParameters(StepParameters):
     right_gram: int
     left_gram: int
     snippet_length: int
-    snippets: str | None
     main_targets: List[str] | str
     lexicon: Path
     section_headers: Path

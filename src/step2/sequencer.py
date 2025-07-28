@@ -68,7 +68,6 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
     section_headers = sequencer_parameters["section_headers"]
     right_gram = sequencer_parameters["right_gram"]
     left_gram = sequencer_parameters["left_gram"]
-    snippets = sequencer_parameters["snippets"]
     snippet_length = sequencer_parameters["snippet_length"]
     notes_file = sequencer_parameters["notes_file"]
     assert workers is not None
@@ -108,7 +107,7 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
         sys.stderr.write("Main targets not found - exiting")
         sys.exit(-1)
 
-    if not snippets and (right_gram > 0 or left_gram > 0):
+    if not snippet_length and (right_gram > 0 or left_gram > 0):
         sys.stderr.write(
             ("If snippets are disabled context " "ngrams cannot be extracted")
         )
@@ -119,7 +118,7 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
     if right_gram:
         right_gram = int(right_gram)
 
-    if snippets and (right_gram > 0 or left_gram > 0):
+    if snippet_length and (right_gram > 0 or left_gram > 0):
         ngram_contexts = NGramContext(left_gram, right_gram)
 
     if workers > 0:
@@ -127,7 +126,7 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
         batch = Batch(
             queue,
             snippet_length,
-            snippets,
+            snippet_length,
             headers,
             main_terms,
             context_terms,
@@ -154,7 +153,7 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
         batch = Batch(
             notes_file,
             snippet_length,
-            snippets,
+            snippet_length,
             headers,
             main_terms,
             context_terms,
@@ -243,7 +242,6 @@ if __name__ == "__main__":
         right_gram=int(args.right_gram),
         left_gram=int(args.left_gram),
         snippet_length=int(args.snippet_length),
-        snippets=str(args.snippets) if args.snippets is not None else None,
         main_targets=target,
         lexicon=Path(args.lexicon),
         section_headers=Path(args.section_headers),

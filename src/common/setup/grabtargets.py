@@ -2,18 +2,13 @@
 
 import os
 import sys
+from loguru import logger
+from common.consts import LEXICON, RUN_DIR
 
 
 def run_grab_targets():
-    # Get the directory of the current script
-    SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-
-    # Go up one level to the parent directory
-    PARENT_DIR = os.path.dirname(SCRIPT_DIR)
 
     # Define paths
-    DICT_FILE = os.path.join(PARENT_DIR, "res", "dicts", "dict.txt")
-    RUN_DIR = os.path.join(PARENT_DIR, "run")
 
     # Output files
     FULL_CONCEPTS_FILE = os.path.join(RUN_DIR, "unique_concepts_full.txt")
@@ -23,36 +18,39 @@ def run_grab_targets():
     os.makedirs(RUN_DIR, exist_ok=True)
 
     # Check if the input file exists
-    if not os.path.isfile(DICT_FILE):
-        print(f"Error: {DICT_FILE} not found!")
+    if not os.path.isfile(LEXICON):
+        print(f"Error: {LEXICON} not found!")
         sys.exit(1)
 
     # Extract all unique concepts and save to the full concepts file
-    print(f"Extracting all unique concepts from {DICT_FILE}...")
+    print(f"Extracting all unique concepts from {LEXICON}...")
     unique_concepts = set()
 
     try:
-        with open(DICT_FILE, "r") as f:
+        logger.info("Loading lexicon (dict.txt) entries ...")
+        with open(LEXICON, "r") as f:
             for line in f:
                 parts = line.strip().split("|")
                 if len(parts) >= 3:
                     concept = parts[2].strip()
                     if concept:
                         unique_concepts.add(concept)
-
+        logger.info("Lexicon (dict.txt) entries loaded")
+        logger.info("Writing concepts file ...")
         with open(FULL_CONCEPTS_FILE, "w") as f:
             for concept in sorted(unique_concepts):
                 f.write(f"{concept}\n")
+        logger.info("Concepts file written to {}", FULL_CONCEPTS_FILE)
 
-        print(f"All unique concepts have been saved to {FULL_CONCEPTS_FILE}")
-        print(f"Number of all unique concepts: {len(unique_concepts)}")
+        logger.info(f"All unique concepts have been saved to {FULL_CONCEPTS_FILE}")
+        logger.info(f"Number of all unique concepts: {len(unique_concepts)}")
     except IOError as e:
-        print(f"Error: Failed to create {FULL_CONCEPTS_FILE}")
-        print(f"IOError: {e}")
+        logger.error(f"Error: Failed to create {FULL_CONCEPTS_FILE}")
+        logger.error(f"IOError: {e}")
         sys.exit(1)
 
     # Filter out specified terms and save to the unique targets file
-    print("Filtering unique targets...")
+    logger.info("Filtering unique targets...")
     excluded_terms = {"DOT", "PUNCT", "HX", "NEGEX", "PREV", "RISK", "SCREEN", "FAM"}
     unique_targets = [
         concept for concept in unique_concepts if concept not in excluded_terms
@@ -63,11 +61,11 @@ def run_grab_targets():
             for target in sorted(unique_targets):
                 f.write(f"{target}\n")
 
-        print(f"Unique targets have been saved to {UNIQUE_TARGETS_FILE}")
-        print(f"Number of unique targets: {len(unique_targets)}")
+        logger.info(f"Unique targets have been saved to {UNIQUE_TARGETS_FILE}")
+        logger.info(f"Number of unique targets: {len(unique_targets)}")
     except IOError as e:
-        print(f"Error: Failed to create {UNIQUE_TARGETS_FILE}")
-        print(f"IOError: {e}")
+        logger.info(f"Error: Failed to create {UNIQUE_TARGETS_FILE}")
+        logger.info(f"IOError: {e}")
         sys.exit(1)
 
 
