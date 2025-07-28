@@ -1,6 +1,8 @@
 import argparse
 
-from loguru import logging
+from logging import DEBUG as DEBUG_LOG_LEVEL
+from logging import INFO as INFO_LOG_LEVEL
+from logging import WARNING as WARNING_LOG_LEVEL
 
 
 def parse_args():
@@ -12,22 +14,22 @@ def parse_args():
         "--debug",
         action="store_const",
         dest="log_level",
-        const=logging.DEBUG,
-        help="Set console logging level to DEBUG",
+        const=DEBUG_LOG_LEVEL,
+        help="Set console logger level to DEBUG",
     )
     group.add_argument(
         "--info",
         action="store_const",
         dest="log_level",
-        const=logging.INFO,
-        help="Set console logging level to INFO",
+        const=INFO_LOG_LEVEL,
+        help="Set console logger level to INFO",
     )
     group.add_argument(
         "--quiet",
         action="store_const",
         dest="log_level",
-        const=logging.WARNING,
-        help="Set console logging level to WARNING (default)",
+        const=WARNING_LOG_LEVEL,
+        help="Set console logger level to WARNING (default)",
     )
     parser.add_argument(
         "--dry-run",
@@ -44,7 +46,6 @@ def parse_args():
         help="Quietly clean output_min",
     )
     parser.set_defaults(
-        log_level=logging.WARNING
+        log_level=WARNING_LOG_LEVEL
     )  # This makes quiet (WARNING) the default
-    return parser.parse_args()
     return parser.parse_args()
