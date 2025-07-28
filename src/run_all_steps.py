@@ -75,7 +75,8 @@ def run_sequencer(target, dry_run) -> bool:
         lexicon=LEXICON,
         section_headers=HEADERS,
         output_folder=Path(OUTPUT) / target,
-        notes_file=CORPUS,
+        notes_file=CORPUS
+        main_targets=
     )
 
     from common.step_runner import DirectStepRunner
