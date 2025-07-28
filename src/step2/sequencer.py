@@ -25,7 +25,7 @@ from pathlib import Path
 import sys
 import codecs
 import os
-from typing import List
+from typing import List, cast
 from argparse import ArgumentParser, Namespace
 from multiprocessing import Pool, JoinableQueue
 from common.parameters.sequencer_parameter import SequencerParameters
@@ -63,7 +63,7 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
 
     workers = sequencer_parameters["workers"]
     output_folder = sequencer_parameters["output_folder"]
-    main_targets = target
+    main_targets = sequencer_parameters["main_targets"]
     lexicon = sequencer_parameters["lexicon"]
     section_headers = sequencer_parameters["section_headers"]
     right_gram = sequencer_parameters["right_gram"]
@@ -93,6 +93,8 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
     main_targets_index = set(["MBC", "METS", "BCTRIG"])
     if isinstance(main_targets, List):
         main_targets_index = set([x.strip() for x in main_targets[0].split(",")])
+    else:
+        main_targets_index = [cast(str, main_targets)]
 
     terms = read_dict(lexicon)
     headers = read_headers(section_headers)

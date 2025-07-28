@@ -5,6 +5,9 @@ class Term:
         self._class = _class
         self._subclass = _subclass
 
+    def __repr__(self) -> str:
+        return f"Label: \"{self.label}\", Class: {self._class}, Subclass: {self._subclass}"
+
     # def __eq__(self, value: object) -> bool:
     #     if isinstance(value, str):
     #         return self._class == value

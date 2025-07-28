@@ -5,7 +5,8 @@ from glob import glob
 from pathlib import Path
 import sys
 
-from loguru import Logger, logger
+from loguru import logger
+
 
 from run_all_consts import (
     BASE_DIR,
@@ -28,7 +29,7 @@ LOGGING_PREFIX = "run_all_"
 _logging_configured = False  # Ensure this is defined somewhere globally
 
 
-def setup_logging(args) -> Logger:
+def setup_logging(args):
     global _logging_configured
     if _logging_configured:
         return logger
@@ -45,10 +46,18 @@ def setup_logging(args) -> Logger:
     logger.remove()
 
     # Add file handler (always DEBUG)
-    logger.add(log_file, level="DEBUG", format="{time} - {level} - {message}", enqueue=True)
+    logger.add(
+        log_file, level="DEBUG", format="{time} - {level} - {message}", enqueue=True
+    )
 
     # Add console handler (user-defined level)
-    logger.add(sys.stderr, level=args.log_level, format="<level>{level}</level>: {message}", enqueue=True, colorize=True)
+    logger.add(
+        sys.stderr,
+        level=args.log_level,
+        format="<level>{level}</level>: {message}",
+        enqueue=True,
+        colorize=True,
+    )
 
     logger.info(f"Console logging level set to: {args.log_level}")
     logger.debug("File logging level set to: DEBUG")
