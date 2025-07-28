@@ -1,5 +1,5 @@
-from note_extraction import NoteExtraction
-from main_target_hit import MainTargetHit
+from step2.note_extraction import NoteExtraction
+from step2.main_target_hit import MainTargetHit
 from step2 import END_TOKEN
 
 

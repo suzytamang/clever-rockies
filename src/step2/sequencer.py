@@ -21,18 +21,21 @@ output: for target mentions detected using a maximum string length, right trunca
     data that is labeled by CLEVER during rule execution
 """
 
+from pathlib import Path
 import pdb  # noqa: F401
 import sys
 import codecs
 import os
 import time  # noqa: F401
+from typing import List, TypedDict
 import warnings  # noqa: F401
 from argparse import ArgumentParser
 from multiprocessing import Pool, JoinableQueue
 import importlib  # noqa: F401
-from batch import Batch
-from term import Term
-from ngram_context import NGramContext
+from common.parameters.sequencer_parameter import SequencerParameters
+from step2.batch import Batch
+from step2.term import Term
+from step2.ngram_context import NGramContext
 
 # from resource import getrusage, RUSAGE_SELF
 
@@ -60,7 +63,113 @@ def read_dict(f):
         return terms
 
 
-if __name__ == "__main__":
+def sequencer_main(target, sequencer_parameters: SequencerParameters):
+
+    workers = sequencer_parameters['workers']
+    output_folder = sequencer_parameters["output_folder"]
+    main_targets = sequencer_parameters["main_targets"]
+    lexicon = sequencer_parameters["lexicon"]
+    section_headers = sequencer_parameters["section_headers"]
+    right_gram = sequencer_parameters["right_gram"]
+    left_gram = sequencer_parameters["left_gram"]
+    snippets = sequencer_parameters["snippets"]
+    snippet_length = sequencer_parameters["snippet_length"]
+    notes_file = sequencer_parameters["notes_file"]
+    assert workers is not None
+    assert output_folder is not None
+    assert main_targets is not None
+    assert lexicon is not None
+    assert section_headers is not None
+    assert right_gram is not None
+    assert left_gram is not None
+    assert snippet_length is not None
+    assert notes_file is not None
+
+    if not output_folder:
+        print("Output folder must be provided with -o/--output")
+        sys.exit(-1)
+    if os.path.exists(output_folder):
+        print(("Output folder '%s' already exists" % (output_folder)))
+        print("This tool will create an empty folder to save clean data")
+        sys.exit(-1)
+
+    os.mkdir(output_folder)
+    main_targets_index = set(["MBC", "METS", "BCTRIG"])
+    if len(main_targets) > 0:
+        main_targets_index = set([x.strip() for x in main_targets[0].split(",")])
+
+    terms = read_dict(lexicon)
+    headers = read_headers(section_headers)
+
+    main_terms = [x for x in terms if x._class in main_targets_index]
+
+    # For target terms in the context to be tagged as well, context terms need to include all terms.
+    context_terms = terms
+
+    if len(main_terms) == 0:
+        sys.stderr.write("Main targets not found - exiting")
+        sys.exit(-1)
+
+    if not snippets and (right_gram > 0 or left_gram > 0):
+        sys.stderr.write(
+            ("If snippets are disabled context " "ngrams cannot be extracted")
+        )
+        sys.exit(-1)
+    ngram_contexts = None
+    if left_gram:
+        left_gram = int(left_gram)
+    if right_gram:
+        right_gram = int(right_gram)
+
+    if snippets and (right_gram > 0 or left_gram > 0):
+        ngram_contexts = NGramContext(left_gram, right_gram)
+
+    if workers > 0:
+        queue = JoinableQueue(workers)
+        batch = Batch(
+            queue,
+            snippet_length,
+            snippets,
+            headers,
+            main_terms,
+            context_terms,
+            output_folder,
+            ngram_contexts,
+        )
+        pool = Pool(workers, batch.process)
+        batch = []
+        with open(notes_file, "r") as file_notes:
+            for line in file_notes:
+                if len(batch) == 5000:
+                    queue.put(batch, True, None)
+                    batch = []
+                batch.append(line.strip())
+            if batch:
+                queue.put(batch, True, None)
+        for x in range(workers):
+            # queue.put(ExitProcess())
+            queue.put(None)
+        # queue.close()
+        pool.close()
+        pool.join()
+    else:
+        batch = Batch(
+            notes_file,
+            snippet_length,
+            snippets,
+            headers,
+            main_terms,
+            context_terms,
+            output_folder,
+            ngram_contexts,
+        )
+        batch.process()
+
+    if ngram_contexts:
+        ngram_contexts.aggregate(output_folder)
+
+
+def get_sequencer_parameters():
     parser = ArgumentParser()
     parser.add_argument(
         "-o",
@@ -118,86 +227,23 @@ if __name__ == "__main__":
     parser.add_argument("--right-gram-context", dest="right_gram", default=2)
     args = parser.parse_args()
     args.workers = int(args.workers)
+    return args
 
-    if not args.output_folder:
-        print("Output folder must be provided with -o/--output")
-        sys.exit(-1)
-    if os.path.exists(args.output_folder):
-        print(("Output folder '%s' already exists" % (args.output_folder)))
-        print("This tool will create an empty folder to save clean data")
-        sys.exit(-1)
 
-    os.mkdir(args.output_folder)
-    main_targets_index = set(["MBC", "METS", "BCTRIG"])
-    if len(args.main_targets) > 0:
-        main_targets_index = set([x.strip() for x in args.main_targets[0].split(",")])
+if __name__ == "__main__":
+    args = get_sequencer_parameters()
 
-    terms = read_dict(args.lexicon)
-    headers = read_headers(args.section_headers)
+    sqeuqncer_parameters = SequencerParameters(
+        workers=args.workers,
+        right_gram=args.right_gram,
+        left_gram=args.left_gram,
+        snippet_length=args.snippet_length,
+        snippets=args.snippets,
+        main_targets=args.main_targets,
+        lexicon=args.lexicon,
+        section_headers=args.section_headers,
+        output_folder=args.output_folder,
+        notes_file=args.notes_file,
+    )
 
-    main_terms = [x for x in terms if x._class in main_targets_index]
-
-    # For target terms in the context to be tagged as well, context terms need to include all terms.
-    context_terms = terms
-
-    if len(main_terms) == 0:
-        sys.stderr.write("Main targets not found - exiting")
-        sys.exit(-1)
-
-    if not args.snippets and (args.right_gram > 0 or args.left_gram > 0):
-        sys.stderr.write(
-            ("If snippets are disabled context " "ngrams cannot be extracted")
-        )
-        sys.exit(-1)
-    ngram_contexts = None
-    if args.left_gram:
-        args.left_gram = int(args.left_gram)
-    if args.right_gram:
-        args.right_gram = int(args.right_gram)
-
-    if args.snippets and (args.right_gram > 0 or args.left_gram > 0):
-        ngram_contexts = NGramContext(args.left_gram, args.right_gram)
-
-    if args.workers > 0:
-        queue = JoinableQueue(args.workers)
-        batch = Batch(
-            queue,
-            args.snippet_length,
-            args.snippets,
-            headers,
-            main_terms,
-            context_terms,
-            args.output_folder,
-            ngram_contexts,
-        )
-        pool = Pool(args.workers, batch.process)
-        batch = []
-        with open(args.notes_file, "r") as file_notes:
-            for line in file_notes:
-                if len(batch) == 5000:
-                    queue.put(batch, True, None)
-                    batch = []
-                batch.append(line.strip())
-            if batch:
-                queue.put(batch, True, None)
-        for x in range(args.workers):
-            # queue.put(ExitProcess())
-            queue.put(None)
-        # queue.close()
-        pool.close()
-        pool.join()
-    else:
-        batch = Batch(
-            args.notes_file,
-            args.snippet_length,
-            args.snippets,
-            headers,
-            main_terms,
-            context_terms,
-            args.output_folder,
-            ngram_contexts,
-        )
-        batch.process()
-
-    if ngram_contexts:
-        ngram_contexts.aggregate(args.output_folder)
+    sequencer_main(sqeuqncer_parameters)

@@ -2,11 +2,15 @@
 
 import logging
 import os
+from pathlib import Path
 import subprocess
 import sys
+
 from dotenv import load_dotenv
 
 from common.folder_mgmt import clean_output_min_folder
+
+from common.parameters.sequencer_parameter import SequencerParameters
 from parse_args import parse_args
 from run_all_consts import (
     ANTS,
@@ -48,8 +52,8 @@ if not os.path.isfile(TARGETS_FILE):
     )
     sys.exit(1)
 
-with open(TARGETS_FILE, "r") as f:
-    targets = [line.strip() for line in f if line.strip()]
+with open(TARGETS_FILE, "r") as fh:
+    targets = [target for line in fh if (target := line.strip())]
 
 if not targets:
     logging.error(f"Error: No targets found in {TARGETS_FILE}")
@@ -58,34 +62,40 @@ if not targets:
 logging.info(f"Loaded {len(targets)} targets from {TARGETS_FILE}")
 
 
-SNIPPETS = get_environment_var("SNIPPETS")
-LGCONTEXT = get_environment_var("LGCONTEXT")
-RGCONTEXT = get_environment_var("RGCONTEXT")
-WORKERS = get_environment_var("WORKERS")
-
-
 # Function to run sequencer.py (Step 2)
 def run_sequencer(target, dry_run) -> bool:
-    from common.step_runner import SubprocessStepRunner
 
-    runner = SubprocessStepRunner(
-        os.path.join(SRC_DIR, "step2", "sequencer.py"),
-        "sequencer",
-        logging,
-        {
-            "lexicon": LEXICON,
-            "section-headers": HEADERS,
-            "main-targets": target,
-            "snippet-length": str(SNIPPETS),
-            "snippets": None,
-            "notes": CORPUS,
-            "workers": str(WORKERS),
-            "output": os.path.join(OUTPUT, target),
-            "left-gram-context": str(LGCONTEXT),
-            "right-gram-context": str(RGCONTEXT),
-        },
-        dry_run=dry_run,
+    sequencer_parameters = SequencerParameters(
+        workers=get_environment_var("WORKERS", int),
+        right_gram=get_environment_var("RGCONTEXT", int),
+        left_gram=get_environment_var("LGCONTEXT", int),
+        snippet_length=get_environment_var("SNIPPETS", int),
+        snippets=args.snippets,
+        main_targets=target,
+        lexicon=LEXICON,
+        section_headers=HEADERS,
+        output_folder=Path(OUTPUT) / target,
+        notes_file=CORPUS,
     )
+
+    # Patch to accomodate different switch name when calling directly
+    config["notes_file"] = config["notes"]
+    config["output_folder"] = config["output"]
+
+    config["left_gram"] = config["left_gram_context"]
+    config["right_gram"] = config["right_gram_context"]
+
+    from common.step_runner import DirectStepRunner
+
+    runner = DirectStepRunner("sequencer", logging, sequencer_parameters, dry_run=dry_run)
+    # from common.step_runner import SubprocessStepRunner
+    # runner = SubprocessStepRunner(
+    #     os.path.join(SRC_DIR, "step2", "sequencer.py"),
+    #     "sequencer",
+    #     logging,
+    #     config,
+    #     dry_run=dry_run,
+    # )
 
     return runner.run(target)
 

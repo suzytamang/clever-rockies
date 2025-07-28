@@ -1,10 +1,12 @@
 import codecs
 from multiprocessing import current_process
-from batch import ExitProcess
-from note import Note
+
+from step2.note import Note
 import queue as qmod
 
 import os
+
+from step2.exit_process import ExitProcess
 
 
 def process_note(
