@@ -9,19 +9,6 @@ import os
 from step2.exit_process import ExitProcess
 
 
-def process_note(
-    line, offset_size, snippets, headers, main_terms, context_terms, **kwargs
-):
-    parts = line.split("\t")
-    if len(parts) == 1:
-        return
-    _id = parts[0]
-    text = " ".join(parts[1:])
-    note = Note(_id, text, **kwargs)
-    note_extraction = note.extract(main_terms, context_terms, offset_size, headers)
-    return note_extraction
-
-
 class Batch:
     def __init__(
         self,
@@ -33,6 +20,7 @@ class Batch:
         context_terms,
         output_folder,
         ngram_contexts,
+        include_shorter,
     ):
         self._queue = queue
         self.snippet_length = snippet_length
@@ -42,6 +30,7 @@ class Batch:
         self.context_terms = context_terms
         self.output_folder = output_folder
         self.ngram_contexts = ngram_contexts
+        self._include_shorter = include_shorter
 
         if isinstance(self._queue, str):
             self.notes_file = open(self._queue, "r")
@@ -64,6 +53,18 @@ class Batch:
                 batch.append(line.strip())
             self.notes_file = None
             return batch
+
+    def process_note(
+        self, line, offset_size, snippets, headers, main_terms, context_terms, **kwargs
+    ):
+        parts = line.split("\t")
+        if len(parts) == 1:
+            return
+        _id = parts[0]
+        text = " ".join(parts[1:])
+        note = Note(_id, text, **kwargs)
+        note_extraction = note.extract(main_terms, context_terms, offset_size, headers)
+        return note_extraction
 
     def process(self):
         if isinstance(self._queue, str):
@@ -101,13 +102,14 @@ class Batch:
                     self._queue.task_done()
                     return
                 for line in batch:
-                    ext = process_note(
+                    ext = self.process_note(
                         line,
                         self.snippet_length,
                         self.snippets,
                         self.headers,  # another case, variable referenced outside class scope (was just "headers")
                         self.main_terms,
                         self.context_terms,
+                        **{"include_shorter": self._include_shorter}
                     )
                     if ext:
                         lefts, rights = ext.dump(

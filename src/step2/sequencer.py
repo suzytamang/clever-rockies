@@ -21,17 +21,18 @@ output: for target mentions detected using a maximum string length, right trunca
     data that is labeled by CLEVER during rule execution
 """
 
-from pathlib import Path
-import sys
 import codecs
 import os
-from typing import List, cast
+import sys
 from argparse import ArgumentParser, Namespace
-from multiprocessing import Pool, JoinableQueue
+from multiprocessing import JoinableQueue, Pool
+from pathlib import Path
+from typing import Any, Generator, List, cast
+
 from common.parameters.sequencer_parameter import SequencerParameters
 from step2.batch import Batch
-from step2.term import Term
 from step2.ngram_context import NGramContext
+from step2.term import Term
 
 # from resource import getrusage, RUSAGE_SELF
 
@@ -121,37 +122,28 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
     if snippet_length and (right_gram > 0 or left_gram > 0):
         ngram_contexts = NGramContext(left_gram, right_gram)
 
-    if workers > 0:
-        queue = JoinableQueue(workers)
-        batch = Batch(
-            queue,
-            snippet_length,
-            snippet_length,
-            headers,
-            main_terms,
-            context_terms,
-            output_folder,
-            ngram_contexts,
-        )
-        pool = Pool(workers, batch.process)
-        batch = []
+    MAX_LINES_PER_BATCH = 5000
+
+    queue = JoinableQueue(workers)
+
+    def build_batch_loader(
+        notes_file: Path | str,
+    ) -> Generator[List[str], Any, None]:
+        chunk: List[str] = []
         with open(notes_file, "r") as file_notes:
             for line in file_notes:
-                if len(batch) == 5000:
-                    queue.put(batch, True, None)
-                    batch = []
-                batch.append(line.strip())
-            if batch:
-                queue.put(batch, True, None)
-        for x in range(workers):
-            # queue.put(ExitProcess())
-            queue.put(None)
-        # queue.close()
-        pool.close()
-        pool.join()
-    else:
+                if len(chunk) >= MAX_LINES_PER_BATCH:
+                    yield chunk
+                    chunk = []
+                chunk.append(line)
+        if len(chunk) > 0:
+            yield chunk
+
+    batch_loader = build_batch_loader(notes_file)
+
+    def process_batch(shared_queue):
         batch = Batch(
-            notes_file,
+            shared_queue,
             snippet_length,
             snippet_length,
             headers,
@@ -159,8 +151,26 @@ def sequencer_main(sequencer_parameters: SequencerParameters):
             context_terms,
             output_folder,
             ngram_contexts,
+            include_shorter
         )
         batch.process()
+
+    if workers > 1:
+
+        with Pool(workers) as pool:
+            pool.map(process_batch, [queue] * workers)
+
+            for batch in batch_loader:
+                queue.put(batch)
+
+            pool.join()
+            pool.close()
+
+    else:
+
+        for batch in batch_loader:
+            queue.put(batch)
+            process_batch(queue)
 
     if ngram_contexts:
         ngram_contexts.aggregate(output_folder)

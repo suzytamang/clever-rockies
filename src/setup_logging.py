@@ -1,3 +1,4 @@
+import argparse
 import shutil
 from datetime import datetime
 from glob import glob
@@ -29,7 +30,7 @@ LOGGING_PREFIX = get_environment_var("LOGGING_PREFIX", str)
 _logging_configured = False  # Ensure this is defined somewhere globally
 
 
-def setup_logging(args, check_run_dir):
+def setup_logging(args: argparse.Namespace, check_run_dir):
     global _logging_configured
     if _logging_configured:
         return logger

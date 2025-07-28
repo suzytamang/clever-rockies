@@ -27,7 +27,7 @@
 				"envFile": "${workspaceFolder}/.env"
 			},
 			{
-				"name": "Run all steps (info, --clean-outputs-min)",
+				"name": "Run all steps (info, --clean-outputs-min, single worker)",
 				"type": "debugpy",
 				"request": "launch",
 				"program": "${workspaceFolder}/src/run_all_steps.py",
@@ -35,7 +35,23 @@
 				"envFile": "${workspaceFolder}/.env",
 				"args": [
 					"--info",
-					"--clean-outputs-min"
+					"--clean-outputs-min",
+					"--num-workers-sequencer",
+					"1"
+				]
+			},
+			{
+				"name": "Run all steps (info, --clean-outputs-min, two workers)",
+				"type": "debugpy",
+				"request": "launch",
+				"program": "${workspaceFolder}/src/run_all_steps.py",
+				"console": "integratedTerminal",
+				"envFile": "${workspaceFolder}/.env",
+				"args": [
+					"--info",
+					"--clean-outputs-min",
+					"--num-workers-sequencer",
+					"2"
 				]
 			},
 			{

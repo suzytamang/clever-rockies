@@ -6,10 +6,10 @@ from common.consts import CORPUS, HEADERS, LEXICON, OUTPUT, get_environment_var
 from step2.sequencer import sequencer_main
 
 
-def run_sequencer(target: str, dry_run) -> bool:
+def run_sequencer(target: str, *, workers: int = 2, dry_run: bool = False) -> bool:
 
     sequencer_parameters = SequencerParameters(
-        workers=get_environment_var("WORKERS", int),
+        workers=get_environment_var("WORKERS", int) if workers is None else workers,
         right_gram=get_environment_var("RGCONTEXT", int),
         left_gram=get_environment_var("LGCONTEXT", int),
         snippet_length=get_environment_var("SNIPPETS", int),

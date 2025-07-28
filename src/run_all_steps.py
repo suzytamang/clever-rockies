@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+from argparse import Namespace
+import argparse
 import os
 from pathlib import Path
 import subprocess
@@ -81,22 +83,39 @@ def get_targets():
     return targets
 
 
-def run_all_steps():
-    args = parse_args()
+def run_all_steps(*args, **kwargs):
+
+    # Allows taking parsed arguments or building up a Namespace from named params
+    run_args: argparse.Namespace
+    if args is None and kwargs is None:
+        raise ValueError(
+            "Must pass either an argparser Namespace or individual named parameters"
+        )
+
+    if args is None and kwargs is not None:
+        run_args = argparse.Namespace()
+        vars(run_args).update(**kwargs)
+    else:
+        run_args = args[0]
 
     # Set up logging
-    setup_logging(args, check_run_dir)
+    setup_logging(run_args, check_run_dir)
 
     check_run_dir("runs", RUN_DIR)
 
-    clean_output_min_folder(OUTPUT, args.clean_outputs_min)
+    clean_output_min_folder(OUTPUT, run_args.clean_outputs_min)
 
     # Read targets from the unique_targets.txt file
     targets = get_targets()
 
     # Main execution loop
     for target in targets:
-        if run_sequencer(target, args.dry_run) is False:
+        num_workers_sequencer = run_args.num_workers_sequencer
+        dry_run = run_args.dry_run
+        if (
+            run_sequencer(target, workers=num_workers_sequencer, dry_run=dry_run)
+            is False
+        ):
             raise Exception("An error occured running sequencert")
         run_organize(target)
         run_clever_rules(target)
@@ -122,4 +141,4 @@ if __name__ == "__main__":
 
     # Set up logging
     # Parse command-line arguments
-    run_all_steps()
+    run_all_steps(parse_args())
