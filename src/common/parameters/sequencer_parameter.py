@@ -1,8 +1,15 @@
 from pathlib import Path
-from typing import TypedDict
+from typing import Callable, List, TypeVar, TypedDict
 
 
-class SequencerParameters(TypedDict):
+TargetClass = List[str] | str
+
+
+class StepParameters(TypedDict):
+    pass
+
+
+class SequencerParameters(StepParameters):
     workers: int
     right_gram: int
     left_gram: int
@@ -12,3 +19,8 @@ class SequencerParameters(TypedDict):
     section_headers: Path
     output_folder: Path
     notes_file: Path
+
+
+TStepParameters = TypeVar("TStepParameters")
+
+StepMethod = Callable[[TargetClass, TStepParameters], None]

@@ -4,3 +4,10 @@ class Term:
         self.label = label
         self._class = _class
         self._subclass = _subclass
+
+    # def __eq__(self, value: object) -> bool:
+    #     if isinstance(value, str):
+    #         return self._class == value
+    #     if isinstance(value, Term):
+    #         return self._class == value._class
+    #     return False

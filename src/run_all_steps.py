@@ -29,6 +29,7 @@ from run_all_consts import (
     get_environment_var,
 )
 from setup_logging import setup_logging
+from step2.sequencer import sequencer_main
 
 load_dotenv()
 
@@ -70,7 +71,7 @@ def run_sequencer(target, dry_run) -> bool:
         right_gram=get_environment_var("RGCONTEXT", int),
         left_gram=get_environment_var("LGCONTEXT", int),
         snippet_length=get_environment_var("SNIPPETS", int),
-        snippets=args.snippets,
+        snippets=None,
         lexicon=LEXICON,
         section_headers=HEADERS,
         output_folder=Path(OUTPUT) / target,
@@ -79,7 +80,7 @@ def run_sequencer(target, dry_run) -> bool:
 
     from common.step_runner import DirectStepRunner
 
-    runner = DirectStepRunner("sequencer", logging, sequencer_parameters, dry_run=dry_run)
+    runner = DirectStepRunner("sequencer", logging, sequencer_parameters, sequencer_main, dry_run=dry_run)
 
     return runner.run(target)
 

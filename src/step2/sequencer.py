@@ -25,7 +25,7 @@ import sys
 import codecs
 import os
 from typing import List
-from argparse import ArgumentParser
+from argparse import ArgumentParser, Namespace
 from multiprocessing import Pool, JoinableQueue
 from common.parameters.sequencer_parameter import SequencerParameters
 from step2.batch import Batch
@@ -90,7 +90,7 @@ def sequencer_main(target: List[str] | str, sequencer_parameters: SequencerParam
 
     os.mkdir(output_folder)
     main_targets_index = set(["MBC", "METS", "BCTRIG"])
-    if len(main_targets) > 0:
+    if isinstance(main_targets, List):
         main_targets_index = set([x.strip() for x in main_targets[0].split(",")])
 
     terms = read_dict(lexicon)
@@ -164,7 +164,12 @@ def sequencer_main(target: List[str] | str, sequencer_parameters: SequencerParam
         ngram_contexts.aggregate(output_folder)
 
 
-def get_sequencer_parameters():
+def get_sequencer_parameters() -> Namespace:
+    """Get sequencer parameters from args
+
+    Returns:
+        _type_: _description_
+    """
     parser = ArgumentParser()
     parser.add_argument(
         "-o",

@@ -2,9 +2,11 @@ import os
 import subprocess
 from abc import ABC, abstractmethod
 from typing import Any, List
-
-from common.parameters.sequencer_parameter import SequencerParameters
-from step2.sequencer import sequencer_main
+from common.parameters.sequencer_parameter import (
+    SequencerParameters,
+    StepMethod,
+    StepParameters,
+)
 
 
 class StepRunner(ABC):
@@ -13,7 +15,7 @@ class StepRunner(ABC):
         self,
         step_name: str,
         logger,
-        config: SequencerParameters,
+        config: StepParameters,
         dry_run: bool = False,
     ):
 
@@ -21,7 +23,7 @@ class StepRunner(ABC):
         self._step_name = step_name
 
         assert config is not None
-        self._config: SequencerParameters = config
+        self._config: StepParameters = config
 
         assert logger is not None
         self._logger = logger
@@ -48,13 +50,16 @@ class DirectStepRunner(StepRunner):
         self,
         step_name: str,
         logger,
-        config: SequencerParameters,
+        config: StepParameters,
+        step: StepMethod,
         dry_run: bool = False,
     ):
+        assert step is not None
+        self._step: StepMethod = step
         super().__init__(step_name, logger, config, dry_run)
 
     def _run(self, target):
-        sequencer_main(target, sequencer_parameters=self._config)
+        self._step(target, self._config)
 
 
 class SubprocessStepRunner(StepRunner):
