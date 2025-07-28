@@ -21,17 +21,12 @@ output: for target mentions detected using a maximum string length, right trunca
     data that is labeled by CLEVER during rule execution
 """
 
-from pathlib import Path
-import pdb  # noqa: F401
 import sys
 import codecs
 import os
-import time  # noqa: F401
-from typing import List, TypedDict
-import warnings  # noqa: F401
+from typing import List
 from argparse import ArgumentParser
 from multiprocessing import Pool, JoinableQueue
-import importlib  # noqa: F401
 from common.parameters.sequencer_parameter import SequencerParameters
 from step2.batch import Batch
 from step2.term import Term
@@ -63,11 +58,11 @@ def read_dict(f):
         return terms
 
 
-def sequencer_main(target, sequencer_parameters: SequencerParameters):
+def sequencer_main(target: List[str] | str, sequencer_parameters: SequencerParameters):
 
-    workers = sequencer_parameters['workers']
+    workers = sequencer_parameters["workers"]
     output_folder = sequencer_parameters["output_folder"]
-    main_targets = sequencer_parameters["main_targets"]
+    main_targets = target
     lexicon = sequencer_parameters["lexicon"]
     section_headers = sequencer_parameters["section_headers"]
     right_gram = sequencer_parameters["right_gram"]
@@ -233,17 +228,18 @@ def get_sequencer_parameters():
 if __name__ == "__main__":
     args = get_sequencer_parameters()
 
-    sqeuqncer_parameters = SequencerParameters(
+    target = "ADLB"
+
+    sequencer_parameters = SequencerParameters(
         workers=args.workers,
         right_gram=args.right_gram,
         left_gram=args.left_gram,
         snippet_length=args.snippet_length,
         snippets=args.snippets,
-        main_targets=args.main_targets,
         lexicon=args.lexicon,
         section_headers=args.section_headers,
         output_folder=args.output_folder,
         notes_file=args.notes_file,
     )
 
-    sequencer_main(sqeuqncer_parameters)
+    sequencer_main(target, sequencer_parameters)

@@ -1,7 +1,7 @@
 import os
 import subprocess
 from abc import ABC, abstractmethod
-from typing import Any, Dict, List
+from typing import Any, List
 
 from common.parameters.sequencer_parameter import SequencerParameters
 from step2.sequencer import sequencer_main

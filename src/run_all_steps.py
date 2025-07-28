@@ -71,31 +71,15 @@ def run_sequencer(target, dry_run) -> bool:
         left_gram=get_environment_var("LGCONTEXT", int),
         snippet_length=get_environment_var("SNIPPETS", int),
         snippets=args.snippets,
-        main_targets=target,
         lexicon=LEXICON,
         section_headers=HEADERS,
         output_folder=Path(OUTPUT) / target,
         notes_file=CORPUS,
     )
 
-    # Patch to accomodate different switch name when calling directly
-    config["notes_file"] = config["notes"]
-    config["output_folder"] = config["output"]
-
-    config["left_gram"] = config["left_gram_context"]
-    config["right_gram"] = config["right_gram_context"]
-
     from common.step_runner import DirectStepRunner
 
     runner = DirectStepRunner("sequencer", logging, sequencer_parameters, dry_run=dry_run)
-    # from common.step_runner import SubprocessStepRunner
-    # runner = SubprocessStepRunner(
-    #     os.path.join(SRC_DIR, "step2", "sequencer.py"),
-    #     "sequencer",
-    #     logging,
-    #     config,
-    #     dry_run=dry_run,
-    # )
 
     return runner.run(target)
 
