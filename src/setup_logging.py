@@ -1,9 +1,11 @@
-from glob import glob
-import logging
 import os
-from datetime import datetime
-from pathlib import Path
 import shutil
+from datetime import datetime
+from glob import glob
+from pathlib import Path
+import sys
+
+from loguru import logger
 
 from run_all_consts import (
     BASE_DIR,
@@ -23,55 +25,45 @@ _logging_configured = False
 LOGGING_PREFIX = "run_all_"
 
 
+_logging_configured = False  # Ensure this is defined somewhere globally
+
+
 def setup_logging(args):
     global _logging_configured
     if _logging_configured:
-        return  # Skip setup if already configured
+        return
 
-    # check for any existing logs, and archive them to keep the folder clean
     move_old_logs()
 
     dry_run_label = "__dry_run__" if args.dry_run else ""
-
     log_file = os.path.join(
         RUN_DIR,
         f"{LOGGING_PREFIX}{dry_run_label}{datetime.now().strftime('%Y%m%d_%H%M%S')}.log",
     )
 
-    console_level = args.log_level  # Default is WARNING
+    # Remove default Loguru handler
+    logger.remove()
 
-    # File handler (always DEBUG)
-    file_handler = logging.FileHandler(log_file)
-    file_handler.setLevel(logging.DEBUG)
-    file_handler.setFormatter(
-        logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-    )
+    # Add file handler (always DEBUG)
+    logger.add(log_file, level="DEBUG", format="{time} - {level} - {message}", enqueue=True)
 
-    # Console handler (user-defined level)
-    console_handler = logging.StreamHandler()
-    console_handler.setLevel(console_level)
-    console_handler.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
+    # Add console handler (user-defined level)
+    logger.add(sys.stderr, level=args.log_level, format="<level>{level}</level>: {message}", enqueue=True, colorize=True)
 
-    # Root logger setup
-    root_logger = logging.getLogger()
-    root_logger.setLevel(logging.DEBUG)
-    root_logger.addHandler(file_handler)
-    root_logger.addHandler(console_handler)
-
-    logging.info(f"Console logging level set to: {logging.getLevelName(console_level)}")
-    logging.debug("File logging level set to: DEBUG")
+    logger.info(f"Console logging level set to: {args.log_level}")
+    logger.debug("File logging level set to: DEBUG")
 
     _logging_configured = True
 
     # Print paths for debugging
-    logging.debug(f"BASE_DIR: {BASE_DIR}")
-    logging.debug(f"RES_DIR: {RES_DIR}")
-    logging.debug(f"TESTS_DIR: {TESTS_DIR}")
-    logging.debug(f"SRC_DIR: {SRC_DIR}")
-    logging.debug(f"CORPUS: {CORPUS}")
-    logging.debug(f"METADATA: {METADATA}")
-    logging.debug(f"OUTPUT: {OUTPUT}")
-    logging.debug(f"RUN_DIR: {RUN_DIR}")
+    logger.debug(f"BASE_DIR: {BASE_DIR}")
+    logger.debug(f"RES_DIR: {RES_DIR}")
+    logger.debug(f"TESTS_DIR: {TESTS_DIR}")
+    logger.debug(f"SRC_DIR: {SRC_DIR}")
+    logger.debug(f"CORPUS: {CORPUS}")
+    logger.debug(f"METADATA: {METADATA}")
+    logger.debug(f"OUTPUT: {OUTPUT}")
+    logger.debug(f"RUN_DIR: {RUN_DIR}")
 
 
 def move_old_logs():
