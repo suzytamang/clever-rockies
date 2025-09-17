@@ -4,7 +4,7 @@ import os, sys, re
 from ruleFcns import *
 
 ppath = sys.argv[1]
-fins = ppath + "/linkedAnts.txt"
+fins = ppath + "/labeledAnts.txt"
 aclass = sys.argv[2]
 neg_trigs_file_path = sys.argv[3]
 na_trigs_file_path = sys.argv[4]

@@ -1,0 +1,10 @@
+11|hx|HX|modifier
+12|h/o|HX|modifier
+13|history|HX|modifier
+14|prior|HX|modifier
+15|ho|HX|modifier
+16|past|HX|modifier
+17|has had|HX|modifier
+18|former|HX|modifier
+19|pmhx|HX|modifier
+20|years ago|HX|modifier

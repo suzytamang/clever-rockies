@@ -31,7 +31,7 @@ SRC_DIR = os.path.join(BASE_DIR, "src")
 RUN_DIR = os.path.join(BASE_DIR, "run")
 
 # Define constants
-LEXICON = os.path.join(RES_DIR, "dicts", "dict.txt")
+LEXICON = os.path.join(RES_DIR, "dicts", "dict_test.txt") # Change to dict.txt for loading the complete the dictionary but will take too long to run.
 HEADERS = os.path.join(RES_DIR, "headers.txt")
 ANTS = "linkedAnts.txt"
 ASSESSMENTTERMS = os.path.join(RES_DIR, "assessment_terms.txt")
